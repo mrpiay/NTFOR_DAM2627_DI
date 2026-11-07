@@ -7,17 +7,17 @@
 - **UD1 · Diseño de interfaces, experiencia de usuario y accesibilidad**, **UD2 · Desarrollo de interfaces gráficas con PySide6 y Qt Designer** y **UD3 · Creación de componentes visuales reutilizables**, completas.
 - **UD4 · Interfaces naturales y multimodales**, empezada.
 
-**La idea.** Esta semana es un **punto de control** para **ponernos al día con la programación, en la medida de lo posible**: un proyecto que repasa lo que se debería haber dado hasta ahora, continuando vuestro BugTracker de la Práctica 6 (o recuperándolo con la plantilla, si no lo tenéis): se mejora con la UD1, se completa con lo que falta de la UD2 y se le añade un componente de la UD3. Lo que ya sabéis, lo afianzáis; lo que no se llegó a dar, **se explica en el paso donde aparece**. El proyecto tiene **dos partes**: esta semana, los pasos 0 a 4 (UD1 y UD2); la semana del 9 al 13 de noviembre, los pasos 5 a 8 (UD3 y UD4).
+**La idea.** Esta semana es un **punto de control** para **ponernos al día con la programación, en la medida de lo posible**: un proyecto que repasa lo que se debería haber dado hasta ahora, partiendo de la plantilla, un BugTracker de la Práctica 6 terminado: se mejora con la UD1, se completa con lo que falta de la UD2 y se le añade un componente de la UD3. Lo que ya sabéis, lo afianzáis; lo que no se llegó a dar, **se explica en el paso donde aparece**. El proyecto tiene **dos partes**: esta semana, los pasos 0 a 4 (UD1 y UD2); la semana del 9 al 13 de noviembre, los pasos 5 a 8 (UD3 y UD4).
 
 **Usa la IA como guía, no para que lo haga por ti.** Pídele los **pasos necesarios** para implementar cada cosa y que te explique lo que no entiendas; **el código lo pones tú en tu proyecto**, aunque sea copiando y pegando, sabiendo **dónde** lo pones y **para qué**: es la única forma de familiarizarte con tu entorno. El objetivo es que lo que hagas **funcione y cumpla los requisitos** de cada paso («Comprueba que…») y que sepas **dónde está cada cosa y qué habría que tocar para cambiar o añadir algo**: es lo que te van a pedir después.
 
 **El objetivo es entender cada paso:** es lo que necesitas para responder los cuestionarios de autoevaluación y preparar la prueba escrita.
 
-**Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra; se avisa con antelación. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 8): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
+**Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 8): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
 
 **Y la UD2.** Su nota sale de su entrega y su examen de octubre. Si te falta alguna de las dos, la sustituyen las preguntas de la prueba escrita del jueves 19 de noviembre sobre los pasos 2 a 4 de este proyecto, corregidas con los criterios de la UD2.
 
-Del 3 al 6 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
+Del 3 al 5 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
 
 ## Con qué trabajas
 
@@ -71,13 +71,13 @@ Cada sesión dura 50 minutos.
 
 | Día | Sesión | Qué hacemos |
 |---|---|---|
-| Martes 3 | 10:10 | Dónde deberíamos estar (el punto de partida), dónde estamos de verdad (puesta en común), qué necesitamos para seguir (contenidos y software) y qué vamos a hacer esta semana (30 min). Presentación del proyecto y **Paso 0** (preparar, 20 min); quien tenga que instalar algo, lo hace mientras. |
+| Martes 3 | 10:10 | Leer «Punto de partida», «Con qué trabajas» y «Las herramientas» (30 min). **Paso 0** (preparar, 20 min); quien tenga que instalar algo, lo hace mientras. |
 | Martes 3 | 11:00 | **Paso 0**: cómo está hecho el BugTracker (15 min). **Paso 1** (evaluación heurística y de accesibilidad, 35 min). |
 | Martes 3 | 12:10 | **Paso 2** (mejoras de accesibilidad en Designer, 30 min) y empezar el **Paso 3** (20 min). |
 | Miércoles 4 | 11:00 | **Paso 3** (acciones, menú, barra de herramientas y diálogo con validación; lo nuevo es la validación) y empezar el **Paso 4**. |
 | Miércoles 4 | 12:10 | **Paso 4** (de `QTableWidget` a Model/View). |
 | Jueves 5 | 08:30 | Terminar los pasos 3 y 4. |
-| Jueves 5 | 09:20 | Terminar el **Paso 4**. Cierre: lo que hemos conseguido y qué viene, la 2.ª parte. |
+| Jueves 5 | 09:20 | Terminar el **Paso 4** y repasar la lista final («Cómo comprobar que está todo bien»). |
 
 **El ritmo:** el proyecto se hace en clase, paso a paso, siguiendo el plan de sesiones. No te saltes pasos: antes de pasar al siguiente, la aplicación debe arrancar.
 
@@ -118,11 +118,10 @@ Cada paso tiene **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Com
 
 **Si te falla…**
 
-- *«La ejecución de scripts está deshabilitada»*: ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar, o usa la terminal «Command Prompt» con `.venv\Scripts\activate.bat`.
+- *«La ejecución de scripts está deshabilitada»*: ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar el entorno.
 - *`python` no se reconoce*: reinstala Python marcando **Add python.exe to PATH** (ver [`software-DI.md`](software-DI.md)) y abre una terminal nueva.
 - *`WinError 206` («el nombre del archivo o la extensión es demasiado largo») o, después, `fixture 'qtbot' not found`*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam\di\` y repite los comandos desde `python -m venv .venv`.
-- *pip falla o no hay red*: haz mientras el paso 1, que no necesita instalar nada, y repite `pip install -r requirements.txt` cuando tengas red.
-- *Tu BugTracker no arranca*: usa la plantilla. No pierdas la sesión arreglando la práctica.
+- *pip falla o no hay red*: repite `pip install -r requirements.txt` cuando tengas red.
 
 ### Cómo está hecho el BugTracker (15 min)
 
@@ -143,7 +142,7 @@ Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí
 
 ## Paso 1 · Evaluación heurística y de accesibilidad (martes, 35 min)
 
-**Objetivo.** Revisar tu BugTracker (o la plantilla) como lo haría una persona experta en usabilidad y hacer una lista de mejoras.
+**Objetivo.** Revisar el BugTracker como lo haría una persona experta en usabilidad y hacer una lista de mejoras.
 
 **Mini-explicación.**
 
@@ -209,7 +208,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 
 - *El atajo no hace nada*: falta el *buddy* o has puesto la `&` en el campo y no en la etiqueta.
 - *No ves los cambios*: no has regenerado `ui_bugtracker.py` o no has guardado el `.ui`.
-- *Designer no abre*: aplica la mejora desde `main.py`, después de `setupUi`. Por ejemplo: `self.ui.txtDescripcion.setTabChangesFocus(True)` o `self.ui.lblTitulo.setBuddy(self.ui.txtTitulo)`.
+- *Designer no abre*: comprueba que la terminal está en la carpeta del proyecto y que existe `.venv\Scripts\pyside6-designer.exe`; si no existe, activa el entorno y repite `pip install -r requirements.txt`.
 
 ---
 
@@ -301,7 +300,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 - *`AttributeError: ... has no attribute 'actionNueva'`*: el `objectName` en Designer es otro (por ejemplo, `actionNueva_incidencia`) o no has regenerado.
 - *El diálogo se cierra con el título vacío*: has conectado `accepted` a `self.accept` en vez de a `self.validar`, o falta el `return`.
 - *La acción se ejecuta al arrancar*: has escrito `connect(self.guardar())` con paréntesis.
-- *Designer no te funciona*: crea las acciones en código, después de `setupUi` y con `from PySide6.QtGui import QAction`: `self.ui.actionNueva = QAction("&Nueva incidencia...", self)`, `self.ui.actionNueva.setShortcut("Ctrl+N")`, `self.menuBar().addMenu("&Archivo").addAction(self.ui.actionNueva)` y `self.addToolBar("Principal").addAction(self.ui.actionNueva)`. Con el mismo nombre que en Designer (`self.ui.…`), el resto del paso funciona igual.
+- *Designer no abre*: comprueba que la terminal está en la carpeta del proyecto y que existe `.venv\Scripts\pyside6-designer.exe`; si no existe, activa el entorno y repite `pip install -r requirements.txt`.
 
 
 ---

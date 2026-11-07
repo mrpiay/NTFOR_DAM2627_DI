@@ -8,7 +8,7 @@ Es la continuación de la 1.ª parte (semana del 2 al 6 de noviembre, pasos 0 a 
 
 **El objetivo es entender cada paso:** es lo que necesitas para responder los cuestionarios de autoevaluación y preparar la prueba escrita.
 
-**Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra; se avisa con antelación. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 8): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
+**Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 8): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
 
 Del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
 
@@ -72,11 +72,11 @@ Cada sesión dura 50 minutos.
 |---|---|---|
 | Martes 10 | 10:10 | **Paso 5** (componente `Buscador`). |
 | Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt, 35 min). Guardar el estado, documentar y empaquetar (15 min). |
-| Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Qué entra en la prueba escrita del jueves 19 (10 min). |
-| Miércoles 11 | 11:00 y 12:10 | UD4, según el plan del curso. |
+| Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Leer qué entra en la prueba escrita del jueves 19, en «Punto de partida» (10 min). |
+| Miércoles 11 | 11:00 y 12:10 | Sesiones de la UD4, fuera de este proyecto (ver `programacion/`, en la raíz del repositorio). |
 | Jueves 12 | 08:30 y 09:20 | Terminar la 2.ª parte del proyecto y hacer las ampliaciones. |
 
-**Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior. Si terminas antes, haz las ampliaciones.
+**Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior.
 
 Los pasos 5 y 6 tienen **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Comprueba que…** y **Si te falla…**; los pasos 7 y 8, **Objetivo**, **Pista** y **Comprueba que…**.
 
@@ -236,7 +236,7 @@ py-modules = ["buscador"]
 
 Guarda `pyproject.toml` en la carpeta del proyecto, junto a `buscador.py`. Instala `build` una vez con `pip install build`; `python -m build` crea en `dist/` el archivo `buscador_dam-0.1.0-py3-none-any.whl`, que se instala en otro proyecto con `pip install` y la ruta de ese archivo. Lo normal es tener el componente en su propia carpeta, separado de la aplicación.
 
-**D. Otro componente: selector de prioridad.** Un `QWidget` con cinco botones de opción (Todas, Baja, Media, Alta, Crítica), la propiedad `prioridad` (por defecto «Todas») y la señal `prioridadCambiada(str)`. Para filtrar por la columna Prioridad sin romper el `Buscador`, usa un **segundo proxy** encadenado al primero: `self.proxy2 = QSortFilterProxyModel(self)`, `self.proxy2.setSourceModel(self.proxy)`, `self.proxy2.setFilterKeyColumn(3)` y `self.ui.tblIncidencias.setModel(self.proxy2)` Crea `proxy2` al final de `configurar_tabla()`, antes de que `__init__` conecte `selectionChanged`. En `id_seleccionado`, la traducción se hace dos veces: `fila = self.proxy.mapToSource(self.proxy2.mapToSource(filas[0])).row()`. Para los cinco botones usa `QRadioButton` y un `QButtonGroup`. Con «Todas», filtra con el texto vacío. Pruébalo con pytest-qt como el buscador.
+**D. Otro componente: selector de prioridad.** Un `QWidget` con cinco botones de opción (Todas, Baja, Media, Alta, Crítica), la propiedad `prioridad` (por defecto «Todas») y la señal `prioridadCambiada(str)`. Para filtrar por la columna Prioridad sin romper el `Buscador`, usa un **segundo proxy** encadenado al primero: `self.proxy2 = QSortFilterProxyModel(self)`, `self.proxy2.setSourceModel(self.proxy)`, `self.proxy2.setFilterKeyColumn(3)` y `self.ui.tblIncidencias.setModel(self.proxy2)`. Crea `proxy2` al final de `configurar_tabla()`, antes de que `__init__` conecte `selectionChanged`. En `id_seleccionado`, la traducción se hace dos veces: `fila = self.proxy.mapToSource(self.proxy2.mapToSource(filas[0])).row()`. Para los cinco botones usa `QRadioButton` y un `QButtonGroup`. Con «Todas», filtra con el texto vacío. Pruébalo con pytest-qt como el buscador.
 
 ---
 
@@ -261,7 +261,7 @@ Al final, elige **las dos mejoras más importantes** y explica por qué. Compár
 
 ## Paso 8 · Reflexión: interfaces naturales (martes, 15 min)
 
-**Objetivo.** Empezar a pensar en otras formas de interacción, que veremos en la UD4.
+**Objetivo.** Empezar a pensar en otras formas de interacción (UD4).
 
 **Mini-explicación.** Una **interfaz natural** usa formas de comunicarse propias de las personas: **voz**, **gestos**, **movimiento del cuerpo**, **tacto**, **mirada** o **realidad aumentada**. Pueden mejorar la accesibilidad (dictar una incidencia si no puedes usar las manos), pero tienen **límites**: ruido, privacidad, precisión del reconocimiento, cansancio, luz o idioma. Por eso conviene ofrecer siempre una **alternativa** (teclado, ratón).
 

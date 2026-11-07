@@ -9,3 +9,4 @@
 | Qué | Cuándo |
 |---|---|
 | Autoevaluación: esta semana se entrega junto con la de la semana del 9 al 13, en una sola tarea de Teams | Hasta el **lunes 16 de noviembre**, a las 23:59 |
+| Soluciones de la autoevaluación, en [`soluciones/`](../soluciones) | **Martes 17 de noviembre** |
