@@ -6,7 +6,7 @@ Es la continuación de la 1.ª parte (semana del 2 al 6 de noviembre, pasos 0 a 
 
 **Usa la IA como guía, no para que lo haga por ti.** Pídele los **pasos necesarios** para implementar cada cosa y que te explique lo que no entiendas; **el código lo pones tú en tu proyecto**, aunque sea copiando y pegando, sabiendo **dónde** lo pones y **para qué**: es la única forma de familiarizarte con tu entorno. El objetivo es que lo que hagas **funcione y cumpla los requisitos** de cada paso («Comprueba que…») y que sepas **dónde está cada cosa y qué habría que tocar para cambiar o añadir algo**: es lo que te van a pedir después.
 
-**Evaluación continua.** El último día de algunas semanas hay una **prueba escrita, en papel,** sobre lo trabajado; se avisa con antelación. La primera es el **jueves 12 de noviembre**, sobre la 1.ª parte del proyecto (pasos 0 a 4): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad y el propio proyecto. Esta 2.ª parte no entra en la prueba.
+**Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra; se avisa con antelación. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 8): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
 
 Del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
 
@@ -51,9 +51,9 @@ Cada sesión dura 50 minutos.
 |---|---|---|
 | Martes 10 | 10:10 | **Paso 5** (componente `Buscador`). |
 | Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt, 35 min). Con el docente, guardar el estado, documentar y empaquetar (15 min). |
-| Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Qué entra en la prueba escrita del jueves (10 min). |
+| Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Qué entra en la prueba escrita del jueves 19 (10 min). |
 | Miércoles 11 | 11:00 y 12:10 | UD4, según el plan del curso. |
-| Jueves 12 | 08:30 y 09:20 | **Evaluación continua: prueba escrita**, en papel, sobre la 1.ª parte del proyecto (ver [`entrega.md`](entrega.md)). El resto del tiempo, terminar el proyecto o hacer las ampliaciones. |
+| Jueves 12 | 08:30 y 09:20 | Terminar la 2.ª parte del proyecto y hacer las ampliaciones. |
 
 **Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior. Si terminas el paso del día antes de tiempo, puedes adelantar el siguiente o hacer las ampliaciones.
 
