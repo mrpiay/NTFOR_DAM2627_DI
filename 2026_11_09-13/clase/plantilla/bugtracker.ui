@@ -213,6 +213,9 @@
     </item>
     <item>
      <widget class="QTableView" name="tblIncidencias">
+      <property name="tabKeyNavigation">
+       <bool>false</bool>
+      </property>
       <property name="accessibleName">
        <string>Lista de incidencias</string>
       </property>

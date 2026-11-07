@@ -23,6 +23,15 @@ python datos_ejemplo.py
 python main.py
 ```
 
+`datos_ejemplo.py` añade cinco incidencias de prueba; ejecútalo una sola vez. En VS Code elige el intérprete del entorno: `Ctrl+Mayús+P` → «Python: Select Interpreter» → el de `.venv`.
+
+**Comprueba que** en la terminal aparece `(.venv)` al principio de la línea y que `python main.py` abre el BugTracker.
+
+**Si te falla…**
+
+- *«La ejecución de scripts está deshabilitada»*: ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar el entorno.
+- *`WinError 206` («el nombre del archivo o la extensión es demasiado largo»)*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam\di\` y repite desde `python -m venv .venv`.
+
 Qué tocas en cada paso:
 
 | Archivo | Qué es | Paso en que lo tocas |
@@ -55,9 +64,9 @@ Cada sesión dura 50 minutos.
 | Miércoles 11 | 11:00 y 12:10 | UD4, según el plan del curso. |
 | Jueves 12 | 08:30 y 09:20 | Terminar la 2.ª parte del proyecto y hacer las ampliaciones. |
 
-**Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior. Si terminas el paso del día antes de tiempo, puedes adelantar el siguiente o hacer las ampliaciones.
+**Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior. Si terminas antes, haz las ampliaciones.
 
-Cada paso tiene **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Comprueba que…** y **Si te falla…**.
+Los pasos 5 y 6 tienen **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Comprueba que…** y **Si te falla…**; los pasos 7 y 8, **Objetivo**, **Pista** y **Comprueba que…**.
 
 ---
 
@@ -74,7 +83,7 @@ Cada paso tiene **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Com
 
 La señal, la propiedad y el docstring ya están declarados en la plantilla. Te falta el cuerpo.
 
-**Pista.** El `__init__`:
+**Pista.** En `buscador.py`, sustituye los dos comentarios `# TODO Paso 5` de `__init__` (debajo de `super().__init__(parent)`) por esto, con la misma sangría:
 
 ```python
         self._etiqueta = QLabel(etiqueta)
@@ -96,9 +105,14 @@ La señal, la propiedad y el docstring ya están declarados en la plantilla. Te 
         self._boton.clicked.connect(self.limpiar)
 ```
 
-Los demás métodos son de una o dos líneas: `_al_cambiar_texto` emite `busquedaCambiada` con el texto; `limpiar` vacía la caja y le devuelve el foco; `_get_texto` devuelve `self._caja.text()` y `_set_texto` hace `self._caja.setText(valor)`. Quita los `raise NotImplementedError`.
+Los demás métodos son de una o dos líneas. Sustituye en cada uno el comentario `# TODO Paso 5` y el `pass` o el `raise NotImplementedError` por:
 
-Para integrarlo en `main.py`, descomenta el import y añade `configurar_buscador()`, llamándolo después de `configurar_tabla()`:
+- `_al_cambiar_texto`: `self.busquedaCambiada.emit(texto)`;
+- `limpiar`: `self._caja.clear()` y, debajo, `self._caja.setFocus()`;
+- `_get_texto`: `return self._caja.text()`;
+- `_set_texto`: `self._caja.setText(valor)`.
+
+Para integrarlo en `main.py`: descomenta `from buscador import Buscador` (si tu `main.py` no tiene los `TODO`, añade esa línea con los demás imports); descomenta `self.configurar_buscador()`, justo después de `self.configurar_tabla()`; y añade este método dentro de la clase, en lugar del comentario `# TODO Paso 5` del final:
 
 ```python
     def configurar_buscador(self):
@@ -108,7 +122,15 @@ Para integrarlo en `main.py`, descomenta el import y añade `configurar_buscador
         self.buscador.busquedaCambiada.connect(self.proxy.setFilterFixedString)
 ```
 
-Si quieres, conecta también la señal a un método que muestre en la barra de estado cuántas filas quedan (`self.proxy.rowCount()`).
+Añade también a `configurar_buscador()`, después de la conexión con `setFilterFixedString`, `self.buscador.busquedaCambiada.connect(self.mostrar_resultados)`, y este método para que la barra de estado diga cuántas incidencias quedan:
+
+```python
+    def mostrar_resultados(self, texto):
+        if texto:
+            self.statusBar().showMessage(f"{self.proxy.rowCount()} incidencias con «{texto}»")
+        else:
+            self.statusBar().clearMessage()
+```
 
 La ventana principal **no sabe** que dentro hay un `QLineEdit`: solo usa la señal. Por eso el mismo `Buscador` serviría, sin cambios, en el Editor de notas o en cualquier otra aplicación.
 
@@ -125,6 +147,9 @@ La ventana principal **no sabe** que dentro hay un `QLineEdit`: solo usa la señ
 - *`AttributeError: ... 'verticalLayout'`*: tu layout tiene otro nombre. Míralo en el Object Inspector de Designer o en `ui_bugtracker.py`.
 - *El buscador sale en otro sitio*: `indexOf` devuelve -1 porque la tabla está dentro de otro layout. Usa ese layout.
 - *`busquedaCambiada` no tiene `connect`*: la señal está declarada dentro de `__init__` y tiene que ir en el cuerpo de la clase.
+- *`NotImplementedError`*: quedan `raise NotImplementedError` en `buscador.py`; sustitúyelos como dice la pista.
+- *`NameError: name 'Buscador' is not defined`*: falta `from buscador import Buscador` en `main.py`.
+- *`'VentanaPrincipal' object has no attribute 'configurar_buscador'`*: el método está fuera de la clase (revisa la sangría) o después de `if __name__ == "__main__":`.
 
 ---
 
@@ -146,37 +171,20 @@ Lee las cuatro pruebas: valor por defecto, escribir cambia la propiedad, cambiar
 
 - salen las cuatro en verde con `PASSED` y al final `4 passed`; si alguna falla, el mensaje dice qué parte del `Buscador` falta;
 - si cambias a propósito un valor esperado (por ejemplo, `"Error"` por `"Erorr"`), esa prueba falla y pytest explica por qué. Después déjalo bien;
-- has escrito una **quinta prueba** propia, por ejemplo para un valor límite: ¿qué pasa con un texto muy largo o con espacios al principio?
+- has escrito una **quinta prueba** propia para un valor límite y sale `5 passed`. Cópiala de una de las que ya hay, cámbiale el nombre y lo que comprueba. Por ejemplo, que los espacios no se recortan: `buscador.texto = "  Media  "` y `assert buscador.texto == "  Media  "`.
 
 **Si te falla…**
 
 - *`fixture 'qtbot' not found`*: falta pytest-qt en el entorno activo: `pip install -r requirements.txt`.
 - *`ModuleNotFoundError: No module named 'buscador'`*: ejecuta `python -m pytest` desde la carpeta del proyecto.
-- *No se puede instalar pytest-qt*: crea `prueba_manual.py`, ejecútalo con `python prueba_manual.py` y comprueba que no da error:
-
-```python
-from PySide6.QtWidgets import QApplication
-from buscador import Buscador
-
-app = QApplication([])
-buscador = Buscador()
-recibidos = []
-buscador.busquedaCambiada.connect(recibidos.append)
-assert buscador.texto == ""
-buscador.texto = "Error"
-assert recibidos == ["Error"]
-buscador.limpiar()
-assert buscador.texto == ""
-print("Todas las comprobaciones son correctas")
-```
 
 ### Lo vemos juntos: guardar el estado, documentar y empaquetar (martes, 15 min, con el docente)
 
-Es lo que queda de la UD3. El docente enseña funcionando las ampliaciones **A** (la aplicación recuerda el tamaño de la ventana y la última búsqueda con `QSettings`), **B** (`help(buscador.Buscador)` y un `README.md`) y **C** (`pyproject.toml` y `python -m build`). Fíjate en tres cosas: dónde se guarda el estado y cuándo se recupera (`closeEvent` y `__init__`), qué debe contar la documentación de un componente y qué hace falta para instalarlo en otro proyecto. Si te sobra tiempo, hazlas tú.
+Es lo que queda de la UD3. El docente enseña funcionando las ampliaciones **A** (la aplicación recuerda el tamaño de la ventana y la última búsqueda con `QSettings`), **B** (`help(buscador.Buscador)` y un `README.md`) y **C** (`pyproject.toml` y `python -m build`). Fíjate en tres cosas: dónde se guarda el estado y cuándo se recupera (`closeEvent` y `__init__`), qué debe contar la documentación de un componente y qué hace falta para instalarlo en otro proyecto. Las haces tú el jueves 12, con lo que explica cada ampliación.
 
-### Ampliaciones (si te sobra tiempo)
+### Ampliaciones (jueves 12)
 
-**A. Persistencia con `QSettings`.** Que la aplicación recuerde el tamaño de la ventana y la última búsqueda. Importa `QSettings` desde `PySide6.QtCore`, llama a `self.restaurar_estado()` al final de `__init__` y añade:
+**A. Persistencia con `QSettings`.** Que la aplicación recuerde el tamaño de la ventana y la última búsqueda. Añade `QSettings` al import que ya existe (`from PySide6.QtCore import QSettings, QSortFilterProxyModel, Qt`), llama a `self.restaurar_estado()` al final de `__init__`, después de `self.actualizar_botones()` (necesita `self.buscador` ya creado), y añade estos dos métodos a la clase. En Windows, `QSettings` lo guarda en el registro, en `HKEY_CURRENT_USER\Software\DAM2\BugTracker`:
 
 ```python
     def restaurar_estado(self):
@@ -195,7 +203,7 @@ Es lo que queda de la UD3. El docente enseña funcionando las ampliaciones **A**
 
 Ojo: al arrancar se recupera la última búsqueda, así que la tabla puede abrirse ya filtrada. Si parece que faltan incidencias, mira el buscador.
 
-**B. Documentar el componente.** El docstring de `Buscador` ya es documentación: compruébalo con `python -c "import buscador; help(buscador.Buscador)"`. Escribe además un `README.md` corto: qué hace, tres líneas de ejemplo de uso, su propiedad, su método y su señal.
+**B. Documentar el componente.** El docstring de `Buscador` ya es documentación: compruébalo con `python -c "import buscador; help(buscador.Buscador)"` (pulsa espacio para avanzar y `q` para salir). Escribe además un `README-buscador.md` corto: qué hace, tres líneas de ejemplo de uso, su propiedad, su método y su señal.
 
 **C. Empaquetar el componente.** Para instalarlo con `pip` en otros proyectos se describe en un `pyproject.toml`:
 
@@ -214,9 +222,9 @@ dependencies = ["PySide6-Essentials"]
 py-modules = ["buscador"]
 ```
 
-Con `build` instalado, `python -m build` crea en `dist/` un `.whl` que se instala con `pip install`. Lo normal es tener el componente en su propia carpeta, separado de la aplicación.
+Guarda `pyproject.toml` en la carpeta del proyecto, junto a `buscador.py`. Instala `build` una vez con `pip install build`; `python -m build` crea en `dist/` el archivo `buscador_dam-0.1.0-py3-none-any.whl`, que se instala en otro proyecto con `pip install` y la ruta de ese archivo. Lo normal es tener el componente en su propia carpeta, separado de la aplicación.
 
-**D. Otro componente: selector de prioridad.** Un `QWidget` con cinco botones de opción (Todas, Baja, Media, Alta, Crítica), la propiedad `prioridad` (por defecto «Todas») y la señal `prioridadCambiada(str)`. Para filtrar por la columna Prioridad sin romper el `Buscador`, usa un **segundo proxy** encadenado al primero: `self.proxy2 = QSortFilterProxyModel(self)`, `self.proxy2.setSourceModel(self.proxy)`, `self.proxy2.setFilterKeyColumn(3)` y `self.ui.tblIncidencias.setModel(self.proxy2)` (ojo: entonces `mapToSource` hay que hacerlo dos veces). Con «Todas», filtra con el texto vacío. Pruébalo con pytest-qt como el buscador.
+**D. Otro componente: selector de prioridad.** Un `QWidget` con cinco botones de opción (Todas, Baja, Media, Alta, Crítica), la propiedad `prioridad` (por defecto «Todas») y la señal `prioridadCambiada(str)`. Para filtrar por la columna Prioridad sin romper el `Buscador`, usa un **segundo proxy** encadenado al primero: `self.proxy2 = QSortFilterProxyModel(self)`, `self.proxy2.setSourceModel(self.proxy)`, `self.proxy2.setFilterKeyColumn(3)` y `self.ui.tblIncidencias.setModel(self.proxy2)` Crea `proxy2` al final de `configurar_tabla()`, antes de que `__init__` conecte `selectionChanged`. En `id_seleccionado`, la traducción se hace dos veces: `fila = self.proxy.mapToSource(self.proxy2.mapToSource(filas[0])).row()`. Para los cinco botones usa `QRadioButton` y un `QButtonGroup`. Con «Todas», filtra con el texto vacío. Pruébalo con pytest-qt como el buscador.
 
 ---
 
@@ -233,7 +241,7 @@ Con `build` instalado, `python -m build` crea en `dist/` un `.whl` que se instal
 | 3. Elimina una incidencia y cancela en el último momento; luego elimínala de verdad |  |  |  |  |
 | 4. Intenta guardar una incidencia sin título. ¿Entiendes el mensaje? |  |  |  |  |
 
-Al final, elige **las dos mejoras más importantes** y explica por qué. Compáralas con tu evaluación del paso 1: ¿la otra persona encontró problemas que tú no viste?
+Al final, elige **las dos mejoras más importantes** y explica por qué. Compáralas con tu evaluación del paso 1 (las heurísticas y pautas están en el paso 1 de la 1.ª parte, `2026_11_02-06/clase/proyecto-DI.md`): ¿la otra persona encontró problemas que tú no viste?
 
 **Comprueba que…** la tabla está completa y cada problema está relacionado con una heurística o una pauta.
 
@@ -251,6 +259,8 @@ Al final, elige **las dos mejoras más importantes** y explica por qué. Compár
 2. ¿A quién le ayudaría?
 3. ¿Qué límite o problema podría tener y qué alternativa ofrecerías?
 
+**Comprueba que…** `notas.md` responde a las tres preguntas.
+
 ---
 
 ## Entrega
@@ -260,6 +270,6 @@ Qué se entrega esta semana y cuándo: [`entrega.md`](entrega.md).
 ## Cómo comprobar que está todo bien
 
 - [ ] El `Buscador` filtra la tabla y tiene propiedad `texto`, método `limpiar()` y señal `busquedaCambiada`.
-- [ ] `python -m pytest -v` da `5 passed` con tu prueba (o la prueba manual dice que todo es correcto).
+- [ ] `python -m pytest -v` da `5 passed` con tu prueba.
 - [ ] Prueba de usabilidad hecha, con dos mejoras propuestas.
 - [ ] Reflexión de la UD4 escrita.

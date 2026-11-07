@@ -138,6 +138,7 @@ class Ui_VentanaPrincipal(object):
 
         self.tblIncidencias = QTableView(self.centralwidget)
         self.tblIncidencias.setObjectName(u"tblIncidencias")
+        self.tblIncidencias.setTabKeyNavigation(False)
         self.tblIncidencias.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tblIncidencias.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
         self.tblIncidencias.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)

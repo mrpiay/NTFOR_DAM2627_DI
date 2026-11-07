@@ -57,6 +57,7 @@ class VentanaPrincipal(QMainWindow):
         tabla.setColumnHidden(0, True)                    # después de setModel
         tabla.setSortingEnabled(True)
         tabla.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
+        tabla.horizontalHeader().setSortIndicator(-1, Qt.SortOrder.AscendingOrder)   # sin orden hasta pulsar una cabecera
 
     def cargar_incidencias(self):
         try:

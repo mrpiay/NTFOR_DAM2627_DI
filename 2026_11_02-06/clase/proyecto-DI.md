@@ -62,7 +62,7 @@ Cada sesión dura 50 minutos.
 | Jueves 5 | 08:30 | Terminar los pasos 3 y 4. |
 | Jueves 5 | 09:20 | Terminar el **Paso 4**. Cierre: lo que hemos conseguido y qué viene, la 2.ª parte. |
 
-**El ritmo:** el proyecto se hace en clase, paso a paso, siguiendo el plan de sesiones. Si terminas el paso del día antes de tiempo y quieres seguir, puedes adelantar el siguiente o hacer el reto del paso 3. No te saltes pasos: antes de pasar al siguiente, la aplicación debe arrancar.
+**El ritmo:** el proyecto se hace en clase, paso a paso, siguiendo el plan de sesiones. No te saltes pasos: antes de pasar al siguiente, la aplicación debe arrancar.
 
 **Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior.
 
@@ -74,7 +74,7 @@ Cada paso tiene **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Com
 
 **Objetivo.** Tener tu carpeta de trabajo con su entorno virtual y la aplicación arrancando.
 
-**Pista.** Descarga el repositorio del módulo (*Code → Download ZIP*); en `2026_11_02-06/clase` está la carpeta `plantilla`. Prepara la carpeta como se explica en «Con qué trabajas», en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker_repaso`. El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar. Ábrela en VS Code y, en la terminal (PowerShell):
+**Pista.** Instala antes lo que indica [`software-DI.md`](software-DI.md). Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*); en `2026_11_02-06/clase` está la carpeta `plantilla`. Prepara la carpeta como se explica en «Con qué trabajas», en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker_repaso`. El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar. Ábrela en VS Code y, en la terminal (PowerShell):
 
 ```
 python -m venv .venv
@@ -95,14 +95,14 @@ python main.py
 **Si te falla…**
 
 - *«La ejecución de scripts está deshabilitada»*: ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar, o usa la terminal «Command Prompt» con `.venv\Scripts\activate.bat`.
-- *`python` no se reconoce*: prueba con `py`. Si tampoco funciona, avisa.
+- *`python` no se reconoce*: reinstala Python marcando **Add python.exe to PATH** (ver [`software-DI.md`](software-DI.md)) y abre una terminal nueva.
 - *`WinError 206` («el nombre del archivo o la extensión es demasiado largo») o, después, `fixture 'qtbot' not found`*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam\di\` y repite los comandos desde `python -m venv .venv`.
-- *pip falla o no hay red*: trabaja en pareja con quien sí lo tenga y haz mientras el paso 1, que no necesita instalar nada.
+- *pip falla o no hay red*: haz mientras el paso 1, que no necesita instalar nada, y repite `pip install -r requirements.txt` cuando tengas red.
 - *Tu BugTracker no arranca*: usa la plantilla. No pierdas la sesión arreglando la práctica.
 
 ### Lo vemos juntos: cómo está hecho el BugTracker (15 min, con el docente)
 
-Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí la entiendes; si la hiciste, compárala con la tuya. El docente la proyecta y la recorremos; no hay que escribir nada.
+Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí la entiendes; si la hiciste, compárala con la tuya. Abre `bd.py` y `main.py` y recórrelos con esta tabla; no hay que escribir nada.
 
 | Dónde | Qué hace | Qué hay que saber |
 |---|---|---|
@@ -158,15 +158,15 @@ Por último, haz un **boceto rápido** (wireframe, en papel o en diagrams.net) d
 
 ## Paso 2 · Mejoras de accesibilidad en Designer (martes, 30 min)
 
-**Objetivo.** Aplicar en `bugtracker.ui` dos o tres mejoras de tu lista del paso 1.
+**Objetivo.** Aplicar en `bugtracker.ui` mejoras de accesibilidad de tu lista del paso 1.
 
 **Mini-explicación.** `ui_bugtracker.py` se genera a partir de `bugtracker.ui`: los cambios se hacen siempre en Designer y luego se regenera. Si editas `ui_bugtracker.py` a mano, lo pierdes en la siguiente generación.
 
-**Pista.** Abre el diseño con `pyside6-designer bugtracker.ui` y elige entre estas mejoras:
+**Pista.** Abre el diseño con `Start-Process .venv\Scripts\pyside6-designer.exe -ArgumentList bugtracker.ui -WindowStyle Hidden` (así la terminal queda libre; paso a paso y con capturas, en [`designer-regenerar.md`](designer-regenerar/designer-regenerar.md)) y haz estas cuatro mejoras:
 
-1. **Etiquetas con atajo y buddy.** Cambia el texto de las etiquetas a `&Título (obligatorio):`, `T&ipo:`, `&Prioridad:`, `E&stado:`, `&Descripción:`. Después, *Edit → Edit Buddies* y arrastra de cada etiqueta a su campo. Si un atajo se repite con un botón, cambia la letra del botón (por ejemplo, `A&ñadir`).
+1. **Etiquetas con atajo y buddy.** Cambia el texto de las etiquetas a `&Título (obligatorio):`, `T&ipo:`, `&Prioridad:`, `E&stado:`, `&Descripción:`. Después, *Edit → Edit Buddies* y arrastra de cada etiqueta a su campo. Pon también atajo a los botones: `A&ñadir` (la A queda para el menú Archivo del paso 3), `&Modificar`, `&Eliminar` y `&Limpiar`.
 2. **Tabulación en la descripción.** Selecciona `txtDescripcion` y marca `tabChangesFocus`.
-3. **Orden de tabulación.** *Edit → Edit Tab Order*: título, tipo, prioridad, estado, descripción, botones y tabla.
+3. **Orden de tabulación.** *Edit → Edit Tab Order*: título, tipo, prioridad, estado, descripción, botones y tabla. En `tblIncidencias`, desmarca `tabKeyNavigation`, para que `Tab` salga de la tabla (dentro de ella te mueves con las flechas).
 4. **Ayudas.** `toolTip` en los botones y `accessibleName` = «Lista de incidencias» en la tabla.
 
 Guarda y regenera:
@@ -178,7 +178,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 **Comprueba que…** (sin ratón)
 
 - `Alt+T` lleva al título y `Alt+D` a la descripción;
-- `Tab` recorre los campos en orden y sale de la descripción;
+- `Tab` recorre los campos en orden, sale de la descripción y también sale de la tabla;
 - `python main.py` sigue funcionando igual que antes.
 
 **Si te falla…**
@@ -200,7 +200,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 
 **Pista.**
 
-1. En Designer, en el **Action Editor**, crea estas acciones:
+1. En Designer, abre el **Action Editor** (*View → Action Editor*) y crea estas acciones con su botón *New*:
 
    | objectName | text | shortcut | statusTip |
    |---|---|---|---|
@@ -211,14 +211,15 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 
    En el editor de atajos de Designer pulsa la combinación; la tecla Supr aparece como `Del`.
 
-2. Crea el menú `&Archivo` con Nueva, Guardar, Eliminar, un separador y Salir.
+2. Crea el menú: doble clic en «Type Here» de la barra de menús y escribe `&Archivo`. Mete cada acción arrastrándola desde el Action Editor al menú, en este orden: Nueva, Guardar, Eliminar, un separador (*Add Separator*) y Salir.
 3. Añade una barra de herramientas (clic derecho en la ventana → *Add Tool Bar*), con `objectName = toolBarPrincipal` y `toolButtonStyle = ToolButtonTextOnly`, y arrastra a ella Nueva, Guardar y Eliminar. Regenera `ui_bugtracker.py`.
-4. En `main.py`, completa los `TODO Paso 3`: el import del diálogo, las conexiones y los slots.
+4. En `main.py`, completa los `TODO Paso 3`. Descomenta el import del diálogo. Las cuatro conexiones van en `__init__`, donde está `# TODO Paso 3: conecta las QAction…`. Los métodos `guardar` y `nueva_incidencia` van donde está `# TODO Paso 3: añade aquí los slots`, debajo de `actualizar_botones()`:
 
 ```python
         self.ui.actionNueva.triggered.connect(self.nueva_incidencia)
         self.ui.actionGuardar.triggered.connect(self.guardar)
-        # ... actionEliminar y actionSalir igual
+        self.ui.actionEliminar.triggered.connect(self.eliminar_incidencia)
+        self.ui.actionSalir.triggered.connect(self.close)
 
     def guardar(self):
         if self.id_seleccionado() is None:
@@ -230,13 +231,37 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
         dialogo = DialogoIncidencia(self)
         if not dialogo.exec():          # falso si se canceló
             return
-        # guarda dialogo.datos() con bd.insertar_incidencia(...) dentro de try/except sqlite3.Error,
-        # recarga la tabla y muestra un mensaje en la barra de estado
+        try:
+            bd.insertar_incidencia(*dialogo.datos())   # el * reparte los cinco datos
+        except sqlite3.Error:
+            QMessageBox.critical(self, "Error", "No se ha podido guardar la incidencia.")
+            return
+        self.cargar_incidencias()
+        self.statusBar().showMessage("Incidencia añadida", 3000)
 ```
 
    En `actualizar_botones()`, activa o desactiva también `self.ui.actionEliminar`.
 
 5. En `dialogo.py`, completa `validar()`: si el título está vacío, `QMessageBox.warning(...)`, foco en `self.txtTitulo` y `return`; si tiene más de 100 caracteres, otro aviso que diga cuántos tiene.
+6. **Editar con el mismo diálogo.** El diálogo también sirve para editar, porque acepta una incidencia: `DialogoIncidencia(self, incidencia)`. En `__init__`, conecta el doble clic de la tabla: `self.ui.tblIncidencias.doubleClicked.connect(self.editar_incidencia)`. Y añade este método junto a los otros dos:
+
+```python
+    def editar_incidencia(self):
+        id_incidencia = self.id_seleccionado()
+        if id_incidencia is None:
+            return
+        incidencia = bd.obtener_incidencia(id_incidencia)
+        dialogo = DialogoIncidencia(self, incidencia)
+        if not dialogo.exec():
+            return
+        try:
+            bd.actualizar_incidencia(id_incidencia, *dialogo.datos())
+        except sqlite3.Error:
+            QMessageBox.critical(self, "Error", "No se ha podido modificar la incidencia.")
+            return
+        self.cargar_incidencias()
+        self.statusBar().showMessage("Incidencia modificada", 3000)
+```
 
 **Comprueba que…** (sin ratón)
 
@@ -244,7 +269,8 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 - al pasar por una acción del menú, su `statusTip` sale en la barra de estado;
 - `Ctrl+N` abre el diálogo; `Tab` recorre sus campos; Aceptar con el título vacío avisa y el diálogo **no** se cierra; `Esc` cancela sin guardar;
 - `Ctrl+S` sin selección añade y, con una incidencia seleccionada, la modifica;
-- «Eliminar» de la barra está desactivado si no hay selección y, con selección, pide confirmación.
+- «Eliminar» de la barra está desactivado si no hay selección y, con selección, pide confirmación;
+- doble clic en una incidencia abre el diálogo con sus datos y guarda los cambios.
 
 **Si te falla…**
 
@@ -253,7 +279,6 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 - *La acción se ejecuta al arrancar*: has escrito `connect(self.guardar())` con paréntesis.
 - *Designer no te funciona*: crea las acciones en código, después de `setupUi` y con `from PySide6.QtGui import QAction`: `self.ui.actionNueva = QAction("&Nueva incidencia...", self)`, `self.ui.actionNueva.setShortcut("Ctrl+N")`, `self.menuBar().addMenu("&Archivo").addAction(self.ui.actionNueva)` y `self.addToolBar("Principal").addAction(self.ui.actionNueva)`. Con el mismo nombre que en Designer (`self.ui.…`), el resto del paso funciona igual.
 
-Reto: el diálogo también sirve para editar, porque acepta una incidencia: `DialogoIncidencia(self, incidencia)`. Conecta `self.ui.tblIncidencias.doubleClicked` a un método `editar_incidencia` que lo abra con los datos de la seleccionada y guarde con `bd.actualizar_incidencia(...)`.
 
 ---
 
@@ -276,7 +301,14 @@ Usamos `QStandardItemModel`, rellenado con `bd.obtener_incidencias()`: así se m
 **Pista.**
 
 1. En Designer, clic derecho en `tblIncidencias` → *Morph into* → `QTableView`. Conserva el nombre, el layout y las propiedades de selección. Regenera `ui_bugtracker.py`. A partir de aquí, `main.py` no arrancará hasta que termines este paso.
-2. En `main.py`, descomenta los imports del paso 4 y quita `QTableWidgetItem`. Añade `configurar_tabla()` y llámalo en `__init__` **antes** de las conexiones:
+2. En `main.py`, sustituye las dos líneas `# TODO Paso 4: …` de los imports por estas dos, sin espacios delante:
+
+```python
+from PySide6.QtCore import QSortFilterProxyModel, Qt
+from PySide6.QtGui import QStandardItem, QStandardItemModel
+```
+
+   En la línea de `PySide6.QtWidgets`, borra `QTableWidgetItem` y añade `QHeaderView`. Añade el método `configurar_tabla()` justo antes de `cargar_incidencias()` y llámalo en `__init__` **antes** de las conexiones (`self.configurar_tabla()`, donde está `# TODO Paso 4`):
 
 ```python
     def configurar_tabla(self):
@@ -286,9 +318,12 @@ Usamos `QStandardItemModel`, rellenado con `bd.obtener_incidencias()`: así se m
         self.proxy.setSourceModel(self.modelo)
         self.proxy.setFilterCaseSensitivity(Qt.CaseSensitivity.CaseInsensitive)
         self.proxy.setFilterKeyColumn(-1)              # busca en todas las columnas
-        self.ui.tblIncidencias.setModel(self.proxy)
-        self.ui.tblIncidencias.setColumnHidden(0, True)   # después de setModel
-        self.ui.tblIncidencias.setSortingEnabled(True)
+        tabla = self.ui.tblIncidencias
+        tabla.setModel(self.proxy)
+        tabla.setColumnHidden(0, True)                   # después de setModel
+        tabla.setSortingEnabled(True)
+        tabla.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)    # el título ocupa el sitio libre
+        tabla.horizontalHeader().setSortIndicator(-1, Qt.SortOrder.AscendingOrder)          # sin orden hasta pulsar una cabecera
 ```
 
 3. Cambia la señal de selección:
@@ -332,7 +367,7 @@ Usamos `QStandardItemModel`, rellenado con `bd.obtener_incidencias()`: así se m
 - *`'QTableView' object has no attribute 'setRowCount'`* (o `setItem`, `selectedItems`): queda código de `QTableWidget`. En Model/View los datos van al **modelo**.
 - *`'NoneType' object has no attribute 'selectionChanged'`*: conectas la señal antes de `setModel`. Llama a `configurar_tabla()` primero.
 - *Se borra otra incidencia*: falta `mapToSource`.
-- *La prioridad se ordena como texto* (Alta, Baja, Crítica, Media): es normal, el orden es alfabético. Si te sobra tiempo, guarda en cada celda de prioridad un número con `setData(n, Qt.ItemDataRole.UserRole)` y usa `self.proxy.setSortRole(Qt.ItemDataRole.UserRole)`.
+- *La prioridad se ordena como texto* (Alta, Baja, Crítica, Media): es normal, el orden es alfabético. Para ordenarla por importancia, guarda en cada celda de prioridad un número con `setData(n, Qt.ItemDataRole.UserRole)` y usa `self.proxy.setSortRole(Qt.ItemDataRole.UserRole)`.
 
 ---
 
@@ -347,4 +382,4 @@ Qué se entrega esta semana y cuándo: [`entrega.md`](entrega.md).
 - [ ] Menú Archivo y barra de herramientas con las mismas `QAction`; atajos `Ctrl+N`, `Ctrl+S`, `Supr` y `Ctrl+Q`.
 - [ ] El diálogo «Nueva incidencia» se usa entero con teclado, valida el título y da mensajes claros.
 - [ ] La tabla es un `QTableView` con modelo y proxy; se ordena por columnas; el ID no se ve.
-- [ ] Seleccionar, modificar y eliminar afectan a la incidencia correcta, también con orden o filtro.
+- [ ] Seleccionar, modificar y eliminar afectan a la incidencia correcta, también después de ordenar.
