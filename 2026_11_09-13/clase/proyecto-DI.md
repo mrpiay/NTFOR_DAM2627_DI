@@ -17,22 +17,22 @@ Del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qu�
 - **Si terminaste la 1.ª parte y funciona**: sigue en tu carpeta `bugtracker`. Ya tiene `buscador.py` y `test_buscador.py`, que copiaste de la plantilla de la 1.ª parte. Ábrela en VS Code (*File > Open Folder…*), abre la terminal (*Terminal > New Terminal*, `Ctrl+ñ`) y activa el entorno con `.venv\Scripts\Activate.ps1`, si no aparece ya `(.venv)` al principio de la línea.
 - **Si no la terminaste o no te funciona**: cambia el nombre de tu carpeta a `bugtracker-anterior`. Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*), descomprímelo y copia `2026_11_09-13/clase/plantilla` con el nombre `bugtracker`, en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. Es la 1.ª parte terminada. Ábrela en VS Code: *File > Open Folder…*, elige la carpeta `bugtracker` y pulsa *Seleccionar carpeta* (si pregunta si confías en los autores, *Yes, I trust the authors*). Abre la terminal: *Terminal > New Terminal* (`Ctrl+ñ`); tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal). En ella, una orden detrás de otra:
 
-```
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-python datos_ejemplo.py
-python main.py
-```
+  ```
+  python -m venv .venv
+  .venv\Scripts\Activate.ps1
+  pip install -r requirements.txt
+  python datos_ejemplo.py
+  python main.py
+  ```
 
-`datos_ejemplo.py` añade cinco incidencias de prueba; ejecútalo una sola vez. En VS Code elige el intérprete del entorno: `Ctrl+Mayús+P` → «Python: Select Interpreter» → el de `.venv`.
+  `datos_ejemplo.py` añade cinco incidencias de prueba; ejecútalo una sola vez. En VS Code elige el intérprete del entorno: `Ctrl+Mayús+P` → «Python: Select Interpreter» → el de `.venv`.
 
-**Comprueba que** en la terminal aparece `(.venv)` al principio de la línea y que `python main.py` abre el BugTracker.
+  **Comprueba que** en la terminal aparece `(.venv)` al principio de la línea y que `python main.py` abre el BugTracker.
 
-**Si te falla…**
+  **Si te falla…**
 
-- *«La ejecución de scripts está deshabilitada»*: ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar el entorno.
-- *`WinError 206` («el nombre del archivo o la extensión es demasiado largo»)*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam\di\` y repite desde `python -m venv .venv`.
+  - *«La ejecución de scripts está deshabilitada»*: ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar el entorno.
+  - *`WinError 206` («el nombre del archivo o la extensión es demasiado largo»)*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam\di\` y repite desde `python -m venv .venv`.
 
 Qué tocas en cada paso:
 
@@ -71,7 +71,7 @@ Cada sesión dura 50 minutos.
 | Día | Sesión | Qué hacemos |
 |---|---|---|
 | Martes 10 | 10:10 | **Paso 5** (componente `Buscador`). |
-| Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt, 35 min). Guardar el estado, documentar y empaquetar (15 min). |
+| Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt, 35 min). Leer «Guardar el estado, documentar y empaquetar» (15 min). |
 | Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Leer qué entra en la prueba escrita del jueves 19, en «Punto de partida» (10 min). |
 | Miércoles 11 | 11:00 y 12:10 | Sesiones de la UD4, fuera de este proyecto (ver `programacion/`, en la raíz del repositorio). |
 | Jueves 12 | 08:30 y 09:20 | Terminar la 2.ª parte del proyecto y hacer las ampliaciones. |

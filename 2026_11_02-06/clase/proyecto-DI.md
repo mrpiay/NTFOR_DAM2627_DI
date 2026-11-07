@@ -79,9 +79,7 @@ Cada sesión dura 50 minutos.
 | Jueves 5 | 08:30 | Terminar los pasos 3 y 4. |
 | Jueves 5 | 09:20 | Terminar el **Paso 4** y repasar la lista final («Cómo comprobar que está todo bien»). |
 
-**El ritmo:** el proyecto se hace en clase, paso a paso, siguiendo el plan de sesiones. No te saltes pasos: antes de pasar al siguiente, la aplicación debe arrancar.
-
-**Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior.
+**Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior. Antes de pasar al siguiente, la aplicación debe arrancar.
 
 Cada paso tiene **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Comprueba que…** y **Si te falla…**.
 
@@ -301,7 +299,6 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 - *El diálogo se cierra con el título vacío*: has conectado `accepted` a `self.accept` en vez de a `self.validar`, o falta el `return`.
 - *La acción se ejecuta al arrancar*: has escrito `connect(self.guardar())` con paréntesis.
 - *Designer no abre*: comprueba que la terminal está en la carpeta del proyecto y que existe `.venv\Scripts\pyside6-designer.exe`; si no existe, activa el entorno y repite `pip install -r requirements.txt`.
-
 
 ---
 
