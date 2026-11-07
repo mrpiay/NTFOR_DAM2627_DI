@@ -9,6 +9,7 @@ Las guías para estudiar lo visto esta semana, reunidas en un solo sitio.
 ## Dónde consultar
 
 - **PySide6 (Qt para Python):** la documentación oficial, en inglés: [Qt for Python](https://doc.qt.io/qtforpython-6/). Cada clase tiene su página: por ejemplo, [QAction](https://doc.qt.io/qtforpython-6/PySide6/QtGui/QAction.html) o [QDialog](https://doc.qt.io/qtforpython-6/PySide6/QtWidgets/QDialog.html). Busca el método con `Ctrl+F`.
+- **Sin conexión, o si la web de Qt no responde:** la ayuda de cada clase está en el propio PySide6. Con el entorno virtual, por ejemplo: `.venv\Scripts\python -c "from PySide6.QtGui import QAction; help(QAction)"` (avanzas con `Espacio` y sales con `q`).
 - **Qt Designer:** el manual oficial, en inglés: [Qt Designer Manual](https://doc.qt.io/qt-6/qtdesigner-manual.html).
 - **Model/View:** la explicación oficial de Qt, en inglés: [Model/View Programming](https://doc.qt.io/qt-6/model-view-programming.html).
 - **Python** (el `*` de los argumentos, `sqlite3`…): la documentación oficial, en español: [desempaquetar argumentos](https://docs.python.org/es/3/tutorial/controlflow.html#unpacking-argument-lists) y [sqlite3](https://docs.python.org/es/3/library/sqlite3.html).
