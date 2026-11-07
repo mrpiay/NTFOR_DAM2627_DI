@@ -12,7 +12,7 @@
 
 Peso de estas unidades en el módulo: 45 % (la suma de los pesos de sus unidades, apartado 2.1 de la programación).
 
-**UD3:** se trabaja en la 2.ª parte del proyecto de diagnóstico (10 y 12 de noviembre): componente reutilizable, propiedad y señal propias y pruebas con pytest-qt; guardar el estado con `QSettings`, documentar y empaquetar se ven en una demostración. El jueves 19 de noviembre, en lugar del examen, hay una **prueba escrita**, en papel, sobre las dos partes del proyecto de diagnóstico (incluidos el componente y sus pruebas), después de publicar sus soluciones. La prueba califica todos los criterios de la UD3 salvo documentar, empaquetar y generar ayudas (CA3.6, CA3.7 y CA6.2, el 18 % de la UD3), que se califican en el proyecto integrado del primer trimestre (UD4). La entrega de la UD3, prevista antes del 3 de noviembre, no se tiene en cuenta. La UD3 entra además en el examen final de la 1ª evaluación.
+**UD3:** se trabaja en la 2.ª parte del proyecto de diagnóstico (10, 11 y 12 de noviembre): componente reutilizable, propiedad y señal propias y pruebas con pytest-qt; guardar el estado con `QSettings`, documentar y empaquetar se ven en una demostración. El jueves 19 de noviembre, en lugar del examen, hay una **prueba escrita**, en papel, sobre las dos partes del proyecto de diagnóstico (incluidos el componente y sus pruebas), después de publicar sus soluciones. La prueba califica todos los criterios de la UD3 salvo documentar, empaquetar y generar ayudas (CA3.6, CA3.7 y CA6.2, el 18 % de la UD3), que se califican en el proyecto integrado del primer trimestre (UD4). La entrega de la UD3, prevista antes del 3 de noviembre, no se tiene en cuenta. La UD3 entra además en el examen final de la 1ª evaluación.
 
 ## Exámenes y entregas
 
@@ -50,12 +50,12 @@ Peso de estas unidades en el módulo: 45 % (la suma de los pesos de sus unidades
 | Del 19 al 23 de octubre | **examen de la UD2**<br>UD3 · Diseñamos la API del componente<br>UD3 · Persistencia e integración<br>UD3 · Probamos lo que construimos |
 | Del 26 al 30 de octubre | UD3 · Probamos lo que construimos<br>UD3 · Documentamos y empaquetamos<br>UD3 · Trabajo final: mi componente reutilizable<br>UD4 · Más allá del ratón y del teclado |
 | [Del 2 al 6 de noviembre](../2026_11_02-06) | **puesta en común y proyecto de diagnóstico** (no se avanza: se repasa y se completa lo que tocaba hasta la fecha) |
-| [Del 9 al 13 de noviembre](../2026_11_09-13) | **proyecto de diagnóstico, 2.ª parte** (pasos 5 a 8: componente reutilizable, pruebas, prueba de usabilidad e interfaces naturales)<br>UD4 · Aprendizaje automático aplicado a las interfaces<br>UD4 · Controlamos una interfaz con la voz |
-| Del 16 al 20 de noviembre | UD4 · El cuerpo como dispositivo de entrada<br>UD4 · Manos, gestos y partes del cuerpo<br>UD4 · Introducción a la realidad aumentada<br>UD4 · Diseñamos interacciones multimodales y accesibles<br>**prueba escrita de la UD3** |
-| Del 23 al 27 de noviembre | UD4 · Trabajo final: interfaz natural<br>UD4 · Proyecto integrado del primer trimestre |
-| Del 30 de noviembre al 4 de diciembre | UD4 · Proyecto integrado del primer trimestre<br>UD5 · ¿Qué debe contar un informe?<br>UD5 · Creamos informes con herramientas gráficas<br>UD5 · Filtramos, agrupamos y calculamos<br>**repaso** o terminar lo pendiente · 1ª evaluación |
+| [Del 9 al 13 de noviembre](../2026_11_09-13) | **proyecto de diagnóstico, 2.ª parte** (pasos 5 a 8: componente reutilizable, pruebas, prueba de usabilidad e interfaces naturales) |
+| Del 16 al 20 de noviembre | UD4 · Aprendizaje automático aplicado a las interfaces<br>UD4 · Controlamos una interfaz con la voz<br>UD4 · El cuerpo como dispositivo de entrada<br>UD4 · Manos, gestos y partes del cuerpo<br>**prueba escrita de la UD3** |
+| Del 23 al 27 de noviembre | UD4 · Introducción a la realidad aumentada<br>UD4 · Diseñamos interacciones multimodales y accesibles<br>UD4 · Trabajo final: interfaz natural<br>UD4 · Proyecto integrado del primer trimestre |
+| Del 30 de noviembre al 4 de diciembre | UD4 · Proyecto integrado del primer trimestre<br>**repaso** o terminar lo pendiente · 1ª evaluación |
 | Del 7 al 11 de diciembre | **repaso** o terminar lo pendiente · 1ª evaluación<br>**examen final** · 1ª evaluación |
-| Del 14 al 18 de diciembre | **examen de la UD4**<br>UD5 · Filtramos, agrupamos y calculamos<br>UD5 · Gráficos y definición generada<br>UD5 · Trabajo final: informe integrado en una aplicación |
+| Del 14 al 18 de diciembre | **examen de la UD4**<br>UD5 · ¿Qué debe contar un informe?<br>UD5 · Creamos informes con herramientas gráficas<br>UD5 · Filtramos, agrupamos y calculamos |
 
 ## Qué se aprende y cómo se evalúa en cada unidad
 

@@ -7,7 +7,7 @@
 | UD | Inicio | Fin | Sesiones | Peso | Entrega |
 |---|---|---|---|---|---|
 | UD4 · Interfaces naturales y multimodales | jue 29 oct | mar 1 dic | 16 | 26 % | Trabajo final: interfaz natural; Proyecto integrado del primer trimestre |
-| UD5 · Generación de informes y visualización de datos | mar 1 dic | jue 17 dic | 9 | 8 % | Trabajo final: informe integrado en una aplicación |
+| UD5 · Generación de informes y visualización de datos | mar 15 dic | jue 17 dic | 5 | 8 % | Trabajo final: informe integrado en una aplicación |
 | UD6 · Calidad y pruebas de aplicaciones | mar 12 ene | mar 19 ene | 8 | 7 % | Trabajo final: auditoría de calidad de una aplicación |
 | UD7 · Documentación, empaquetado y distribución de aplicaciones | mié 20 ene | jue 4 feb | 16 | 14 % | Trabajo final: preparar una aplicación para su entrega; Proyecto integrado del segundo trimestre |
 
@@ -17,10 +17,10 @@ Peso de estas unidades en el módulo: 55 % (la suma de los pesos de sus unidades
 
 | Fecha | Qué | Detalle |
 |---|---|---|
-| mar 24 nov | Entrega UD4 | Trabajo final: interfaz natural |
+| mié 25 nov | Entrega UD4 | Trabajo final: interfaz natural |
 | mar 1 dic | Entrega UD4 | Proyecto integrado del primer trimestre |
 | mar 15 dic | Examen UD4 | Interfaces naturales y multimodales |
-| jue 17 dic | Entrega UD5 | Trabajo final: informe integrado en una aplicación |
+| — | Entrega UD5 | Trabajo final: informe integrado en una aplicación (fecha por reajustar en la 2ª evaluación) |
 | mar 12 ene | Examen UD5 | Generación de informes y visualización de datos |
 | mar 19 ene | Entrega UD6 | Trabajo final: auditoría de calidad de una aplicación |
 | mar 26 ene | Examen UD6 | Calidad y pruebas de aplicaciones |

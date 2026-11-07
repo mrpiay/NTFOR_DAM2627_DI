@@ -73,8 +73,8 @@ Cada sesión dura 50 minutos.
 | Martes 10 | 10:10 | **Paso 5** (componente `Buscador`). |
 | Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt, 35 min). Leer «Guardar el estado, documentar y empaquetar» (15 min). |
 | Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Leer qué entra en la prueba escrita del jueves 19, en «Punto de partida» (10 min). |
-| Miércoles 11 | 11:00 y 12:10 | Sesiones de la UD4, fuera de este proyecto (ver `programacion/`, en la raíz del repositorio). |
-| Jueves 12 | 08:30 y 09:20 | Terminar la 2.ª parte del proyecto y hacer las ampliaciones. |
+| Miércoles 11 | 11:00 y 12:10 | Terminar los pasos 5 a 8 y empezar las ampliaciones. |
+| Jueves 12 | 08:30 y 09:20 | Terminar las ampliaciones. |
 
 **Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior.
 
@@ -192,9 +192,9 @@ Lee las cuatro pruebas: valor por defecto, escribir cambia la propiedad, cambiar
 
 ### Guardar el estado, documentar y empaquetar (martes, 15 min)
 
-Es lo que queda de la UD3, en las ampliaciones **A** (la aplicación recuerda el tamaño de la ventana y la última búsqueda con `QSettings`), **B** (`help(buscador.Buscador)` y un `README.md`) y **C** (`pyproject.toml` y `python -m build`). Fíjate en tres cosas: dónde se guarda el estado y cuándo se recupera (`closeEvent` y `__init__`), qué debe contar la documentación de un componente y qué hace falta para instalarlo en otro proyecto. Las haces el jueves 12, con lo que explica cada ampliación.
+Es lo que queda de la UD3, en las ampliaciones **A** (la aplicación recuerda el tamaño de la ventana y la última búsqueda con `QSettings`), **B** (`help(buscador.Buscador)` y un `README.md`) y **C** (`pyproject.toml` y `python -m build`). Fíjate en tres cosas: dónde se guarda el estado y cuándo se recupera (`closeEvent` y `__init__`), qué debe contar la documentación de un componente y qué hace falta para instalarlo en otro proyecto. Las haces el miércoles 11 y el jueves 12, con lo que explica cada ampliación.
 
-### Ampliaciones (jueves 12)
+### Ampliaciones (miércoles 11 y jueves 12)
 
 **A. Persistencia con `QSettings`.** Que la aplicación recuerde el tamaño de la ventana y la última búsqueda. Añade `QSettings` al import que ya existe (`from PySide6.QtCore import QSettings, QSortFilterProxyModel, Qt`), llama a `self.restaurar_estado()` al final de `__init__`, después de `self.actualizar_botones()` (necesita `self.buscador` ya creado), y añade estos dos métodos a la clase. En Windows, `QSettings` lo guarda en el registro, en `HKEY_CURRENT_USER\Software\DAM2\BugTracker`:
 
