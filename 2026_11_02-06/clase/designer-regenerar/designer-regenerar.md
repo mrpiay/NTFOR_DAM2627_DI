@@ -7,13 +7,13 @@ La aplicación no lee el archivo de Designer (`bugtracker.ui`): lee el código P
 | `bugtracker.ui` | Qt Designer, al guardar | `pyside6-uic`, al regenerar |
 | `ui_bugtracker.py` | `pyside6-uic` | `main.py`, al arrancar la aplicación |
 
-Todas las órdenes se escriben en **PowerShell**, en la carpeta del proyecto. En el ejemplo, la carpeta es `C:\dam\di\bugtracker_repaso`, y la terminal muestra:
+Todas las órdenes se escriben en **PowerShell**, en la carpeta del proyecto. En el ejemplo, la carpeta es `C:\dam\di\bugtracker`, y la terminal muestra:
 
 ```
-PS C:\dam\di\bugtracker_repaso>
+PS C:\dam\di\bugtracker>
 ```
 
-Si la terminal está en otra carpeta, entra en la del proyecto con `cd` (en el ejemplo, `cd C:\dam\di\bugtracker_repaso`).
+Si la terminal está en otra carpeta, entra en la del proyecto con `cd` (en el ejemplo, `cd C:\dam\di\bugtracker`).
 
 ## 1. Arranca la aplicación tal como está
 
@@ -25,7 +25,7 @@ Se abre el BugTracker. Fíjate en el botón **Limpiar formulario**, abajo a la d
 
 ![La aplicación antes del cambio](img/1-aplicacion-antes.png)
 
-Cierra la ventana. La terminal vuelve a `PS C:\dam\di\bugtracker_repaso>`.
+Cierra la ventana. La terminal vuelve a `PS C:\dam\di\bugtracker>`.
 
 ## 2. Abre Qt Designer
 

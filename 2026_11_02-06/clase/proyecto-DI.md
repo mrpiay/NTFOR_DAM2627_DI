@@ -21,8 +21,8 @@ Del 3 al 6 de noviembre. Cada paso trae una mini-explicación, una pista y qué 
 
 ## Con qué trabajas
 
-- **Si tienes tu BugTracker de la Práctica 6 y funciona**: haz una copia de la carpeta `practica_06` (por ejemplo, `bugtracker_repaso`) y trabaja sobre la copia. De la carpeta `plantilla`, copia en tu carpeta solo `dialogo.py`, `buscador.py`, `test_buscador.py`, `datos_ejemplo.py` y `requirements.txt`.
-- **Si no lo tienes, no lo encuentras o no te funciona**: copia la carpeta `plantilla` con el nombre `bugtracker_repaso`. Es un BugTracker de la Práctica 6 terminado, con los mismos nombres: `bugtracker.ui`, `ui_bugtracker.py`, `main.py`, `bd.py`, `txtTitulo`, `cmbTipo`, `cmbPrioridad`, `cmbEstado`, `txtDescripcion`, `btnAnadir`, `btnModificar`, `btnEliminar`, `btnLimpiar` y `tblIncidencias`.
+- **El proyecto**: copia la carpeta `plantilla` con el nombre `bugtracker`. Es un BugTracker de la Práctica 6 terminado, con los mismos nombres: `bugtracker.ui`, `ui_bugtracker.py`, `main.py`, `bd.py`, `txtTitulo`, `cmbTipo`, `cmbPrioridad`, `cmbEstado`, `txtDescripcion`, `btnAnadir`, `btnModificar`, `btnEliminar`, `btnLimpiar` y `tblIncidencias`.
+- **Si quieres seguir con tu propio BugTracker de la Práctica 6** y funciona: haz una copia de su carpeta con el nombre `bugtracker-personal` y trabaja sobre la copia. De la carpeta `plantilla`, copia en ella solo `dialogo.py`, `buscador.py`, `test_buscador.py`, `datos_ejemplo.py` y `requirements.txt`.
 
 Qué es cada archivo y en qué paso lo tocas (`bugtracker.db`, la base de datos, se crea sola al ejecutar):
 
@@ -76,7 +76,7 @@ Cada paso tiene **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Com
 
 **Objetivo.** Tener tu carpeta de trabajo con su entorno virtual y la aplicación arrancando.
 
-**Pista.** Instala antes lo que indica [`software-DI.md`](software-DI.md). Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*); en `2026_11_02-06/clase` está la carpeta `plantilla`. Prepara la carpeta como se explica en «Con qué trabajas», en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker_repaso`. El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar. Ábrela en VS Code y, en la terminal (PowerShell):
+**Pista.** Instala antes lo que indica [`software-DI.md`](software-DI.md). Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*); en `2026_11_02-06/clase` está la carpeta `plantilla`. Prepara la carpeta como se explica en «Con qué trabajas», en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar. Ábrela en VS Code y, en la terminal (PowerShell):
 
 ```
 python -m venv .venv
