@@ -14,8 +14,8 @@ Del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qu�
 
 ## Con qué trabajas
 
-- **Si terminaste la 1.ª parte y funciona**: sigue en tu carpeta `bugtracker`. Ya tiene `buscador.py` y `test_buscador.py`, que copiaste de la plantilla de la 1.ª parte.
-- **Si no la terminaste o no te funciona**: cambia el nombre de tu carpeta a `bugtracker-anterior`. Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*) y copia `2026_11_09-13/clase/plantilla` con el nombre `bugtracker`, en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. Es la 1.ª parte terminada. Ábrela en VS Code y, en la terminal (PowerShell):
+- **Si terminaste la 1.ª parte y funciona**: sigue en tu carpeta `bugtracker`. Ya tiene `buscador.py` y `test_buscador.py`, que copiaste de la plantilla de la 1.ª parte. Ábrela en VS Code (*File > Open Folder…*), abre la terminal (*Terminal > New Terminal*, `Ctrl+ñ`) y activa el entorno con `.venv\Scripts\Activate.ps1`, si no aparece ya `(.venv)` al principio de la línea.
+- **Si no la terminaste o no te funciona**: cambia el nombre de tu carpeta a `bugtracker-anterior`. Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*), descomprímelo y copia `2026_11_09-13/clase/plantilla` con el nombre `bugtracker`, en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. Es la 1.ª parte terminada. Ábrela en VS Code: *File > Open Folder…*, elige la carpeta `bugtracker` y pulsa *Seleccionar carpeta* (si pregunta si confías en los autores, *Yes, I trust the authors*). Abre la terminal: *Terminal > New Terminal* (`Ctrl+ñ`); tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal). En ella, una orden detrás de otra:
 
 ```
 python -m venv .venv
@@ -45,6 +45,16 @@ Qué tocas en cada paso:
 En la plantilla, los comentarios `# TODO Paso 5` marcan dónde se añade código. Antes del paso 5, `python -m pytest -v` da **4 failed**: es lo esperado, porque el componente aún no está hecho.
 
 Lo que escribas en los pasos 7 y 8 va en `notas.md`, el archivo de texto de la carpeta de tu proyecto que empezaste en la 1.ª parte (si no lo tienes, créalo).
+
+## Las herramientas
+
+Las de la 1.ª parte: **VS Code** con su terminal (PowerShell), **Python** con el entorno virtual (`.venv`) y **PySide6**. Esta semana se usan sobre todo estas:
+
+| Herramienta | Qué es | Cómo se usa | Pasos |
+|---|---|---|---|
+| **pytest** y **pytest-qt** | pytest ejecuta pruebas automáticas: busca los archivos `test_*.py` y ejecuta sus funciones `test_*`. pytest-qt añade `qtbot`, que simula el teclado y el ratón sobre los widgets | `python -m pytest -v`, en la terminal, con el entorno activado | 5 y 6 |
+| **`help()`** | La ayuda de Python: muestra la documentación (los *docstrings*) de una clase o función | `python -c "import buscador; help(buscador.Buscador)"`; espacio para avanzar y `q` para salir | Ampliación B |
+| **`build`** | Empaqueta un componente para instalarlo con `pip` en otros proyectos | `pip install build` una vez y después `python -m build` | Ampliación C |
 
 ## Qué se repasa
 

@@ -28,7 +28,7 @@ Qué es cada archivo y en qué paso lo tocas (`bugtracker.db`, la base de datos,
 
 | Archivo | Qué es | Paso en que lo tocas |
 |---|---|---|
-| `bugtracker.ui` | ventana principal (`pyside6-designer bugtracker.ui`) | 2, 3 y 4 |
+| `bugtracker.ui` | diseño de la ventana principal; se abre con Qt Designer | 2, 3 y 4 |
 | `ui_bugtracker.py` | generado con `pyside6-uic bugtracker.ui -o ui_bugtracker.py`; no se edita a mano | se regenera |
 | `bd.py` | acceso a SQLite (todo el SQL está aquí) | ninguno |
 | `main.py` | ventana principal y lógica | 3, 4 y 5 |
@@ -39,7 +39,22 @@ Qué es cada archivo y en qué paso lo tocas (`bugtracker.db`, la base de datos,
 
 En la plantilla, los comentarios `# TODO Paso N` marcan dónde se cambia o se añade código en cada paso. La aplicación arranca desde el principio.
 
-Lo que escribas (la evaluación y el boceto del paso 1) va en `notas.md`, un archivo de texto en la carpeta de tu proyecto.
+Lo que escribas (la evaluación y el boceto del paso 1) va en `notas.md`, un archivo de texto en la carpeta de tu proyecto. Para crearlo, en el panel de archivos de VS Code pulsa el icono *New File* (junto al nombre de la carpeta) y escribe `notas.md`.
+
+## Las herramientas
+
+Todo se hace en **Visual Studio Code** (VS Code), con su terminal. Cómo instalar Python y VS Code: [`software-DI.md`](software-DI.md); lo demás se instala en el paso 0.
+
+| Herramienta | Qué es | Cómo se usa | Pasos |
+|---|---|---|---|
+| **VS Code** | El editor: abre la carpeta del proyecto, muestra sus archivos y tiene una terminal integrada | *File > Open Folder…* abre la carpeta. La terminal, abajo: *Terminal > New Terminal* (`Ctrl+ñ` con teclado español), de tipo **PowerShell** | Todos |
+| **Python** y el **entorno virtual** (`.venv`) | Python ejecuta la aplicación. El entorno virtual es una carpeta del proyecto con su propio Python y las librerías de este proyecto, que se instalan con `pip` a partir de `requirements.txt` | Se crea y se activa en el paso 0. Activado, la terminal muestra `(.venv)` al principio de la línea | Todos |
+| **PySide6** | La librería de interfaces gráficas (Qt para Python): ventanas, botones, tablas, señales y slots | Se importa en el código: `from PySide6.QtWidgets import …` | Todos |
+| **Qt Designer** | Un programa para diseñar la ventana arrastrando widgets y cambiando sus propiedades. Guarda el diseño en `bugtracker.ui` | `Start-Process .venv\Scripts\pyside6-designer.exe -ArgumentList bugtracker.ui -WindowStyle Hidden` | 2, 3 y 4 |
+| **`pyside6-uic`** | Convierte `bugtracker.ui` en `ui_bugtracker.py`, que es lo que carga la aplicación | `pyside6-uic bugtracker.ui -o ui_bugtracker.py`, cada vez que guardas en Designer | 2, 3 y 4 |
+| **SQLite** | La base de datos: un solo archivo, `bugtracker.db`. Viene con Python | Se usa desde `bd.py`, que ya está hecho | Ninguno |
+| **pytest** y **pytest-qt** | Ejecutan pruebas automáticas; pytest-qt permite probar ventanas y widgets | `python -m pytest -v` | 0 (y la 2.ª parte) |
+| **diagrams.net** y **WebAIM Contrast Checker** | Dos webs: una para dibujar el boceto y otra para comprobar el contraste de dos colores | En el navegador: app.diagrams.net y webaim.org/resources/contrastchecker | 1 |
 
 ## Qué se repasa
 
@@ -76,17 +91,24 @@ Cada paso tiene **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Com
 
 **Objetivo.** Tener tu carpeta de trabajo con su entorno virtual y la aplicación arrancando.
 
-**Pista.** Instala antes lo que indica [`software-DI.md`](software-DI.md). Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*); en `2026_11_02-06/clase` está la carpeta `plantilla`. Prepara la carpeta como se explica en «Con qué trabajas», en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar. Ábrela en VS Code y, en la terminal (PowerShell):
+**Pista.**
 
-```
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-python datos_ejemplo.py
-python main.py
-```
+1. **Instala** antes lo que indica [`software-DI.md`](software-DI.md): Python 3.12 y VS Code con la extensión Python.
+2. **El proyecto**: descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*) y descomprímelo. Copia la carpeta `2026_11_02-06/clase/plantilla` con el nombre `bugtracker` en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar.
+3. **Ábrela en VS Code**: *File > Open Folder…*, elige la carpeta `bugtracker` y pulsa *Seleccionar carpeta*. Si pregunta si confías en los autores, *Yes, I trust the authors*. A la izquierda verás sus archivos.
+4. **Abre la terminal**: *Terminal > New Terminal* (`Ctrl+ñ`). Se abre abajo, ya dentro de la carpeta del proyecto. Tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal); si no, en la flecha junto al **+** elige *PowerShell*.
+5. **En la terminal**, una orden detrás de otra: crea el entorno virtual, actívalo, instala las librerías, añade las incidencias de prueba y arranca la aplicación.
 
-`datos_ejemplo.py` añade cinco incidencias de prueba; ejecútalo una sola vez. En VS Code elige el intérprete del entorno: `Ctrl+Mayús+P` → «Python: Select Interpreter» → el de `.venv`.
+   ```
+   python -m venv .venv
+   .venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+   python datos_ejemplo.py
+   python main.py
+   ```
+
+   `datos_ejemplo.py` añade cinco incidencias de prueba; ejecútalo una sola vez. Cada vez que abras una terminal nueva, activa el entorno con `.venv\Scripts\Activate.ps1` (cuando ya has elegido el intérprete, como se explica a continuación, VS Code suele hacerlo solo).
+6. **Elige el intérprete** en VS Code, para que reconozca las librerías del entorno: `Ctrl+Mayús+P` → «Python: Select Interpreter» → el de `.venv`.
 
 **Comprueba que…**
 
@@ -104,7 +126,7 @@ python main.py
 
 ### Cómo está hecho el BugTracker (15 min)
 
-Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí la entiendes; si la hiciste, compárala con la tuya. Abre `bd.py` y `main.py` y recórrelos con esta tabla; no hay que escribir nada.
+Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí la entiendes; si la hiciste, compárala con la tuya. Abre `bd.py` y `main.py` (con un clic en el panel de archivos de VS Code, a la izquierda) y recórrelos con esta tabla; no hay que escribir nada.
 
 | Dónde | Qué hace | Qué hay que saber |
 |---|---|---|
