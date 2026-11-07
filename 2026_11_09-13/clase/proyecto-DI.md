@@ -14,7 +14,7 @@ Del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qu�
 
 ## Con qué trabajas
 
-- **Si terminaste la 1.ª parte y funciona**: sigue en tu carpeta `bugtracker` (o `bugtracker-personal`, si trabajas con el tuyo). Ya tiene `buscador.py` y `test_buscador.py`, que copiaste de la plantilla de la 1.ª parte.
+- **Si terminaste la 1.ª parte y funciona**: sigue en tu carpeta `bugtracker`. Ya tiene `buscador.py` y `test_buscador.py`, que copiaste de la plantilla de la 1.ª parte.
 - **Si no la terminaste o no te funciona**: cambia el nombre de tu carpeta a `bugtracker-anterior`. Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*) y copia `2026_11_09-13/clase/plantilla` con el nombre `bugtracker`, en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. Es la 1.ª parte terminada. Ábrela en VS Code y, en la terminal (PowerShell):
 
 ```

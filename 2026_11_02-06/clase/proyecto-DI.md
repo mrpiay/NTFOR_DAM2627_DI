@@ -22,7 +22,7 @@ Del 3 al 6 de noviembre. Cada paso trae una mini-explicación, una pista y qué 
 ## Con qué trabajas
 
 - **El proyecto**: copia la carpeta `plantilla` con el nombre `bugtracker`. Es un BugTracker de la Práctica 6 terminado, con los mismos nombres: `bugtracker.ui`, `ui_bugtracker.py`, `main.py`, `bd.py`, `txtTitulo`, `cmbTipo`, `cmbPrioridad`, `cmbEstado`, `txtDescripcion`, `btnAnadir`, `btnModificar`, `btnEliminar`, `btnLimpiar` y `tblIncidencias`.
-- **Si quieres seguir con tu propio BugTracker de la Práctica 6** y funciona: haz una copia de su carpeta con el nombre `bugtracker-personal` y trabaja sobre la copia. De la carpeta `plantilla`, copia en ella solo `dialogo.py`, `buscador.py`, `test_buscador.py`, `datos_ejemplo.py` y `requirements.txt`.
+- **Si tienes tu propio BugTracker de la Práctica 6**: cambia el nombre de su carpeta a `bugtracker-anterior` y guárdalo para consultarlo. El proyecto se hace en `bugtracker`, desde la plantilla.
 
 Qué es cada archivo y en qué paso lo tocas (`bugtracker.db`, la base de datos, se crea sola al ejecutar):
 
@@ -37,7 +37,7 @@ Qué es cada archivo y en qué paso lo tocas (`bugtracker.db`, la base de datos,
 | `test_buscador.py` | pruebas con pytest-qt, ya escritas | 6 |
 | `datos_ejemplo.py` | incidencias de prueba | ninguno |
 
-En la plantilla, los comentarios `# TODO Paso N` marcan dónde se cambia o se añade código en cada paso. La aplicación arranca desde el principio. Si usas tu propio BugTracker, las pistas te sirven igual: adapta los nombres si los tuyos son distintos.
+En la plantilla, los comentarios `# TODO Paso N` marcan dónde se cambia o se añade código en cada paso. La aplicación arranca desde el principio.
 
 Lo que escribas (la evaluación y el boceto del paso 1) va en `notas.md`, un archivo de texto en la carpeta de tu proyecto.
 
