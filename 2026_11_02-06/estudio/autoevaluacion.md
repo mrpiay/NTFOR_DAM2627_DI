@@ -8,21 +8,27 @@ Si en una pregunta aparece algo que no has visto, búscalo en «Dónde consultar
 
 ---
 
-**1.** Al arrancar, ¿la aplicación lee `bugtracker.ui` o `ui_bugtracker.py`? ¿Qué hay que hacer después de cambiar algo en Qt Designer para verlo en la aplicación?
+**1.** ¿Qué es el entorno virtual `.venv` y qué hace `pip install -r requirements.txt`? ¿Por qué cada proyecto tiene su propio entorno?
 
-**2.** ¿Por qué no hay que editar `ui_bugtracker.py` a mano?
+**2.** ¿Cómo se abre Qt Designer desde la terminal sin que la terminal se quede bloqueada? ¿Qué hace cada parte de la orden?
 
-**3.** En el proyecto, `main.py` nunca contiene SQL y `bd.py` nunca usa widgets. ¿Por qué conviene separarlos así? ¿Qué archivo habría que cambiar si mañana los datos estuvieran en otra base de datos?
+**3.** Al arrancar, ¿la aplicación lee `bugtracker.ui` o `ui_bugtracker.py`? ¿Qué hay que hacer después de cambiar algo en Qt Designer para verlo en la aplicación?
 
-**4.** ¿Por qué las consultas de `bd.py` usan `?` en lugar de pegar los datos dentro del texto de la consulta?
+**4.** ¿Por qué no hay que editar `ui_bugtracker.py` a mano?
 
-**5.** Elige dos heurísticas de Nielsen. Para cada una, di un problema del BugTracker que la incumpla y cómo lo mejoraste.
+**5.** ¿Qué hace cada archivo del proyecto: `main.py`, `bd.py`, `dialogo.py`, `bugtracker.ui`, `ui_bugtracker.py` y `datos_ejemplo.py`?
 
-**6.** ¿Qué hace la `&` de `&Título (obligatorio):`? ¿Qué es el *buddy* de una etiqueta y qué pasa si falta?
+**6.** En el proyecto, `main.py` nunca contiene SQL y `bd.py` nunca usa widgets. ¿Por qué conviene separarlos así? ¿Qué archivo habría que cambiar si mañana los datos estuvieran en otra base de datos?
 
-**7.** ¿Para qué sirve marcar `tabChangesFocus` en `txtDescripcion`? ¿Y desmarcar `tabKeyNavigation` en `tblIncidencias`?
+**7.** ¿Por qué las consultas de `bd.py` usan `?` en lugar de pegar los datos dentro del texto de la consulta?
 
-**8.** Crea `accion.py` con este código y ejecútalo. Copia lo que sale por pantalla.
+**8.** Elige dos heurísticas de Nielsen. Para cada una, di un problema del BugTracker que la incumpla y cómo lo mejoraste.
+
+**9.** ¿Qué hace la `&` de `&Título (obligatorio):`? ¿Qué es el *buddy* de una etiqueta y qué pasa si falta?
+
+**10.** ¿Para qué sirve marcar `tabChangesFocus` en `txtDescripcion`? ¿Y desmarcar `tabKeyNavigation` en `tblIncidencias`?
+
+**11.** Crea `accion.py` con este código y ejecútalo. Copia lo que sale por pantalla.
 
 ```python
 import sys
@@ -37,11 +43,31 @@ print(accion.text(), "->", accion.shortcut().toString())
 accion.trigger()
 ```
 
-**9.** ¿Por qué la misma `QAction` se pone en el menú y en la barra de herramientas? ¿Qué pasa si escribes `connect(self.guardar())`, con paréntesis?
+**12.** Crea `boton.py` con este código y ejecútalo. Copia lo que sale por pantalla.
 
-**10.** ¿Qué es un diálogo modal? En «Nueva incidencia», ¿qué devuelve `exec()` y en qué momento se llama a `accept()`?
+```python
+import sys
+from PySide6.QtWidgets import QApplication, QPushButton
 
-**11.** Crea `estrella.py` con este código y ejecútalo. Copia lo que sale por pantalla.
+app = QApplication(sys.argv)
+
+def guardar():
+    print("Guardando")
+
+boton = QPushButton("&Guardar")
+boton.clicked.connect(guardar)
+print("Antes del clic")
+boton.click()
+boton.clicked.connect(guardar())
+```
+
+**13.** ¿Por qué la misma `QAction` se pone en el menú y en la barra de herramientas?
+
+**14.** ¿Qué es un diálogo modal? En «Nueva incidencia», ¿qué devuelve `exec()` y en qué momento se llama a `accept()`?
+
+**15.** Cuenta, paso a paso, qué pasa desde que pulsas `Ctrl+N` hasta que la incidencia nueva aparece en la tabla. Di qué método de qué archivo se ejecuta en cada paso.
+
+**16.** Crea `estrella.py` con este código y ejecútalo. Copia lo que sale por pantalla.
 
 ```python
 def guardar(titulo, tipo, prioridad):
@@ -52,9 +78,9 @@ guardar(*datos)
 guardar(datos)
 ```
 
-**12.** ¿Qué diferencia hay entre usar un `QTableWidget` y usar Model/View? ¿Qué hace cada pieza: el modelo, el proxy y la vista?
+**17.** ¿Qué diferencia hay entre usar un `QTableWidget` y usar Model/View? ¿Qué hace cada pieza: el modelo, el proxy y la vista?
 
-**13.** Crea `proxy.py` con este código y ejecútalo. Copia lo que sale por pantalla.
+**18.** Crea `proxy.py` con este código y ejecútalo. Copia lo que sale por pantalla.
 
 ```python
 from PySide6.QtCore import QSortFilterProxyModel, Qt
@@ -77,6 +103,6 @@ print("ID:", modelo.item(proxy.mapToSource(indice).row(), 0).text())
 print("ID si no se traduce:", modelo.item(fila_vista, 0).text())
 ```
 
-**14.** En la tabla, la columna ID no se ve, pero sigue en el modelo. ¿Para qué se usa?
+**19.** En la tabla, la columna ID no se ve, pero sigue en el modelo. ¿Para qué se usa?
 
-**15.** ¿En qué se diferencia `DialogoIncidencia(self, incidencia)` de `DialogoIncidencia(self)`? ¿Desde dónde se abre cada uno?
+**20.** ¿En qué se diferencia `DialogoIncidencia(self, incidencia)` de `DialogoIncidencia(self)`? ¿Desde dónde se abre cada uno?
