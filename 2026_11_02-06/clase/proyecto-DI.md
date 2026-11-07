@@ -11,7 +11,7 @@
 
 **Usa la IA como guía, no para que lo haga por ti.** Pídele los **pasos necesarios** para implementar cada cosa y que te explique lo que no entiendas; **el código lo pones tú en tu proyecto**, aunque sea copiando y pegando, sabiendo **dónde** lo pones y **para qué**: es la única forma de familiarizarte con tu entorno. El objetivo es que lo que hagas **funcione y cumpla los requisitos** de cada paso («Comprueba que…») y que sepas **dónde está cada cosa y qué habría que tocar para cambiar o añadir algo**: es lo que te van a pedir después.
 
-**El jueves 12 de noviembre, defensa de la UD3.** En lugar del examen, cada uno defiende individualmente lo que ha hecho con sus manos: el componente `Buscador` y sus pruebas (pasos 5 y 6, en la 2.ª parte del proyecto). Explica su código y hace una pequeña modificación. Califica casi toda la UD3 (documentar, empaquetar y generar ayudas se califican en el proyecto integrado del primer trimestre).
+**Evaluación continua.** El último día de algunas semanas hay una **prueba escrita, en papel,** sobre lo trabajado; se avisa con antelación. La primera es el **jueves 12 de noviembre**, sobre la 1.ª parte del proyecto (pasos 0 a 4): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad y el propio proyecto.
 
 **Y la UD2.** Su nota sale de su entrega y su examen de octubre. Si te falta alguna de las dos, la sustituyen los pasos 2 a 4 de este proyecto, corregidos con los criterios de la UD2: por eso conviene hacerlos bien y entregarlos.
 
@@ -37,7 +37,7 @@ Qué es cada archivo y en qué paso lo tocas (`bugtracker.db`, la base de datos,
 
 En la plantilla, los comentarios `# TODO Paso N` marcan dónde se cambia o se añade código en cada paso. La aplicación arranca desde el principio. Si usas tu propio BugTracker, las pistas te sirven igual: adapta los nombres si los tuyos son distintos.
 
-Lo que escribas (la evaluación y el boceto del paso 1) va en `notas.md`, un archivo de texto en la carpeta de tu proyecto. Lo enseñas en clase junto con el proyecto.
+Lo que escribas (la evaluación y el boceto del paso 1) va en `notas.md`, un archivo de texto en la carpeta de tu proyecto.
 
 ## Qué se repasa
 
@@ -60,7 +60,7 @@ Cada sesión dura 50 minutos.
 | Miércoles 4 | 11:00 | **Paso 3** (acciones, menú, barra de herramientas y diálogo con validación; lo nuevo es la validación) y empezar el **Paso 4**. |
 | Miércoles 4 | 12:10 | **Paso 4** (de `QTableWidget` a Model/View). |
 | Jueves 5 | 08:30 | Terminar los pasos 3 y 4. |
-| Jueves 5 | 09:20 | Terminar el **Paso 4** y **enseñar en clase el estado del proyecto** (ver [`entrega.md`](entrega.md)). Cierre: lo que hemos conseguido y qué viene, la 2.ª parte. |
+| Jueves 5 | 09:20 | Terminar el **Paso 4**. Cierre: lo que hemos conseguido y qué viene, la 2.ª parte. |
 
 **El ritmo:** el proyecto se hace en clase, paso a paso, siguiendo el plan de sesiones. Si terminas el paso del día antes de tiempo y quieres seguir, puedes adelantar el siguiente o hacer el reto del paso 3. No te saltes pasos: antes de pasar al siguiente, la aplicación debe arrancar.
 

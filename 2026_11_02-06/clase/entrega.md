@@ -1,8 +1,11 @@
 # Entrega · semana del 2 al 6 de noviembre
 
-| Qué | Cómo | Cuándo |
-|---|---|---|
-| **Autoevaluación** | Responde las preguntas de [`estudio/autoevaluacion.md`](../estudio/autoevaluacion.md) y sube tus respuestas, con el número de cada pregunta, a la tarea de Teams de esta semana | Hasta el **lunes 9 de noviembre**, a las 23:59 |
-| **Lo que has hecho** | Enséñalo en clase: tu BugTracker funcionando y tu `notas.md`. No hace falta que esté terminado; lo puedes completar después, pero hay que enseñarlo | En la última clase de la semana: **jueves 5** |
+## Todas las semanas
 
-El martes siguiente, por la mañana, se publican en [`soluciones/`](../soluciones) las soluciones de la autoevaluación y cómo debe quedar lo de esta semana. Compáralo con lo tuyo.
+- **Autoevaluación.** El cuestionario está en [`estudio/autoevaluacion.md`](../estudio/autoevaluacion.md) desde el primer día de la semana. Respóndelo y sube tus respuestas, con el número de cada pregunta, a la tarea de Teams de la semana **antes del martes siguiente** (hasta el lunes a las 23:59). El martes se publican las soluciones en [`soluciones/`](../soluciones).
+
+## Esta semana
+
+| Qué | Cuándo |
+|---|---|
+| Autoevaluación: esta semana se entrega junto con la de la semana del 9 al 13, en una sola tarea de Teams | Hasta el **lunes 16 de noviembre**, a las 23:59 |
