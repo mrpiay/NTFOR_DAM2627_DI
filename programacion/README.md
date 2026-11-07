@@ -70,7 +70,7 @@ En DI la programación evalúa casi todo con las entregas; por eso el examen de 
 | UD6 | 4 % | 96 % |
 | UD7 | 3 % | 97 % |
 
-**UD2:** se califica con lo que conste de su entrega y su examen (entrega del 13 de octubre y examen del 20 de octubre). A quien le falte alguna de las dos partes, la sustituyen los pasos 2 a 4 del proyecto de la semana de diagnóstico, corregidos con los criterios de la UD2.
+**UD2:** se califica con lo que conste de su entrega y su examen (entrega del 13 de octubre y examen del 20 de octubre). A quien le falte alguna de las dos partes, la sustituyen las preguntas de la prueba escrita del jueves 19 de noviembre sobre los pasos 2 a 4 del proyecto de la semana de diagnóstico, corregidas con los criterios de la UD2.
 
 **UD3:** en lugar del examen, el jueves 19 de noviembre hay una **prueba escrita**, en papel, sobre las dos partes del proyecto de diagnóstico, después de publicar sus soluciones (lo que solo se ve en una demostración no entra). La prueba califica todos los criterios de la UD3 salvo documentar, empaquetar y generar ayudas (CA3.6, CA3.7 y CA6.2, el 18 % de la UD3), que se califican en el proyecto integrado del primer trimestre (UD4). La nota de la UD3 se completa así antes del examen final de la 1ª evaluación. La entrega de la UD3, prevista antes del 3 de noviembre, no se tiene en cuenta.
 
