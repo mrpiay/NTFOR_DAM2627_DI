@@ -23,7 +23,7 @@ Cada semana tiene su carpeta, con las fechas de lunes a viernes: `2026_11_02-06`
 | Carpeta | Qué hay | Desde cuándo |
 |---|---|---|
 | `clase/` | Lo que necesitas para trabajar en clase durante la semana, y `entrega.md`: qué se entrega y cuándo | El principio de la semana |
-| `estudio/` | Las guías para estudiar lo visto y la autoevaluación. Se van ampliando a lo largo de la semana | El principio de la semana |
+| `estudio/` | Las guías para estudiar lo visto y la autoevaluación. Puede que sufran modificaciones a lo largo de la semana | El principio de la semana |
 | `soluciones/` | Las soluciones de la autoevaluación y cómo debe quedar lo de la semana | El martes de la semana siguiente |
 
 Junto a cada archivo, GitHub muestra cuándo cambió por última vez y qué se cambió.
