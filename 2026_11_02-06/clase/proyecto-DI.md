@@ -7,7 +7,7 @@
 - **UD1 · Diseño de interfaces, experiencia de usuario y accesibilidad**, **UD2 · Desarrollo de interfaces gráficas con PySide6 y Qt Designer** y **UD3 · Creación de componentes visuales reutilizables**, completas.
 - **UD4 · Interfaces naturales y multimodales**, empezada.
 
-**La idea.** Esta semana es un **punto de control** para **ponernos al día con la programación, en la medida de lo posible**: un proyecto que repasa lo que se debería haber dado hasta ahora, continuando vuestro BugTracker de la Práctica 6 (o recuperándolo con la plantilla, si no lo tenéis): se mejora con la UD1, se completa con lo que falta de la UD2 y se le añade un componente de la UD3. El primer día lo ponemos en común entre todos. Lo que ya sabéis, lo afianzáis; lo que no se llegó a dar, **se explica durante el proyecto**, en el paso donde aparece. El proyecto tiene **dos partes**: esta semana, los pasos 0 a 4 (UD1 y UD2); la semana del 9 al 13 de noviembre, los pasos 5 a 8 (UD3 y UD4).
+**La idea.** Esta semana es un **punto de control** para **ponernos al día con la programación, en la medida de lo posible**: un proyecto que repasa lo que se debería haber dado hasta ahora, continuando vuestro BugTracker de la Práctica 6 (o recuperándolo con la plantilla, si no lo tenéis): se mejora con la UD1, se completa con lo que falta de la UD2 y se le añade un componente de la UD3. Lo que ya sabéis, lo afianzáis; lo que no se llegó a dar, **se explica en el paso donde aparece**. El proyecto tiene **dos partes**: esta semana, los pasos 0 a 4 (UD1 y UD2); la semana del 9 al 13 de noviembre, los pasos 5 a 8 (UD3 y UD4).
 
 **Usa la IA como guía, no para que lo haga por ti.** Pídele los **pasos necesarios** para implementar cada cosa y que te explique lo que no entiendas; **el código lo pones tú en tu proyecto**, aunque sea copiando y pegando, sabiendo **dónde** lo pones y **para qué**: es la única forma de familiarizarte con tu entorno. El objetivo es que lo que hagas **funcione y cumpla los requisitos** de cada paso («Comprueba que…») y que sepas **dónde está cada cosa y qué habría que tocar para cambiar o añadir algo**: es lo que te van a pedir después.
 
@@ -57,7 +57,7 @@ Cada sesión dura 50 minutos.
 | Día | Sesión | Qué hacemos |
 |---|---|---|
 | Martes 3 | 10:10 | Dónde deberíamos estar (el punto de partida), dónde estamos de verdad (puesta en común), qué necesitamos para seguir (contenidos y software) y qué vamos a hacer esta semana (30 min). Presentación del proyecto y **Paso 0** (preparar, 20 min); quien tenga que instalar algo, lo hace mientras. |
-| Martes 3 | 11:00 | **Paso 0**: con el docente, cómo está hecho el BugTracker (15 min). **Paso 1** (evaluación heurística y de accesibilidad, 35 min). |
+| Martes 3 | 11:00 | **Paso 0**: cómo está hecho el BugTracker (15 min). **Paso 1** (evaluación heurística y de accesibilidad, 35 min). |
 | Martes 3 | 12:10 | **Paso 2** (mejoras de accesibilidad en Designer, 30 min) y empezar el **Paso 3** (20 min). |
 | Miércoles 4 | 11:00 | **Paso 3** (acciones, menú, barra de herramientas y diálogo con validación; lo nuevo es la validación) y empezar el **Paso 4**. |
 | Miércoles 4 | 12:10 | **Paso 4** (de `QTableWidget` a Model/View). |
@@ -102,7 +102,7 @@ python main.py
 - *pip falla o no hay red*: haz mientras el paso 1, que no necesita instalar nada, y repite `pip install -r requirements.txt` cuando tengas red.
 - *Tu BugTracker no arranca*: usa la plantilla. No pierdas la sesión arreglando la práctica.
 
-### Lo vemos juntos: cómo está hecho el BugTracker (15 min, con el docente)
+### Cómo está hecho el BugTracker (15 min)
 
 Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí la entiendes; si la hiciste, compárala con la tuya. Abre `bd.py` y `main.py` y recórrelos con esta tabla; no hay que escribir nada.
 

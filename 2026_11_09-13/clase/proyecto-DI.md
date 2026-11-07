@@ -61,7 +61,7 @@ Cada sesión dura 50 minutos.
 | Día | Sesión | Qué hacemos |
 |---|---|---|
 | Martes 10 | 10:10 | **Paso 5** (componente `Buscador`). |
-| Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt, 35 min). Con el docente, guardar el estado, documentar y empaquetar (15 min). |
+| Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt, 35 min). Guardar el estado, documentar y empaquetar (15 min). |
 | Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Qué entra en la prueba escrita del jueves 19 (10 min). |
 | Miércoles 11 | 11:00 y 12:10 | UD4, según el plan del curso. |
 | Jueves 12 | 08:30 y 09:20 | Terminar la 2.ª parte del proyecto y hacer las ampliaciones. |
@@ -180,9 +180,9 @@ Lee las cuatro pruebas: valor por defecto, escribir cambia la propiedad, cambiar
 - *`fixture 'qtbot' not found`*: falta pytest-qt en el entorno activo: `pip install -r requirements.txt`.
 - *`ModuleNotFoundError: No module named 'buscador'`*: ejecuta `python -m pytest` desde la carpeta del proyecto.
 
-### Lo vemos juntos: guardar el estado, documentar y empaquetar (martes, 15 min, con el docente)
+### Guardar el estado, documentar y empaquetar (martes, 15 min)
 
-Es lo que queda de la UD3. El docente enseña funcionando las ampliaciones **A** (la aplicación recuerda el tamaño de la ventana y la última búsqueda con `QSettings`), **B** (`help(buscador.Buscador)` y un `README.md`) y **C** (`pyproject.toml` y `python -m build`). Fíjate en tres cosas: dónde se guarda el estado y cuándo se recupera (`closeEvent` y `__init__`), qué debe contar la documentación de un componente y qué hace falta para instalarlo en otro proyecto. Las haces tú el jueves 12, con lo que explica cada ampliación.
+Es lo que queda de la UD3, en las ampliaciones **A** (la aplicación recuerda el tamaño de la ventana y la última búsqueda con `QSettings`), **B** (`help(buscador.Buscador)` y un `README.md`) y **C** (`pyproject.toml` y `python -m build`). Fíjate en tres cosas: dónde se guarda el estado y cuándo se recupera (`closeEvent` y `__init__`), qué debe contar la documentación de un componente y qué hace falta para instalarlo en otro proyecto. Las haces el jueves 12, con lo que explica cada ampliación.
 
 ### Ampliaciones (jueves 12)
 
