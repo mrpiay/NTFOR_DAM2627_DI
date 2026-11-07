@@ -37,6 +37,6 @@ Junto a cada archivo, GitHub muestra cuándo cambió por última vez y qué se c
 
 ## Cómo usar los materiales
 
-- **Leer:** abre el archivo `.md` aquí mismo; GitHub lo muestra con formato. Los PDF también se ven en el navegador.
+- **Leer:** abre el archivo `.md` aquí mismo; GitHub lo muestra con formato.
 - **Descargar un archivo:** ábrelo y pulsa el botón de descarga (*Download raw file*), arriba a la derecha.
 - **Descargarlo todo:** en esta página, botón verde **Code** → **Download ZIP**.
