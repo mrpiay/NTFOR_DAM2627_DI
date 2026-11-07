@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VentanaPrincipal</class>
+ <widget class="QMainWindow" name="VentanaPrincipal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>BugTracker</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblTitulo">
+        <property name="text">
+         <string>Título:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtTitulo">
+        <property name="placeholderText">
+         <string>Título de la incidencia</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblTipo">
+        <property name="text">
+         <string>Tipo:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="cmbTipo">
+        <item>
+         <property name="text">
+          <string>Error</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Mejora</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nueva funcionalidad</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblPrioridad">
+        <property name="text">
+         <string>Prioridad:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="cmbPrioridad">
+        <item>
+         <property name="text">
+          <string>Baja</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Media</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Alta</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Crítica</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lblEstado">
+        <property name="text">
+         <string>Estado:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="cmbEstado">
+        <item>
+         <property name="text">
+          <string>Pendiente</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>En proceso</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Resuelta</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="lblDescripcion">
+        <property name="text">
+         <string>Descripción:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QTextEdit" name="txtDescripcion">
+        <property name="placeholderText">
+         <string>Describe la incidencia...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnAnadir">
+        <property name="text">
+         <string>Añadir</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnModificar">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Modificar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnEliminar">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Eliminar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnLimpiar">
+        <property name="text">
+         <string>Limpiar</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tblIncidencias">
+      <property name="editTriggers">
+       <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+      </property>
+      <column>
+       <property name="text">
+        <string>ID</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Título</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tipo</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Prioridad</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Estado</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>760</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>txtTitulo</tabstop>
+  <tabstop>cmbTipo</tabstop>
+  <tabstop>cmbPrioridad</tabstop>
+  <tabstop>cmbEstado</tabstop>
+  <tabstop>txtDescripcion</tabstop>
+  <tabstop>btnAnadir</tabstop>
+  <tabstop>btnModificar</tabstop>
+  <tabstop>btnEliminar</tabstop>
+  <tabstop>btnLimpiar</tabstop>
+  <tabstop>tblIncidencias</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
