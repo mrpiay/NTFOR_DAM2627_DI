@@ -2,13 +2,13 @@
 
 ## Punto de partida
 
-Es la continuación de la 1.ª parte (semana del 2 al 6 de noviembre, pasos 0 a 4): el BugTracker con acciones, menú, barra de herramientas, diálogo con validación y la tabla con Model/View. En esta 2.ª parte le añades un **componente reutilizable** con sus **pruebas automáticas** (UD3), lo pruebas con otra persona (UD1) y piensas en las **interfaces naturales** (UD4).
+Es la continuación de la 1.ª parte (semana del 2 al 6 de noviembre, pasos 0 a 4): el BugTracker con acciones, menú, barra de herramientas, diálogo con validación y la tabla con Model/View. En esta 2.ª parte le añades un **componente reutilizable** con sus **pruebas automáticas** (UD3), lo pruebas con otra persona (UD1), piensas en las **interfaces naturales** (UD4) y, para terminar la UD3, la aplicación **recuerda su estado** y el componente se **documenta** y se **empaqueta**.
 
 **Usa la IA como guía, no para que lo haga por ti.** Pídele los **pasos necesarios** para implementar cada cosa y que te explique lo que no entiendas; **el código lo pones tú en tu proyecto**, aunque sea copiando y pegando, sabiendo **dónde** lo pones y **para qué**: es la única forma de familiarizarte con tu entorno. El objetivo es que lo que hagas **funcione y cumpla los requisitos** de cada paso («Comprueba que…») y que sepas **dónde está cada cosa y qué habría que tocar para cambiar o añadir algo**: es lo que te van a pedir después.
 
 **El objetivo es entender cada paso:** es lo que necesitas para responder los cuestionarios de autoevaluación y preparar la prueba escrita.
 
-**Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 8): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
+**Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 11): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
 
 El proyecto se hace del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
 
@@ -54,13 +54,13 @@ Las de la 1.ª parte: **VS Code** con su terminal (PowerShell), **Python** con e
 |---|---|---|---|
 | **pytest** y **pytest-qt** | pytest ejecuta pruebas automáticas: busca los archivos `test_*.py` y ejecuta sus funciones `test_*`. pytest-qt añade `qtbot`, que simula el teclado y el ratón sobre los widgets | `python -m pytest -v`, en la terminal, con el entorno activado | 5 y 6 |
 | **`help()`** | La ayuda de Python: muestra la documentación (los *docstrings*) de una clase o función | `python -c "import buscador; help(buscador.Buscador)"`; espacio para avanzar y `q` para salir | Ampliación B |
-| **`build`** | Empaqueta un componente para instalarlo con `pip` en otros proyectos | `pip install build` una vez y después `python -m build` | Ampliación C |
+| **`build`** | Empaqueta un componente para instalarlo con `pip` en otros proyectos | `pip install build` una vez y después `python -m build` | 11 |
 
 ## Qué se trabaja
 
 | Unidad | Qué se trabaja | Pasos |
 |---|---|---|
-| UD3 · Componentes reutilizables | componente por composición, propiedad y señal propias, pruebas con pytest-qt, `QSettings`, documentar y empaquetar | 5, 6 y ampliaciones |
+| UD3 · Componentes reutilizables | componente por composición, propiedad y señal propias, pruebas con pytest-qt, `QSettings`, documentar y empaquetar | 5, 6, 9, 10 y 11 |
 | UD1 · Diseño, UX y accesibilidad | prueba de usabilidad | 7 |
 | UD4 · Interfaces naturales | tipos, límites y relación con la accesibilidad | 8 |
 
@@ -71,10 +71,12 @@ Cada sesión dura 50 minutos.
 | Día | Sesión | Qué se hace |
 |---|---|---|
 | Martes 10 | 10:10 | **Paso 5** (componente `Buscador`). |
-| Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt, 35 min). Leer «Guardar el estado, documentar y empaquetar» (15 min). |
+| Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt). |
 | Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Leer qué entra en la prueba escrita del jueves 19, en «Punto de partida» (10 min). |
-| Miércoles 11 | 11:00 y 12:10 | Terminar los pasos 5 a 8 y empezar las ampliaciones. |
-| Jueves 12 | 08:30 y 09:20 | Terminar las ampliaciones. |
+| Miércoles 11 | 11:00 | **Paso 9** (recordar el estado con `QSettings`). |
+| Miércoles 11 | 12:10 | **Paso 10** (documentar el componente). |
+| Jueves 12 | 08:30 | **Paso 11** (empaquetar el componente). |
+| Jueves 12 | 09:20 | Comprobar todo con la lista final («Cómo comprobarlo»). |
 
 **Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior.
 
@@ -190,54 +192,6 @@ Lee las cuatro pruebas: valor por defecto, escribir cambia la propiedad, cambiar
 - *`fixture 'qtbot' not found`*: falta pytest-qt en el entorno activo: `pip install -r requirements.txt`.
 - *`ModuleNotFoundError: No module named 'buscador'`*: ejecuta `python -m pytest` desde la carpeta del proyecto.
 
-### Guardar el estado, documentar y empaquetar (martes, 15 min)
-
-Es lo que queda de la UD3, en las ampliaciones **A** (la aplicación recuerda el tamaño de la ventana y la última búsqueda con `QSettings`), **B** (`help(buscador.Buscador)` y un `README.md`) y **C** (`pyproject.toml` y `python -m build`). Fíjate en tres cosas: dónde se guarda el estado y cuándo se recupera (`closeEvent` y `__init__`), qué debe contar la documentación de un componente y qué hace falta para instalarlo en otro proyecto. Las haces el miércoles 11 y el jueves 12, con lo que explica cada ampliación.
-
-### Ampliaciones (miércoles 11 y jueves 12)
-
-**A. Persistencia con `QSettings`.** Que la aplicación recuerde el tamaño de la ventana y la última búsqueda. Añade `QSettings` al import que ya existe (`from PySide6.QtCore import QSettings, QSortFilterProxyModel, Qt`), llama a `self.restaurar_estado()` al final de `__init__`, después de `self.actualizar_botones()` (necesita `self.buscador` ya creado), y añade estos dos métodos a la clase. En Windows, `QSettings` lo guarda en el registro, en `HKEY_CURRENT_USER\Software\DAM2\BugTracker`:
-
-```python
-    def restaurar_estado(self):
-        ajustes = QSettings("DAM2", "BugTracker")
-        geometria = ajustes.value("ventana/geometria")
-        if geometria is not None:
-            self.restoreGeometry(geometria)
-        self.buscador.texto = ajustes.value("buscador/texto", "")
-
-    def closeEvent(self, evento):
-        ajustes = QSettings("DAM2", "BugTracker")
-        ajustes.setValue("ventana/geometria", self.saveGeometry())
-        ajustes.setValue("buscador/texto", self.buscador.texto)
-        super().closeEvent(evento)
-```
-
-Ojo: al arrancar se recupera la última búsqueda, así que la tabla puede abrirse ya filtrada. Si parece que faltan incidencias, mira el buscador.
-
-**B. Documentar el componente.** El docstring de `Buscador` ya es documentación: compruébalo con `python -c "import buscador; help(buscador.Buscador)"` (pulsa espacio para avanzar y `q` para salir). Escribe además un `README-buscador.md` corto: qué hace, tres líneas de ejemplo de uso, su propiedad, su método y su señal.
-
-**C. Empaquetar el componente.** Para instalarlo con `pip` en otros proyectos se describe en un `pyproject.toml`:
-
-```toml
-[build-system]
-requires = ["setuptools>=61"]
-build-backend = "setuptools.build_meta"
-
-[project]
-name = "buscador-dam"
-version = "0.1.0"
-description = "Componente Buscador para PySide6"
-dependencies = ["PySide6-Essentials"]
-
-[tool.setuptools]
-py-modules = ["buscador"]
-```
-
-Guarda `pyproject.toml` en la carpeta del proyecto, junto a `buscador.py`. Instala `build` una vez con `pip install build`; `python -m build` crea en `dist/` el archivo `buscador_dam-0.1.0-py3-none-any.whl`, que se instala en otro proyecto con `pip install` y la ruta de ese archivo. Lo normal es tener el componente en su propia carpeta, separado de la aplicación.
-
-**D. Otro componente: selector de prioridad.** Un `QWidget` con cinco botones de opción (Todas, Baja, Media, Alta, Crítica), la propiedad `prioridad` (por defecto «Todas») y la señal `prioridadCambiada(str)`. Para filtrar por la columna Prioridad sin romper el `Buscador`, usa un **segundo proxy** encadenado al primero: `self.proxy2 = QSortFilterProxyModel(self)`, `self.proxy2.setSourceModel(self.proxy)`, `self.proxy2.setFilterKeyColumn(3)` y `self.ui.tblIncidencias.setModel(self.proxy2)`. Crea `proxy2` al final de `configurar_tabla()`, antes de que `__init__` conecte `selectionChanged`. En `id_seleccionado`, la traducción se hace dos veces: `fila = self.proxy.mapToSource(self.proxy2.mapToSource(filas[0])).row()`. Para los cinco botones usa `QRadioButton` y un `QButtonGroup`. Con «Todas», filtra con el texto vacío. Pruébalo con pytest-qt como el buscador.
-
 ---
 
 ## Paso 7 · Prueba de usabilidad en parejas (martes, 25 min)
@@ -275,6 +229,89 @@ Al final, elige **las dos mejoras más importantes** y explica por qué. Compár
 
 ---
 
+## Paso 9 · Recordar el estado con `QSettings` (miércoles)
+
+**Objetivo.** Que la aplicación recuerde el tamaño de la ventana y la última búsqueda al volver a abrirla.
+
+**Mini-explicación.** `QSettings` guarda pares clave–valor que siguen ahí al cerrar la aplicación. Se guarda al cerrar la ventana, en `closeEvent` (Qt lo llama solo al cerrarla), y se recupera al arrancar, al final de `__init__`, cuando ya existen la ventana y el buscador.
+
+**Pista.** Añade `QSettings` al import que ya existe (`from PySide6.QtCore import QSettings, QSortFilterProxyModel, Qt`), llama a `self.restaurar_estado()` al final de `__init__`, después de `self.actualizar_botones()` (necesita `self.buscador` ya creado), y añade estos dos métodos a la clase. En Windows, `QSettings` lo guarda en el registro, en `HKEY_CURRENT_USER\Software\DAM2\BugTracker`:
+
+```python
+    def restaurar_estado(self):
+        ajustes = QSettings("DAM2", "BugTracker")
+        geometria = ajustes.value("ventana/geometria")
+        if geometria is not None:
+            self.restoreGeometry(geometria)
+        self.buscador.texto = ajustes.value("buscador/texto", "")
+
+    def closeEvent(self, evento):
+        ajustes = QSettings("DAM2", "BugTracker")
+        ajustes.setValue("ventana/geometria", self.saveGeometry())
+        ajustes.setValue("buscador/texto", self.buscador.texto)
+        super().closeEvent(evento)
+```
+
+Ojo: al arrancar se recupera la última búsqueda, así que la tabla puede abrirse ya filtrada. Si parece que faltan incidencias, mira el buscador.
+
+**Comprueba que…** cambias el tamaño de la ventana, escribes `error` en el buscador, cierras la aplicación y, al volver a abrirla, la ventana tiene el mismo tamaño y el buscador conserva `error`, con la tabla filtrada.
+
+**Si te falla…**
+
+- *`AttributeError: 'VentanaPrincipal' object has no attribute 'buscador'`*: llamas a `restaurar_estado()` antes de `self.configurar_buscador()`. Tiene que ir al final de `__init__`.
+- *`NameError: name 'QSettings' is not defined`*: falta añadirlo al import de `PySide6.QtCore`.
+- *No recuerda nada*: el método se tiene que llamar exactamente `closeEvent`, con esa mayúscula, para que Qt lo llame al cerrar.
+
+---
+
+## Paso 10 · Documentar el componente (miércoles)
+
+**Objetivo.** Que el `Buscador` tenga documentación: la que muestra `help()` y un `README-buscador.md`.
+
+**Pista.** El docstring de `Buscador` ya es documentación: compruébalo con `python -c "import buscador; help(buscador.Buscador)"` (pulsa espacio para avanzar y `q` para salir). Escribe además un `README-buscador.md` corto: qué hace, tres líneas de ejemplo de uso, su propiedad, su método y su señal.
+
+**Comprueba que…** `help(buscador.Buscador)` muestra la descripción del componente, y `README-buscador.md` cuenta qué hace, un ejemplo de uso, su propiedad, su método y su señal.
+
+**Si te falla…**
+
+- *`ModuleNotFoundError: No module named 'buscador'`*: ejecuta la orden desde la carpeta del proyecto, con el entorno virtual activado.
+
+---
+
+## Paso 11 · Empaquetar el componente (jueves)
+
+**Objetivo.** Un archivo `.whl` con el `Buscador`, que se puede instalar con `pip` en otro proyecto.
+
+**Pista.** Para instalarlo con `pip` en otros proyectos se describe en un `pyproject.toml`:
+
+```toml
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "buscador-dam"
+version = "0.1.0"
+description = "Componente Buscador para PySide6"
+dependencies = ["PySide6-Essentials"]
+
+[tool.setuptools]
+py-modules = ["buscador"]
+```
+
+Guarda `pyproject.toml` en la carpeta del proyecto, junto a `buscador.py`. Instala `build` una vez con `pip install build`; `python -m build` crea en `dist/` el archivo `buscador_dam-0.1.0-py3-none-any.whl`, que se instala en otro proyecto con `pip install` y la ruta de ese archivo. Lo normal es tener el componente en su propia carpeta, separado de la aplicación.
+
+`python -m build` necesita conexión a Internet (descarga `setuptools`) y crea en la carpeta del proyecto `build/`, `dist/` y una carpeta que termina en `.egg-info`: son archivos generados.
+
+**Comprueba que…** en `dist/` está el archivo `buscador_dam-0.1.0-py3-none-any.whl`.
+
+**Si te falla…**
+
+- *`No module named build`*: falta `pip install build`, con el entorno virtual activado.
+- *Error al descargar `setuptools`*: no hay conexión a Internet; conéctate y repite.
+
+---
+
 ## Entrega
 
 Qué se entrega esta semana y cuándo: [`entrega.md`](entrega.md).
@@ -285,3 +322,6 @@ Qué se entrega esta semana y cuándo: [`entrega.md`](entrega.md).
 - [ ] `python -m pytest -v` da `5 passed` con tu prueba.
 - [ ] Prueba de usabilidad hecha, con dos mejoras propuestas.
 - [ ] Reflexión de la UD4 escrita.
+- [ ] Al volver a abrir la aplicación, recuerda el tamaño de la ventana y la última búsqueda.
+- [ ] `help(buscador.Buscador)` muestra su documentación y `README-buscador.md` está escrito.
+- [ ] En `dist/` está `buscador_dam-0.1.0-py3-none-any.whl`.

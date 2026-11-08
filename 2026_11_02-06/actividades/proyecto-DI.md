@@ -7,13 +7,13 @@
 - **UD1 · Diseño de interfaces, experiencia de usuario y accesibilidad**, **UD2 · Desarrollo de interfaces gráficas con PySide6 y Qt Designer** y **UD3 · Creación de componentes visuales reutilizables**, completas.
 - **UD4 · Interfaces naturales y multimodales**, empezada.
 
-**La idea.** Esta semana es un **punto de control** para **ponernos al día con la programación, en la medida de lo posible**: un proyecto que repasa lo que se debería haber dado hasta ahora, partiendo de la plantilla, un BugTracker de la Práctica 6 terminado: se mejora con la UD1, se completa con lo que falta de la UD2 y se le añade un componente de la UD3. Lo que ya sabéis, lo afianzáis; lo que no se llegó a dar, **se explica en el paso donde aparece**. El proyecto tiene **dos partes**: esta semana, los pasos 0 a 4 (UD1 y UD2); la semana del 9 al 13 de noviembre, los pasos 5 a 8 (UD3 y UD4).
+**La idea.** Esta semana es un **punto de control** para **ponernos al día con la programación, en la medida de lo posible**: un proyecto que repasa lo que se debería haber dado hasta ahora, partiendo de la plantilla, un BugTracker de la Práctica 6 terminado: se mejora con la UD1, se completa con lo que falta de la UD2 y se le añade un componente de la UD3. Lo que ya sabéis, lo afianzáis; lo que no se llegó a dar, **se explica en el paso donde aparece**. El proyecto tiene **dos partes**: esta semana, los pasos 0 a 4 (UD1 y UD2); la semana del 9 al 13 de noviembre, los pasos 5 a 11 (UD3 y UD4).
 
 **Usa la IA como guía, no para que lo haga por ti.** Pídele los **pasos necesarios** para implementar cada cosa y que te explique lo que no entiendas; **el código lo pones tú en tu proyecto**, aunque sea copiando y pegando, sabiendo **dónde** lo pones y **para qué**: es la única forma de familiarizarte con tu entorno. El objetivo es que lo que hagas **funcione y cumpla los requisitos** de cada paso («Comprueba que…») y que sepas **dónde está cada cosa y qué habría que tocar para cambiar o añadir algo**: es lo que te van a pedir después.
 
 **El objetivo es entender cada paso:** es lo que necesitas para responder los cuestionarios de autoevaluación y preparar la prueba escrita.
 
-**Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 8): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
+**Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 11): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
 
 **Y la UD2.** Su nota sale de su entrega y su examen de octubre. Si te falta alguna de las dos, la sustituyen las preguntas de la prueba escrita del jueves 19 de noviembre sobre los pasos 2 a 4 de este proyecto, corregidas con los criterios de la UD2.
 
@@ -63,7 +63,7 @@ Todo se hace en **Visual Studio Code** (VS Code), con su terminal. Cómo instala
 | UD1 · Diseño, UX y accesibilidad | heurísticas de Nielsen, accesibilidad (contraste, teclado, etiquetas, mensajes), wireframe | 1 y 2 |
 | UD2 · PySide6 y Qt Designer | Qt Designer y `pyside6-uic`, señales y slots, acciones, menús, barra de herramientas, diálogos y validación, SQLite, Model/View | 2, 3 y 4 |
 
-La UD3 y la UD4 (pasos 5 a 8) van en la 2.ª parte.
+La UD3 y la UD4 (pasos 5 a 11) van en la 2.ª parte.
 
 ## Plan de la semana
 

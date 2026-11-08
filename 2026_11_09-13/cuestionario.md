@@ -97,11 +97,11 @@ def test_mayusculas(qtbot):
 
 **15.** Quieres usar el mismo `Buscador` en otra aplicación, por ejemplo un editor de notas. ¿Qué tendrías que hacer en esa aplicación? ¿Habría que cambiar algo de `buscador.py`?
 
-**16.** En la ampliación A, ¿qué guarda `QSettings` y dónde lo guarda en Windows? ¿En qué método se guarda y en cuál se recupera? ¿Por qué `restaurar_estado()` se llama al final de `__init__`?
+**16.** En el paso 9, ¿qué guarda `QSettings` y dónde lo guarda en Windows? ¿En qué método se guarda y en cuál se recupera? ¿Por qué `restaurar_estado()` se llama al final de `__init__`?
 
 **17.** ¿Qué muestra `python -c "import buscador; help(buscador.Buscador)"` y de dónde sale ese texto? ¿Qué debe contar la documentación de un componente?
 
-**18.** En la ampliación C, ¿para qué sirve `pyproject.toml`? ¿Qué crea `python -m build` y cómo se instala lo que crea en otro proyecto?
+**18.** En el paso 11, ¿para qué sirve `pyproject.toml`? ¿Qué crea `python -m build` y cómo se instala lo que crea en otro proyecto?
 
 **19.** En la prueba de usabilidad del paso 7, ¿por qué quien prueba no recibe ayuda y piensa en voz alta? ¿Qué se apunta de cada tarea?
 
