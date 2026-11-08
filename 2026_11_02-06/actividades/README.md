@@ -8,5 +8,4 @@ Las actividades de la semana y lo que se entrega. El cuestionario está en [`cue
 | [`plantilla`](plantilla) | El punto de partida del proyecto: un BugTracker de la Práctica 6 terminado |
 | [`software-DI.md`](software-DI.md) | El software: qué hay que tener instalado y cómo comprobarlo |
 | [`designer-regenerar/designer-regenerar.md`](designer-regenerar/designer-regenerar.md) | Cambiar la interfaz en Qt Designer y verlo en la aplicación, paso a paso y con capturas |
-| [`ejercicio-lista-dialogo/ejercicio-lista-dialogo.md`](ejercicio-lista-dialogo/ejercicio-lista-dialogo.md) | Ejercicio: un problema de usabilidad del BugTracker (formulario y diálogo duplicados) y cómo arreglarlo |
 | [`entrega.md`](entrega.md) | Qué se entrega esta semana y cuándo |
