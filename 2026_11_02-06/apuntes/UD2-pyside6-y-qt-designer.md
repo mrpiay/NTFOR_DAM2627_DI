@@ -1,6 +1,6 @@
 # UD2 · Interfaces gráficas con PySide6 y Qt Designer
 
-Lo básico que hay que saber de la UD2. Cada apartado tiene la idea clave, lo que tienes que saber y, cuando hay conceptos que se confunden, una tabla para compararlos. Los ejemplos son del BugTracker del proyecto. Las preguntas para comprobar que lo entiendes están en los cuestionarios de autoevaluación.
+Lo básico que hay que saber de la UD2. Cada apartado tiene la idea clave, lo que tienes que saber y, cuando hay conceptos que se confunden, una tabla para compararlos. Los ejemplos son del BugTracker del proyecto. Las preguntas para comprobar que lo entiendes están en el [cuestionario](../cuestionario.md) de la semana, en «Cuestiones sobre los apuntes».
 
 ---
 
