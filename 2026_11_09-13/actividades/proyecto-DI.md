@@ -10,7 +10,7 @@ Es la continuación de la 1.ª parte (semana del 2 al 6 de noviembre, pasos 0 a 
 
 **Evaluación continua.** Algunas semanas hay una **prueba escrita, en papel,** en las dos últimas sesiones del último día de clase, después de que se publiquen las soluciones de lo que entra. La primera es el **jueves 19 de noviembre**, sobre **las dos partes del proyecto** (pasos 0 a 8): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt, y el propio proyecto.
 
-Del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
+El proyecto se hace del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
 
 ## Con qué trabajas
 
@@ -58,7 +58,7 @@ Las de la 1.ª parte: **VS Code** con su terminal (PowerShell), **Python** con e
 
 ## Qué se trabaja
 
-| Unidad | Qué repasamos | Pasos |
+| Unidad | Qué se trabaja | Pasos |
 |---|---|---|
 | UD3 · Componentes reutilizables | componente por composición, propiedad y señal propias, pruebas con pytest-qt, `QSettings`, documentar y empaquetar | 5, 6 y ampliaciones |
 | UD1 · Diseño, UX y accesibilidad | prueba de usabilidad | 7 |
@@ -68,7 +68,7 @@ Las de la 1.ª parte: **VS Code** con su terminal (PowerShell), **Python** con e
 
 Cada sesión dura 50 minutos.
 
-| Día | Sesión | Qué hacemos |
+| Día | Sesión | Qué se hace |
 |---|---|---|
 | Martes 10 | 10:10 | **Paso 5** (componente `Buscador`). |
 | Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt, 35 min). Leer «Guardar el estado, documentar y empaquetar» (15 min). |
@@ -124,7 +124,7 @@ Los demás métodos son de una o dos líneas. Sustituye en cada uno el comentari
 - `_get_texto`: `return self._caja.text()`;
 - `_set_texto`: `self._caja.setText(valor)`.
 
-Para integrarlo en `main.py`: descomenta `from buscador import Buscador` (si tu `main.py` no tiene los `TODO`, añade esa línea con los demás imports); descomenta `self.configurar_buscador()`, justo después de `self.configurar_tabla()`; y añade este método dentro de la clase, en lugar del comentario `# TODO Paso 5` del final:
+Para integrarlo en `main.py`: sustituye la línea `# TODO Paso 5: from buscador import Buscador` por `from buscador import Buscador` (sin `#` ni `TODO Paso 5:`; si tu `main.py` no tiene los `TODO`, añade esa línea con los demás imports); sustituye `# TODO Paso 5: self.configurar_buscador()` por `self.configurar_buscador()` (si no está, añádela justo debajo de `self.configurar_tabla()`); y añade este método dentro de la clase, en lugar del comentario `# TODO Paso 5` del final:
 
 ```python
     def configurar_buscador(self):

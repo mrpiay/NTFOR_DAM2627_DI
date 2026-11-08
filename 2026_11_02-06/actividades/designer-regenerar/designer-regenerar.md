@@ -93,6 +93,8 @@ Cierra la ventana al acabar.
 
 En la terminal, la flecha ↑ recupera las órdenes anteriores: no hace falta escribirlas otra vez.
 
+Para seguir con el proyecto, deja el botón como pide el paso 2: vuelve a poner `&Limpiar` en Designer, guarda y regenera.
+
 ## Si no ves el cambio
 
 | Qué pasa | Por qué | Qué hacer |

@@ -11,4 +11,4 @@
 | Autoevaluación de esta semana y de la anterior ([semana del 2 al 6](../../2026_11_02-06/cuestionario.md)), en una sola tarea de Teams | Hasta el **lunes 16 de noviembre**, a las 23:59 |
 | Soluciones de las dos autoevaluaciones y el proyecto completo, en [`soluciones/`](../soluciones) | **Martes 17 de noviembre** |
 
-La prueba escrita sobre las dos partes del proyecto es el **jueves 19 de noviembre**, después de que se publiquen las soluciones: está en las fechas importantes del repositorio.
+La prueba escrita sobre las dos partes del proyecto es el **jueves 19 de noviembre**, después de que se publiquen las soluciones: está en las [fechas importantes](../../README.md) del repositorio.

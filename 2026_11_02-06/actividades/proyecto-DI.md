@@ -2,7 +2,7 @@
 
 ## Punto de partida
 
-**Hasta esta fecha, según la programación del módulo, deberíais haber estudiado:**
+**Hasta esta fecha, según la programación del módulo, se tendrían que haber estudiado:**
 
 - **UD1 · Diseño de interfaces, experiencia de usuario y accesibilidad**, **UD2 · Desarrollo de interfaces gráficas con PySide6 y Qt Designer** y **UD3 · Creación de componentes visuales reutilizables**, completas.
 - **UD4 · Interfaces naturales y multimodales**, empezada.
@@ -17,7 +17,7 @@
 
 **Y la UD2.** Su nota sale de su entrega y su examen de octubre. Si te falta alguna de las dos, la sustituyen las preguntas de la prueba escrita del jueves 19 de noviembre sobre los pasos 2 a 4 de este proyecto, corregidas con los criterios de la UD2.
 
-Del 3 al 5 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
+El proyecto se hace del 3 al 5 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
 
 ## Con qué trabajas
 
@@ -58,7 +58,7 @@ Todo se hace en **Visual Studio Code** (VS Code), con su terminal. Cómo instala
 
 ## Qué se trabaja
 
-| Unidad | Qué repasamos | Pasos |
+| Unidad | Qué se trabaja | Pasos |
 |---|---|---|
 | UD1 · Diseño, UX y accesibilidad | heurísticas de Nielsen, accesibilidad (contraste, teclado, etiquetas, mensajes), wireframe | 1 y 2 |
 | UD2 · PySide6 y Qt Designer | Qt Designer y `pyside6-uic`, señales y slots, acciones, menús, barra de herramientas, diálogos y validación, SQLite, Model/View | 2, 3 y 4 |
@@ -69,7 +69,7 @@ La UD3 y la UD4 (pasos 5 a 8) van en la 2.ª parte.
 
 Cada sesión dura 50 minutos.
 
-| Día | Sesión | Qué hacemos |
+| Día | Sesión | Qué se hace |
 |---|---|---|
 | Martes 3 | 10:10 | Leer «Punto de partida», «Con qué trabajas» y «Las herramientas» (30 min). **Paso 0** (preparar, 20 min); quien tenga que instalar algo, lo hace mientras. |
 | Martes 3 | 11:00 | **Paso 0**: cómo está hecho el BugTracker (15 min). **Paso 1** (evaluación heurística y de accesibilidad, 35 min). |
@@ -81,7 +81,7 @@ Cada sesión dura 50 minutos.
 
 **Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior. Antes de pasar al siguiente, la aplicación debe arrancar.
 
-Cada paso tiene **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Comprueba que…** y **Si te falla…**.
+Cada paso tiene **Objetivo**, **Pista**, **Comprueba que…** y **Si te falla…**; los pasos 1 a 4, además, una **Mini-explicación** (lo justo).
 
 ---
 
@@ -131,7 +131,7 @@ Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí
 | `bd.py` · `crear_bd()` | Crea la tabla `incidencias` si no existe | `CREATE TABLE IF NOT EXISTS`; `commit()` guarda los cambios |
 | `bd.py` · `obtener_…`, `insertar_…`, `actualizar_…`, `eliminar_…` | Las cuatro operaciones: leer, añadir, modificar y borrar (CRUD) | `SELECT`, `INSERT`, `UPDATE`, `DELETE` con `?` en vez de pegar los datos en el texto: evita errores e inyección SQL |
 | `main.py` · `__init__` | Carga la interfaz y conecta los botones | `clicked.connect(self.anadir_incidencia)`: señal → slot |
-| `main.py` · `cargar_incidencias()` | Pide las filas a `bd.py` y rellena la tabla | El modo «a mano» con `QTableWidget`; en el Paso 4 lo cambiamos por Model/View |
+| `main.py` · `cargar_incidencias()` | Pide las filas a `bd.py` y rellena la tabla | El modo «a mano» con `QTableWidget`; en el Paso 4 se cambia por Model/View |
 | `main.py` · `anadir_…`, `modificar_…`, `eliminar_…` | Leen el formulario, llaman a `bd.py` y recargan | Si `bd.py` falla, `main.py` muestra el error con `QMessageBox` |
 
 **La regla de la plantilla:** `main.py` nunca contiene SQL y `bd.py` nunca usa widgets. ¿Por qué conviene separarlos así? ¿Qué habría que cambiar si mañana los datos estuvieran en otra base de datos?
@@ -149,7 +149,7 @@ Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí
   - *Visibilidad del estado del sistema*: la aplicación dice lo que pasa («Incidencia añadida» en la barra de estado).
   - *Prevención de errores*: confirmar antes de eliminar; desactivar «Modificar» si no hay nada seleccionado.
   - *Control y libertad*: poder cancelar o salir («Limpiar», «Cancelar»).
-  - *Consistencia y estándares*: menú «Archivo», atajos habituales (`Ctrl+N`, `Ctrl+S`, `Ctrl+Q`).
+  - *Coherencia y estándares*: menú «Archivo», atajos habituales (`Ctrl+N`, `Ctrl+S`, `Ctrl+Q`).
   - *Reconocer mejor que recordar*: acciones visibles en menús y botones.
   - *Ayudar a reconocer y corregir errores*: mensajes que dicen qué ha pasado y cómo arreglarlo.
 - **Accesibilidad básica**:
@@ -210,7 +210,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 
 ---
 
-## Paso 3 · Acciones, menú, barra de herramientas y diálogo (martes y miércoles, 55 min)
+## Paso 3 · Acciones, menú, barra de herramientas y diálogo (martes y miércoles)
 
 **Objetivo.** Añadir las acciones Nueva, Guardar, Eliminar y Salir con atajos, en un menú y en una barra de herramientas, y un diálogo «Nueva incidencia» que valida los datos.
 
@@ -233,8 +233,8 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
    En el editor de atajos de Designer pulsa la combinación; la tecla Supr aparece como `Del`.
 
 2. Crea el menú: doble clic en «Type Here» de la barra de menús y escribe `&Archivo`. Mete cada acción arrastrándola desde el Action Editor al menú, en este orden: Nueva, Guardar, Eliminar, un separador (*Add Separator*) y Salir.
-3. Añade una barra de herramientas (clic derecho en la ventana → *Add Tool Bar*), con `objectName = toolBarPrincipal` y `toolButtonStyle = ToolButtonTextOnly`, y arrastra a ella Nueva, Guardar y Eliminar. Regenera `ui_bugtracker.py`.
-4. En `main.py`, completa los `TODO Paso 3`. Descomenta el import del diálogo. Las cuatro conexiones van en `__init__`, donde está `# TODO Paso 3: conecta las QAction…`. Los métodos `guardar` y `nueva_incidencia` van donde está `# TODO Paso 3: añade aquí los slots`, debajo de `actualizar_botones()`:
+3. Añade una barra de herramientas (clic derecho en la ventana → *Add Tool Bar*), con `objectName = toolBarPrincipal` y `toolButtonStyle = ToolButtonTextOnly` (en Designer sale como `Qt::ToolButtonTextOnly`), y arrastra a ella Nueva, Guardar y Eliminar. Regenera `ui_bugtracker.py`.
+4. En `main.py`, completa los `TODO Paso 3`. Sustituye la línea `# TODO Paso 3: from dialogo import DialogoIncidencia` por `from dialogo import DialogoIncidencia` (sin `#` ni `TODO Paso 3:`). Las cuatro conexiones van en `__init__`, donde está `# TODO Paso 3: conecta las QAction…`. Los métodos `guardar` y `nueva_incidencia` van donde está `# TODO Paso 3: añade aquí los slots`, debajo de `actualizar_botones()`:
 
 ```python
         self.ui.actionNueva.triggered.connect(self.nueva_incidencia)
@@ -281,6 +281,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
             QMessageBox.critical(self, "Error", "No se ha podido modificar la incidencia.")
             return
         self.cargar_incidencias()
+        self.limpiar_formulario()
         self.statusBar().showMessage("Incidencia modificada", 3000)
 ```
 
@@ -302,7 +303,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 
 ---
 
-## Paso 4 · De `QTableWidget` a Model/View (miércoles, 65 min)
+## Paso 4 · De `QTableWidget` a Model/View (miércoles y jueves)
 
 **Objetivo.** Mostrar las incidencias en un `QTableView` a través de un modelo y un proxy que permitirá filtrar y ordenar.
 
@@ -346,15 +347,22 @@ from PySide6.QtGui import QStandardItem, QStandardItemModel
         tabla.horizontalHeader().setSortIndicator(-1, Qt.SortOrder.AscendingOrder)          # sin orden hasta pulsar una cabecera
 ```
 
-3. Cambia la señal de selección:
+3. En `__init__`, sustituye la línea `self.ui.tblIncidencias.itemSelectionChanged.connect(self.cargar_seleccion)` y su comentario `# TODO Paso 4` por:
 
 ```python
         self.ui.tblIncidencias.selectionModel().selectionChanged.connect(self.cargar_seleccion)
 ```
 
-4. En `cargar_incidencias()`, en lugar de `setRowCount(0)` e `insertRow` + `setItem`:
+4. Sustituye el método `cargar_incidencias()` entero por este. Ya no rellena la tabla celda a celda: rellena el modelo, y la tabla lo muestra sola (las líneas `setColumnHidden` ya están en `configurar_tabla()`):
 
 ```python
+    def cargar_incidencias(self):
+        try:
+            incidencias = bd.obtener_incidencias()
+        except sqlite3.Error:
+            QMessageBox.critical(self, "Error", "No se han podido cargar las incidencias.")
+            return
+
         self.modelo.removeRows(0, self.modelo.rowCount())
         for incidencia in incidencias:
             celdas = []
@@ -363,6 +371,8 @@ from PySide6.QtGui import QStandardItem, QStandardItemModel
                 celda.setEditable(False)
                 celdas.append(celda)
             self.modelo.appendRow(celdas)
+        self.ui.tblIncidencias.clearSelection()
+        self.actualizar_botones()
 ```
 
 5. En `id_seleccionado()`:
@@ -387,7 +397,7 @@ from PySide6.QtGui import QStandardItem, QStandardItemModel
 - *`'QTableView' object has no attribute 'setRowCount'`* (o `setItem`, `selectedItems`): queda código de `QTableWidget`. En Model/View los datos van al **modelo**.
 - *`'NoneType' object has no attribute 'selectionChanged'`*: conectas la señal antes de `setModel`. Llama a `configurar_tabla()` primero.
 - *Se borra otra incidencia*: falta `mapToSource`.
-- *La prioridad se ordena como texto* (Alta, Baja, Crítica, Media): es normal, el orden es alfabético. Para ordenarla por importancia, guarda en cada celda de prioridad un número con `setData(n, Qt.ItemDataRole.UserRole)` y usa `self.proxy.setSortRole(Qt.ItemDataRole.UserRole)`.
+- *La prioridad se ordena como texto* (Alta, Baja, Crítica, Media): es normal, el orden es alfabético.
 
 ---
 
