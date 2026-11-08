@@ -4,7 +4,7 @@ Preguntas sobre la 1.ª parte del proyecto «Mejora tu BugTracker» y sobre los 
 
 En las preguntas con código, crea en la carpeta del proyecto un archivo con el nombre que se indica, pega el código y ejecútalo con el entorno virtual (`.venv\Scripts\python nombre.py`). Copia en tu respuesta lo que sale por pantalla y asegúrate de que lo entiendes: en las pruebas escritas tendrás que explicarlo sin ayuda de la IA.
 
-Si en una pregunta aparece algo que no has visto, búscalo en «Dónde consultar», en el [README de `estudio/`](README.md).
+Si en una pregunta aparece algo que no has visto, búscalo en «Dónde consultar», en el [README de `apuntes/`](apuntes/README.md).
 
 ---
 
@@ -111,7 +111,7 @@ print("ID si no se traduce:", modelo.item(fila_vista, 0).text())
 
 ## Cuestiones sobre los apuntes
 
-Estas preguntas se responden con los apuntes de cada unidad, en `estudio/`.
+Estas preguntas se responden con los apuntes de cada unidad, en `apuntes/`.
 
 **21.** ¿Qué diferencia hay entre usabilidad, accesibilidad y experiencia de usuario?
 

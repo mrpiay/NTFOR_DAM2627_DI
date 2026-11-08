@@ -1,14 +1,13 @@
-# Estudio · semana del 2 al 6 de noviembre
+# Apuntes · semana del 2 al 6 de noviembre
 
-Las guías para estudiar lo visto esta semana, reunidas en un solo sitio.
+Los apuntes de las unidades de esta semana.
 
 | Archivo | Qué es |
 |---|---|
 | [`UD1-diseno-usabilidad-y-accesibilidad.md`](UD1-diseno-usabilidad-y-accesibilidad.md) | Lo básico de la UD1: usabilidad y accesibilidad, heurísticas de Nielsen, estándares, distribución y elección de controles, menús y atajos, y cómo evaluar una interfaz |
 | [`UD2-pyside6-y-qt-designer.md`](UD2-pyside6-y-qt-designer.md) | Lo básico de la UD2: Qt y PySide6, del diseño en Qt Designer al código, controles y layouts, señales y slots, acciones y menús, diálogos, SQLite y Model/View |
-| [`autoevaluacion.md`](autoevaluacion.md) | Preguntas para comprobar lo que has aprendido. Sus respuestas se entregan en Teams (ver [`entrega.md`](../clase/entrega.md)) |
 
-Los apuntes de cada unidad (los archivos que empiezan por `UD`) tienen lo básico. Las preguntas del cuestionario de autoevaluación se responden con ellos y con el proyecto, y las de la prueba escrita salen de lo mismo.
+Cada archivo tiene lo básico de una unidad. Las preguntas del [cuestionario](../cuestionario.md) se responden con ellos y con el proyecto, y las de la prueba escrita salen de lo mismo.
 
 ## Dónde consultar
 

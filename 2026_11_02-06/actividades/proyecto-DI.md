@@ -92,7 +92,7 @@ Cada paso tiene **Objetivo**, **Mini-explicación** (lo justo), **Pista**, **Com
 **Pista.**
 
 1. **Instala** antes lo que indica [`software-DI.md`](software-DI.md): Python 3.12 y VS Code con la extensión Python.
-2. **El proyecto**: descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*) y descomprímelo. Copia la carpeta `2026_11_02-06/clase/plantilla` con el nombre `bugtracker` en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar.
+2. **El proyecto**: descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*) y descomprímelo. Copia la carpeta `2026_11_02-06/actividades/plantilla` con el nombre `bugtracker` en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar.
 3. **Ábrela en VS Code**: *File > Open Folder…*, elige la carpeta `bugtracker` y pulsa *Seleccionar carpeta*. Si pregunta si confías en los autores, *Yes, I trust the authors*. A la izquierda verás sus archivos.
 4. **Abre la terminal**: *Terminal > New Terminal* (`Ctrl+ñ`). Se abre abajo, ya dentro de la carpeta del proyecto. Tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal); si no, en la flecha junto al **+** elige *PowerShell*.
 5. **En la terminal**, una orden detrás de otra: crea el entorno virtual, actívalo, instala las librerías, añade las incidencias de prueba y arranca la aplicación.

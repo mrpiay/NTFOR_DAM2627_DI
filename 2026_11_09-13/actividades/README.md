@@ -1,6 +1,6 @@
-# Clase · semana del 9 al 13 de noviembre
+# Actividades · semana del 9 al 13 de noviembre
 
-Lo que necesitas para trabajar en clase durante la semana.
+Las actividades de la semana y lo que se entrega. El cuestionario está en [`cuestionario.md`](../cuestionario.md).
 
 | Archivo | Qué es |
 |---|---|

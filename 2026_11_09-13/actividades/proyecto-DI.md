@@ -15,7 +15,7 @@ Del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qu�
 ## Con qué trabajas
 
 - **Si terminaste la 1.ª parte y funciona**: sigue en tu carpeta `bugtracker`. Ya tiene `buscador.py` y `test_buscador.py`, que copiaste de la plantilla de la 1.ª parte. Ábrela en VS Code (*File > Open Folder…*), abre la terminal (*Terminal > New Terminal*, `Ctrl+ñ`) y activa el entorno con `.venv\Scripts\Activate.ps1`, si no aparece ya `(.venv)` al principio de la línea.
-- **Si no la terminaste o no te funciona**: cambia el nombre de tu carpeta a `bugtracker-anterior`. Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*), descomprímelo y copia `2026_11_09-13/clase/plantilla` con el nombre `bugtracker`, en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. Es la 1.ª parte terminada. Ábrela en VS Code: *File > Open Folder…*, elige la carpeta `bugtracker` y pulsa *Seleccionar carpeta* (si pregunta si confías en los autores, *Yes, I trust the authors*). Abre la terminal: *Terminal > New Terminal* (`Ctrl+ñ`); tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal). En ella, una orden detrás de otra:
+- **Si no la terminaste o no te funciona**: cambia el nombre de tu carpeta a `bugtracker-anterior`. Descarga el repositorio del módulo (https://github.com/mrpiay/NTFOR_DAM2627_DI → *Code → Download ZIP*), descomprímelo y copia `2026_11_09-13/actividades/plantilla` con el nombre `bugtracker`, en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di\bugtracker`. Es la 1.ª parte terminada. Ábrela en VS Code: *File > Open Folder…*, elige la carpeta `bugtracker` y pulsa *Seleccionar carpeta* (si pregunta si confías en los autores, *Yes, I trust the authors*). Abre la terminal: *Terminal > New Terminal* (`Ctrl+ñ`); tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal). En ella, una orden detrás de otra:
 
   ```
   python -m venv .venv
@@ -253,7 +253,7 @@ Guarda `pyproject.toml` en la carpeta del proyecto, junto a `buscador.py`. Insta
 | 3. Elimina una incidencia y cancela en el último momento; luego elimínala de verdad |  |  |  |  |
 | 4. Intenta guardar una incidencia sin título. ¿Entiendes el mensaje? |  |  |  |  |
 
-Al final, elige **las dos mejoras más importantes** y explica por qué. Compáralas con tu evaluación del paso 1 (las heurísticas y pautas están en el paso 1 de la 1.ª parte, `2026_11_02-06/clase/proyecto-DI.md`): ¿la otra persona encontró problemas que tú no viste?
+Al final, elige **las dos mejoras más importantes** y explica por qué. Compáralas con tu evaluación del paso 1 (las heurísticas y pautas están en el paso 1 de la 1.ª parte, `2026_11_02-06/actividades/proyecto-DI.md`): ¿la otra persona encontró problemas que tú no viste?
 
 **Comprueba que…** la tabla está completa y cada problema está relacionado con una heurística o una pauta.
 

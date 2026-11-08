@@ -1,13 +1,12 @@
-# Estudio · semana del 9 al 13 de noviembre
+# Apuntes · semana del 9 al 13 de noviembre
 
-Las guías para estudiar lo visto esta semana, reunidas en un solo sitio.
+Los apuntes de las unidades de esta semana.
 
 | Archivo | Qué es |
 |---|---|
 | [`UD3-componentes-reutilizables.md`](UD3-componentes-reutilizables.md) | Lo básico de la UD3: componentes reutilizables, propiedades, métodos y señales propias, pruebas con pytest-qt, documentar y empaquetar |
-| [`autoevaluacion.md`](autoevaluacion.md) | Preguntas para comprobar lo que has aprendido. Sus respuestas se entregan en Teams (ver [`entrega.md`](../clase/entrega.md)) |
 
-Los apuntes de cada unidad (los archivos que empiezan por `UD`) tienen lo básico. Las preguntas del cuestionario de autoevaluación se responden con ellos y con el proyecto, y las de la prueba escrita salen de lo mismo.
+Cada archivo tiene lo básico de una unidad. Las preguntas del [cuestionario](../cuestionario.md) se responden con ellos y con el proyecto, y las de la prueba escrita salen de lo mismo.
 
 ## Dónde consultar
 

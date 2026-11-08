@@ -18,22 +18,23 @@ Qué se trabaja en cada evaluación, cuándo y cómo se califica, con los objeti
 
 ## Cómo está organizado
 
-Cada semana tiene su carpeta, con las fechas de lunes a viernes: `2026_11_02-06` es la semana del 2 al 6 de noviembre. Dentro hay tres carpetas:
+Cada semana tiene su carpeta, con las fechas de lunes a viernes: `2026_11_02-06` es la semana del 2 al 6 de noviembre. Dentro hay:
 
-| Carpeta | Qué hay | Desde cuándo |
+| Qué | Qué hay | Desde cuándo |
 |---|---|---|
-| `clase/` | Lo que necesitas para trabajar en clase durante la semana, y `entrega.md`: qué se entrega y cuándo | El principio de la semana |
-| `estudio/` | Las guías para estudiar lo visto y la autoevaluación. Puede que sufran modificaciones a lo largo de la semana | El principio de la semana |
-| `soluciones/` | Las soluciones de la autoevaluación y cómo debe quedar lo de la semana | El martes de la semana siguiente |
+| `actividades/` | El proyecto guiado de la semana y `entrega.md`: qué se entrega y cuándo | El principio de la semana |
+| `apuntes/` | Los apuntes de las unidades de la semana | El principio de la semana |
+| `cuestionario.md` | El cuestionario de autoevaluación: cuestiones sobre el proyecto y sobre los apuntes. Puede que sufra modificaciones a lo largo de la semana | El principio de la semana |
+| `soluciones/` | Las soluciones del cuestionario y cómo debe quedar lo de la semana | El martes de la semana siguiente |
 
 Junto a cada archivo, GitHub muestra cuándo cambió por última vez y qué se cambió.
 
 ## Semanas
 
-| Semana | Clase | Estudio | Soluciones |
-|---|---|---|---|
-| Del 2 al 6 de noviembre | [clase](2026_11_02-06/clase) | [estudio](2026_11_02-06/estudio) | [soluciones](2026_11_02-06/soluciones) |
-| Del 9 al 13 de noviembre | [clase](2026_11_09-13/clase) | [estudio](2026_11_09-13/estudio) | [soluciones](2026_11_09-13/soluciones) |
+| Semana | Actividades | Apuntes | Cuestionario | Soluciones |
+|---|---|---|---|---|
+| Del 2 al 6 de noviembre | [actividades](2026_11_02-06/actividades) | [apuntes](2026_11_02-06/apuntes) | [cuestionario](2026_11_02-06/cuestionario.md) | [soluciones](2026_11_02-06/soluciones) |
+| Del 9 al 13 de noviembre | [actividades](2026_11_09-13/actividades) | [apuntes](2026_11_09-13/apuntes) | [cuestionario](2026_11_09-13/cuestionario.md) | [soluciones](2026_11_09-13/soluciones) |
 
 ## Cómo usar los materiales
 
