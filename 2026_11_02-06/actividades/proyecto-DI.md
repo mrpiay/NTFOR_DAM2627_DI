@@ -56,7 +56,7 @@ Todo se hace en **Visual Studio Code** (VS Code), con su terminal. Cómo instala
 | **pytest** y **pytest-qt** | Ejecutan pruebas automáticas; pytest-qt permite probar ventanas y widgets | `python -m pytest -v` | 0 (y la 2.ª parte) |
 | **diagrams.net** y **WebAIM Contrast Checker** | Dos webs: una para dibujar el boceto y otra para comprobar el contraste de dos colores | En el navegador: app.diagrams.net y webaim.org/resources/contrastchecker | 1 |
 
-## Qué se repasa
+## Qué se trabaja
 
 | Unidad | Qué repasamos | Pasos |
 |---|---|---|
@@ -77,7 +77,7 @@ Cada sesión dura 50 minutos.
 | Miércoles 4 | 11:00 | **Paso 3** (acciones, menú, barra de herramientas y diálogo con validación; lo nuevo es la validación) y empezar el **Paso 4**. |
 | Miércoles 4 | 12:10 | **Paso 4** (de `QTableWidget` a Model/View). |
 | Jueves 5 | 08:30 | Terminar los pasos 3 y 4. |
-| Jueves 5 | 09:20 | Terminar el **Paso 4** y repasar la lista final («Cómo comprobar que está todo bien»). |
+| Jueves 5 | 09:20 | Terminar el **Paso 4** y repasar la lista final («Cómo comprobarlo»). |
 
 **Los pasos se hacen en orden**, cada uno en la sesión que le toca según el plan de la semana: cada paso usa lo del anterior. Antes de pasar al siguiente, la aplicación debe arrancar.
 
@@ -395,7 +395,7 @@ from PySide6.QtGui import QStandardItem, QStandardItemModel
 
 Qué se entrega esta semana y cuándo: [`entrega.md`](entrega.md).
 
-## Cómo comprobar que está todo bien
+## Cómo comprobarlo (lista final)
 
 - [ ] La evaluación tiene al menos cinco problemas con su heurística o pauta, y hay boceto.
 - [ ] Al menos dos mejoras de accesibilidad aplicadas en Designer (buddies y atajos, tabulación, ayudas).

@@ -56,7 +56,7 @@ Las de la 1.ª parte: **VS Code** con su terminal (PowerShell), **Python** con e
 | **`help()`** | La ayuda de Python: muestra la documentación (los *docstrings*) de una clase o función | `python -c "import buscador; help(buscador.Buscador)"`; espacio para avanzar y `q` para salir | Ampliación B |
 | **`build`** | Empaqueta un componente para instalarlo con `pip` en otros proyectos | `pip install build` una vez y después `python -m build` | Ampliación C |
 
-## Qué se repasa
+## Qué se trabaja
 
 | Unidad | Qué repasamos | Pasos |
 |---|---|---|
@@ -279,7 +279,7 @@ Al final, elige **las dos mejoras más importantes** y explica por qué. Compár
 
 Qué se entrega esta semana y cuándo: [`entrega.md`](entrega.md).
 
-## Cómo comprobar que está todo bien
+## Cómo comprobarlo (lista final)
 
 - [ ] El `Buscador` filtra la tabla y tiene propiedad `texto`, método `limpiar()` y señal `busquedaCambiada`.
 - [ ] `python -m pytest -v` da `5 passed` con tu prueba.
