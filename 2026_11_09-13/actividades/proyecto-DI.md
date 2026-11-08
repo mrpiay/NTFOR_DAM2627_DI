@@ -198,7 +198,7 @@ Lee las cuatro pruebas: valor por defecto, escribir cambia la propiedad, cambiar
 
 **Objetivo.** Comprobar con otra persona si tu BugTracker es fácil de usar y accesible, y proponer mejoras.
 
-**Pista.** Intercambiad los ordenadores. Quien prueba **no recibe ayuda** y piensa en voz alta. Quien observa apunta esta tabla en el `notas.md` de quien prueba:
+**Pista.** Otra persona prueba **tu** aplicación, en tu ordenador; tú observas y apuntas esta tabla en **tu** `notas.md`. Después cambiáis los papeles. Quien prueba puede ser cualquiera que no haya usado tu aplicación: un compañero o compañera, o alguien de casa. Quien prueba **no recibe ayuda** y piensa en voz alta:
 
 | Tarea | ¿La consiguió? (sí / con ayuda / no) | Problemas observados | Heurística o pauta afectada | Mejora propuesta |
 |---|---|---|---|---|
