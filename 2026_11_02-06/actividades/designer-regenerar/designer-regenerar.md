@@ -1,11 +1,6 @@
 # DI · Cambiar la interfaz en Qt Designer y verlo en la aplicación
 
-La aplicación no lee el archivo de Designer (`bugtracker.ui`): lee el código Python que se genera a partir de él (`ui_bugtracker.py`). Por eso, después de cambiar algo en Designer hay que **guardar, regenerar el código y volver a lanzar la aplicación**. Esta guía lo hace paso a paso con un ejemplo: cambiar el texto del botón **Limpiar formulario** por **Vaciar formulario**. En las capturas el botón se llama «Limpiar formulario»; en tu proyecto puede llamarse «Limpiar» o «&Limpiar». Se hace igual: cambia su `text` por el que quieras.
-
-| Archivo | Quién lo escribe | Quién lo lee |
-|---|---|---|
-| `bugtracker.ui` | Qt Designer, al guardar | `pyside6-uic`, al regenerar |
-| `ui_bugtracker.py` | `pyside6-uic` | `main.py`, al arrancar la aplicación |
+La aplicación no lee el archivo de Designer (`bugtracker.ui`): lee el código Python que se genera a partir de él (`ui_bugtracker.py`). Por eso, después de cambiar algo en Designer hay que **guardar, regenerar el código y volver a lanzar la aplicación**. Esta guía lo hace paso a paso con un ejemplo: cambiar el texto del botón **Limpiar formulario** por **Vaciar formulario**. En las capturas el botón se llama «Limpiar formulario»; en tu proyecto puede llamarse «Limpiar» o «&Limpiar». Se hace igual: cambia su `text` por el que quieras. El paso de `bugtracker.ui` a `ui_bugtracker.py` se explica en [UD2, apartado 2](../../apuntes/UD2-pyside6-y-qt-designer.md#2-del-diseño-al-código).
 
 Todas las órdenes se escriben en **PowerShell**, en la carpeta del proyecto. En el ejemplo, la carpeta es `C:\dam\di\bugtracker`, y la terminal muestra:
 

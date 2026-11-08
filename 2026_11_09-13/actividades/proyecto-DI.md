@@ -52,8 +52,8 @@ Las de la 1.ª parte: **VS Code** con su terminal (PowerShell), **Python** con e
 
 | Herramienta | Qué es | Cómo se usa | Pasos |
 |---|---|---|---|
-| **pytest** y **pytest-qt** | pytest ejecuta pruebas automáticas: busca los archivos `test_*.py` y ejecuta sus funciones `test_*`. pytest-qt añade `qtbot`, que simula el teclado y el ratón sobre los widgets | `python -m pytest -v`, en la terminal, con el entorno activado | 5 y 6 |
-| **`help()`** | La ayuda de Python: muestra la documentación (los *docstrings*) de una clase o función | `python -c "import buscador; help(buscador.Buscador)"`; espacio para avanzar y `q` para salir | Ampliación B |
+| **pytest** y **pytest-qt** | Ejecutan pruebas automáticas ([UD3, apartado 3](../apuntes/UD3-componentes-reutilizables.md#3-pruebas-unitarias)) | `python -m pytest -v`, en la terminal, con el entorno activado | 5 y 6 |
+| **`help()`** | La ayuda de Python: muestra la documentación (los *docstrings*) de una clase o función | `python -c "import buscador; help(buscador.Buscador)"`; espacio para avanzar y `q` para salir | 10 |
 | **`build`** | Empaqueta un componente para instalarlo con `pip` en otros proyectos | `pip install build` una vez y después `python -m build` | 11 |
 
 ## Qué se trabaja
@@ -88,12 +88,7 @@ Los pasos 5 y 6 tienen **Objetivo**, **Mini-explicación** (lo justo), **Pista**
 
 **Objetivo.** Completar `buscador.py`: un widget propio con una **propiedad** (`texto`), un **método** (`limpiar()`) y una **señal propia** (`busquedaCambiada(str)`), e integrarlo para filtrar la tabla.
 
-**Mini-explicación.**
-
-- Un **componente reutilizable** encapsula aspecto y comportamiento y se usa sin saber cómo está hecho por dentro. Su **API pública** son sus propiedades, métodos y señales.
-- Se puede crear por **herencia** (heredar de un widget y cambiar su comportamiento) o por **composición** (un `QWidget` que contiene otros y los coordina). El `Buscador` se hace por composición.
-- La **señal propia** se declara **en la clase** con `Signal(str)` y se lanza con `emit(...)`. La **propiedad** (`Property`) se lee y se escribe como un atributo (`buscador.texto = "Error"`); con `notify` se indica qué señal avisa de sus cambios.
-- Lo que empieza por `_` es interno: quien use el componente no lo toca.
+**Mini-explicación.** El `Buscador` es un componente por **composición** (un `QWidget` que contiene un `QLineEdit` y un botón) con una propiedad, un método y una señal propia. La señal se declara en la clase, no en `__init__`. Qué es un componente reutilizable, su API pública, la propiedad y la señal: [UD3, apartados 1 y 2](../apuntes/UD3-componentes-reutilizables.md#1-qué-es-un-componente-reutilizable).
 
 La señal, la propiedad y el docstring ya están declarados en la plantilla. Te falta el cuerpo.
 
@@ -146,7 +141,7 @@ Añade también a `configurar_buscador()`, después de la conexión con `setFilt
             self.statusBar().clearMessage()
 ```
 
-La ventana principal **no sabe** que dentro hay un `QLineEdit`: solo usa la señal. Por eso el mismo `Buscador` serviría, sin cambios, en el Editor de notas o en cualquier otra aplicación.
+La ventana principal solo usa la señal del `Buscador`, no lo que tiene dentro: por eso serviría, sin cambios, en otra aplicación ([UD3, apartado 5](../apuntes/UD3-componentes-reutilizables.md#5-usar-el-componente-en-una-aplicación)).
 
 **Comprueba que…**
 
@@ -171,7 +166,7 @@ La ventana principal **no sabe** que dentro hay un `QLineEdit`: solo usa la señ
 
 **Objetivo.** Ejecutar y entender las pruebas automáticas de `test_buscador.py` y añadir una.
 
-**Mini-explicación.** **pytest** busca archivos `test_*.py` y ejecuta las funciones `test_*`; cada `assert` es una comprobación. **pytest-qt** añade `qtbot`, que crea la aplicación Qt, simula teclado y ratón (`keyClicks`, `mouseClick`) y espera señales (`waitSignal`). Cada prueba comprueba una sola cosa y su nombre dice cuál.
+**Mini-explicación.** Las pruebas usan `qtbot` para simular el teclado y el ratón (`keyClicks`, `mouseClick`) y esperar señales (`waitSignal`). Cómo funcionan pytest y pytest-qt, en [UD3, apartado 3](../apuntes/UD3-componentes-reutilizables.md#3-pruebas-unitarias).
 
 **Pista.** Con el entorno activado y desde la carpeta del proyecto:
 
@@ -207,7 +202,9 @@ Lee las cuatro pruebas: valor por defecto, escribir cambia la propiedad, cambiar
 | 3. Elimina una incidencia y cancela en el último momento; luego elimínala de verdad |  |  |  |  |
 | 4. Intenta guardar una incidencia sin título. ¿Entiendes el mensaje? |  |  |  |  |
 
-Al final, elige **las dos mejoras más importantes** y explica por qué. Compáralas con tu evaluación del paso 1 (las heurísticas y pautas están en el paso 1 de la 1.ª parte, `2026_11_02-06/actividades/proyecto-DI.md`): ¿la otra persona encontró problemas que tú no viste?
+Para la columna «Heurística o pauta afectada», las más habituales son, de usabilidad: *visibilidad del estado del sistema*, *prevención de errores*, *control y libertad*, *coherencia y estándares*, *reconocer mejor que recordar* y *ayudar a reconocer y corregir errores*; y de accesibilidad: *contraste*, *uso con teclado*, *etiquetas y atajos* y *no depender solo del color*.
+
+Al final, elige **las dos mejoras más importantes** y explica por qué. Compáralas con tu evaluación del paso 1 de la 1.ª parte: ¿la otra persona encontró problemas que tú no viste?
 
 **Comprueba que…** la tabla está completa y cada problema está relacionado con una heurística o una pauta.
 
@@ -217,9 +214,7 @@ Al final, elige **las dos mejoras más importantes** y explica por qué. Compár
 
 **Objetivo.** Empezar a pensar en otras formas de interacción (UD4).
 
-**Mini-explicación.** Una **interfaz natural** usa formas de comunicarse propias de las personas: **voz**, **gestos**, **movimiento del cuerpo**, **tacto**, **mirada** o **realidad aumentada**. Pueden mejorar la accesibilidad (dictar una incidencia si no puedes usar las manos), pero tienen **límites**: ruido, privacidad, precisión del reconocimiento, cansancio, luz o idioma. Por eso conviene ofrecer siempre una **alternativa** (teclado, ratón).
-
-**Pista.** En `notas.md`, en tres o cuatro líneas:
+**Pista.** Lee [UD4, apartado 1](../apuntes/UD4-interfaces-naturales.md#1-interfaces-naturales-tipos-ventajas-y-límites) y responde en `notas.md`, en tres o cuatro líneas:
 
 1. ¿Qué interfaz natural añadirías al BugTracker y para qué (por ejemplo, dictar la descripción)?
 2. ¿A quién le ayudaría?
@@ -233,9 +228,9 @@ Al final, elige **las dos mejoras más importantes** y explica por qué. Compár
 
 **Objetivo.** Que la aplicación recuerde el tamaño de la ventana y la última búsqueda al volver a abrirla.
 
-**Mini-explicación.** `QSettings` guarda pares clave–valor que siguen ahí al cerrar la aplicación. Se guarda al cerrar la ventana, en `closeEvent` (Qt lo llama solo al cerrarla), y se recupera al arrancar, al final de `__init__`, cuando ya existen la ventana y el buscador.
+**Mini-explicación.** `QSettings` guarda pares clave–valor que siguen ahí al cerrar la aplicación. Se guarda al cerrar la ventana, en `closeEvent` (Qt lo llama solo al cerrarla), y se recupera al arrancar, al final de `__init__`, cuando ya existen la ventana y el buscador ([UD3, apartado 4](../apuntes/UD3-componentes-reutilizables.md#4-documentar-y-empaquetar)).
 
-**Pista.** Añade `QSettings` al import que ya existe (`from PySide6.QtCore import QSettings, QSortFilterProxyModel, Qt`), llama a `self.restaurar_estado()` al final de `__init__`, después de `self.actualizar_botones()` (necesita `self.buscador` ya creado), y añade estos dos métodos a la clase. En Windows, `QSettings` lo guarda en el registro, en `HKEY_CURRENT_USER\Software\DAM2\BugTracker`:
+**Pista.** Añade `QSettings` al import que ya existe (`from PySide6.QtCore import QSettings, QSortFilterProxyModel, Qt`), llama a `self.restaurar_estado()` al final de `__init__`, después de `self.actualizar_botones()` (necesita `self.buscador` ya creado), y añade estos dos métodos a la clase:
 
 ```python
     def restaurar_estado(self):
@@ -282,7 +277,7 @@ Ojo: al arrancar se recupera la última búsqueda, así que la tabla puede abrir
 
 **Objetivo.** Un archivo `.whl` con el `Buscador`, que se puede instalar con `pip` en otro proyecto.
 
-**Pista.** Para instalarlo con `pip` en otros proyectos se describe en un `pyproject.toml`:
+**Pista.** Para instalarlo con `pip` en otros proyectos, el componente se describe en un `pyproject.toml` ([UD3, apartado 4](../apuntes/UD3-componentes-reutilizables.md#4-documentar-y-empaquetar)):
 
 ```toml
 [build-system]
@@ -299,7 +294,7 @@ dependencies = ["PySide6-Essentials"]
 py-modules = ["buscador"]
 ```
 
-Guarda `pyproject.toml` en la carpeta del proyecto, junto a `buscador.py`. Instala `build` una vez con `pip install build`; `python -m build` crea en `dist/` el archivo `buscador_dam-0.1.0-py3-none-any.whl`, que se instala en otro proyecto con `pip install` y la ruta de ese archivo. Lo normal es tener el componente en su propia carpeta, separado de la aplicación.
+Guarda `pyproject.toml` en la carpeta del proyecto, junto a `buscador.py`. Instala `build` una vez con `pip install build`; `python -m build` crea en `dist/` el archivo `buscador_dam-0.1.0-py3-none-any.whl`, que se instala en otro proyecto con `pip install` y la ruta de ese archivo.
 
 `python -m build` necesita conexión a Internet (descarga `setuptools`) y crea en la carpeta del proyecto `build/`, `dist/` y una carpeta que termina en `.egg-info`: son archivos generados.
 

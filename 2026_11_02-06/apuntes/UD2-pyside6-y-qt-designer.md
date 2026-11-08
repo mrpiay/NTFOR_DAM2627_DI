@@ -115,6 +115,7 @@ bugtracker.ui  ──(pyside6-uic)──►  ui_bugtracker.py  ──(import y s
 - **SQLite** es una base de datos en un solo archivo (`bugtracker.db`), sin servidor. Python la trae: `import sqlite3`.
 - Las operaciones básicas, **CRUD**: crear (`INSERT`), leer (`SELECT`), actualizar (`UPDATE`) y borrar (`DELETE`).
 - Los datos se pasan con **`?`** y no pegados en el texto de la consulta: así no se rompe con una comilla y se evita la **inyección SQL**.
+- `row_factory = sqlite3.Row` permite leer cada columna por su nombre (`fila["titulo"]`); `CREATE TABLE IF NOT EXISTS` crea la tabla solo si no existe; y **`commit()`** guarda los cambios: sin él, lo que hacen `INSERT`, `UPDATE` y `DELETE` se pierde.
 - **Separación:** `bd.py` tiene todo el SQL y no usa ningún control; `main.py` tiene la interfaz y no tiene SQL. Si se cambia de base de datos, solo se toca `bd.py`.
 
 ---
@@ -129,6 +130,7 @@ bugtracker.ui  ──(pyside6-uic)──►  ui_bugtracker.py  ──(import y s
 - **Model/View**: un modelo (`QStandardItemModel`) con los datos, una vista (`QTableView`) que los dibuja y, entre los dos, un **`QSortFilterProxyModel`** que ordena y filtra.
 - Al ordenar o filtrar, la fila que se ve no es la misma que la del modelo. **`mapToSource`** traduce la fila de la vista a la del modelo, para modificar o borrar la incidencia correcta.
 - La columna del **ID** se oculta (`setColumnHidden`), pero sigue en el modelo: identifica la incidencia aunque cambie su posición.
+- El modelo puede ser un **`QStandardItemModel`**, que se rellena con los datos que da `bd.py` (así `main.py` sigue sin SQL), o un **`QSqlTableModel`** (módulo `QtSql`), que lee la tabla directamente de la base de datos, pero se salta `bd.py`.
 
 **Compara**
 

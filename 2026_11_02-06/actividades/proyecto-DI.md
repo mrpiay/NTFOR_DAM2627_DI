@@ -47,13 +47,13 @@ Todo se hace en **Visual Studio Code** (VS Code), con su terminal. Cómo instala
 
 | Herramienta | Qué es | Cómo se usa | Pasos |
 |---|---|---|---|
-| **VS Code** | El editor: abre la carpeta del proyecto, muestra sus archivos y tiene una terminal integrada | *File > Open Folder…* abre la carpeta. La terminal, abajo: *Terminal > New Terminal* (`Ctrl+ñ` con teclado español), de tipo **PowerShell** | Todos |
-| **Python** y el **entorno virtual** (`.venv`) | Python ejecuta la aplicación. El entorno virtual es una carpeta del proyecto con su propio Python y las librerías de este proyecto, que se instalan con `pip` a partir de `requirements.txt` | Se crea y se activa en el paso 0. Activado, la terminal muestra `(.venv)` al principio de la línea | Todos |
-| **PySide6** | La librería de interfaces gráficas (Qt para Python): ventanas, botones, tablas, señales y slots | Se importa en el código: `from PySide6.QtWidgets import …` | Todos |
-| **Qt Designer** | Un programa para diseñar la ventana arrastrando widgets y cambiando sus propiedades. Guarda el diseño en `bugtracker.ui` | `Start-Process .venv\Scripts\pyside6-designer.exe -ArgumentList bugtracker.ui -WindowStyle Hidden` | 2, 3 y 4 |
-| **`pyside6-uic`** | Convierte `bugtracker.ui` en `ui_bugtracker.py`, que es lo que carga la aplicación | `pyside6-uic bugtracker.ui -o ui_bugtracker.py`, cada vez que guardas en Designer | 2, 3 y 4 |
-| **SQLite** | La base de datos: un solo archivo, `bugtracker.db`. Viene con Python | Se usa desde `bd.py`, que ya está hecho | Ninguno |
-| **pytest** y **pytest-qt** | Ejecutan pruebas automáticas; pytest-qt permite probar ventanas y widgets | `python -m pytest -v` | 0 (y la 2.ª parte) |
+| **VS Code** | El editor, con terminal integrada | *File > Open Folder…* abre la carpeta. La terminal, abajo: *Terminal > New Terminal* (`Ctrl+ñ` con teclado español), de tipo **PowerShell** | Todos |
+| **Python** y el **entorno virtual** (`.venv`) | Python ejecuta la aplicación; el entorno virtual guarda las librerías del proyecto ([UD2, apartado 1](../apuntes/UD2-pyside6-y-qt-designer.md#1-herramientas-y-librerías)) | Se crea y se activa en el paso 0. Activado, la terminal muestra `(.venv)` al principio de la línea | Todos |
+| **PySide6** | La librería de interfaces gráficas ([UD2, apartado 1](../apuntes/UD2-pyside6-y-qt-designer.md#1-herramientas-y-librerías)) | Se importa en el código: `from PySide6.QtWidgets import …` | Todos |
+| **Qt Designer** | El programa para diseñar la ventana; guarda el diseño en `bugtracker.ui` | `Start-Process .venv\Scripts\pyside6-designer.exe -ArgumentList bugtracker.ui -WindowStyle Hidden` | 2, 3 y 4 |
+| **`pyside6-uic`** | Convierte `bugtracker.ui` en `ui_bugtracker.py` ([UD2, apartado 2](../apuntes/UD2-pyside6-y-qt-designer.md#2-del-diseño-al-código)) | `pyside6-uic bugtracker.ui -o ui_bugtracker.py`, cada vez que guardas en Designer | 2, 3 y 4 |
+| **SQLite** | La base de datos, en un archivo: `bugtracker.db` ([UD2, apartado 7](../apuntes/UD2-pyside6-y-qt-designer.md#7-datos-con-sqlite)) | Se usa desde `bd.py`, que ya está hecho | Ninguno |
+| **pytest** y **pytest-qt** | Ejecutan pruebas automáticas | `python -m pytest -v` | 0 (y la 2.ª parte) |
 | **diagrams.net** y **WebAIM Contrast Checker** | Dos webs: una para dibujar el boceto y otra para comprobar el contraste de dos colores | En el navegador: app.diagrams.net y webaim.org/resources/contrastchecker | 1 |
 
 ## Qué se trabaja
@@ -125,14 +125,16 @@ Cada paso tiene **Objetivo**, **Pista**, **Comprueba que…** y **Si te falla…
 
 Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí la entiendes; si la hiciste, compárala con la tuya. Abre `bd.py` y `main.py` (con un clic en el panel de archivos de VS Code, a la izquierda) y recórrelos con esta tabla; no hay que escribir nada.
 
-| Dónde | Qué hace | Qué hay que saber |
-|---|---|---|
-| `bd.py` · `conectar()` | Abre la base de datos `bugtracker.db` | `sqlite3` viene con Python; `row_factory = sqlite3.Row` permite leer `fila["titulo"]` |
-| `bd.py` · `crear_bd()` | Crea la tabla `incidencias` si no existe | `CREATE TABLE IF NOT EXISTS`; `commit()` guarda los cambios |
-| `bd.py` · `obtener_…`, `insertar_…`, `actualizar_…`, `eliminar_…` | Las cuatro operaciones: leer, añadir, modificar y borrar (CRUD) | `SELECT`, `INSERT`, `UPDATE`, `DELETE` con `?` en vez de pegar los datos en el texto: evita errores e inyección SQL |
-| `main.py` · `__init__` | Carga la interfaz y conecta los botones | `clicked.connect(self.anadir_incidencia)`: señal → slot |
-| `main.py` · `cargar_incidencias()` | Pide las filas a `bd.py` y rellena la tabla | El modo «a mano» con `QTableWidget`; en el Paso 4 se cambia por Model/View |
-| `main.py` · `anadir_…`, `modificar_…`, `eliminar_…` | Leen el formulario, llaman a `bd.py` y recargan | Si `bd.py` falla, `main.py` muestra el error con `QMessageBox` |
+| Dónde | Qué hace |
+|---|---|
+| `bd.py` · `conectar()` | Abre la base de datos `bugtracker.db` |
+| `bd.py` · `crear_bd()` | Crea la tabla `incidencias` si no existe |
+| `bd.py` · `obtener_…`, `insertar_…`, `actualizar_…`, `eliminar_…` | Las cuatro operaciones: leer, añadir, modificar y borrar (CRUD) |
+| `main.py` · `__init__` | Carga la interfaz y conecta los botones (`clicked.connect(...)`) |
+| `main.py` · `cargar_incidencias()` | Pide las filas a `bd.py` y rellena la tabla, celda a celda (en el Paso 4 se cambia por Model/View) |
+| `main.py` · `anadir_…`, `modificar_…`, `eliminar_…` | Leen el formulario, llaman a `bd.py` y recargan; si `bd.py` falla, muestran el error con `QMessageBox` |
+
+Lo que hay que saber de SQLite y del código de `bd.py` está en [UD2, apartado 7](../apuntes/UD2-pyside6-y-qt-designer.md#7-datos-con-sqlite), y lo de las señales, en el [apartado 4](../apuntes/UD2-pyside6-y-qt-designer.md#4-señales-y-slots).
 
 **La regla de la plantilla:** `main.py` nunca contiene SQL y `bd.py` nunca usa widgets. ¿Por qué conviene separarlos así? ¿Qué habría que cambiar si mañana los datos estuvieran en otra base de datos?
 
@@ -142,22 +144,7 @@ Es la Práctica 6 (SQLite), la base de todo el proyecto. Si no la hiciste, aquí
 
 **Objetivo.** Revisar el BugTracker como lo haría una persona experta en usabilidad y hacer una lista de mejoras.
 
-**Mini-explicación.**
-
-- **UI** es lo que se ve y se toca; **UX** es cómo le va a quien la usa: si consigue lo que quiere, rápido y sin frustrarse.
-- Una **evaluación heurística** consiste en recorrer la interfaz con una lista de principios y apuntar dónde no se cumplen. Algunas **heurísticas de Nielsen**:
-  - *Visibilidad del estado del sistema*: la aplicación dice lo que pasa («Incidencia añadida» en la barra de estado).
-  - *Prevención de errores*: confirmar antes de eliminar; desactivar «Modificar» si no hay nada seleccionado.
-  - *Control y libertad*: poder cancelar o salir («Limpiar», «Cancelar»).
-  - *Coherencia y estándares*: menú «Archivo», atajos habituales (`Ctrl+N`, `Ctrl+S`, `Ctrl+Q`).
-  - *Reconocer mejor que recordar*: acciones visibles en menús y botones.
-  - *Ayudar a reconocer y corregir errores*: mensajes que dicen qué ha pasado y cómo arreglarlo.
-- **Accesibilidad básica**:
-  - contraste suficiente: en WCAG nivel AA, al menos **4,5:1** para texto normal (compruébalo con WebAIM Contrast Checker);
-  - todo se puede hacer con el **teclado**, con un orden de tabulación lógico;
-  - cada campo tiene una **etiqueta asociada** (*buddy*) y, si la etiqueta lleva `&`, un atajo `Alt+letra` que lleva al campo;
-  - la información **no depende solo del color**;
-  - mensajes **breves y claros**.
+**Mini-explicación.** Una **evaluación heurística** recorre la interfaz con una lista de principios y apunta dónde no se cumplen. Las heurísticas de Nielsen están en [UD1, apartado 2](../apuntes/UD1-diseno-usabilidad-y-accesibilidad.md#2-las-heurísticas-de-nielsen); las pautas de accesibilidad (contraste, teclado, *buddy*, color), en el [apartado 3](../apuntes/UD1-diseno-usabilidad-y-accesibilidad.md#3-accesibilidad); y cómo se evalúa, en el [apartado 7](../apuntes/UD1-diseno-usabilidad-y-accesibilidad.md#7-evaluar-la-usabilidad-y-la-accesibilidad). El contraste se comprueba con WebAIM Contrast Checker.
 
 **Pista.** Crea `notas.md` en la carpeta de tu proyecto y recorre tu aplicación **sin ratón** durante cinco minutos. Después escribe en `notas.md` una tabla con **al menos cinco problemas**:
 
@@ -173,7 +160,7 @@ Por último, haz un **boceto rápido** (wireframe, en papel o en diagrams.net) d
 
 **Comprueba que…** tienes al menos cinco problemas, cada uno con su heurística o pauta y una mejora, y el boceto.
 
-**Si te falla…** *No te acuerdas de las heurísticas*: usa la lista de arriba; con cinco problemas bien justificados basta.
+**Si te falla…** *No te acuerdas de las heurísticas*: están en [UD1, apartado 2](../apuntes/UD1-diseno-usabilidad-y-accesibilidad.md#2-las-heurísticas-de-nielsen); con cinco problemas bien justificados basta.
 
 ---
 
@@ -181,7 +168,7 @@ Por último, haz un **boceto rápido** (wireframe, en papel o en diagrams.net) d
 
 **Objetivo.** Aplicar en `bugtracker.ui` mejoras de accesibilidad de tu lista del paso 1.
 
-**Mini-explicación.** `ui_bugtracker.py` se genera a partir de `bugtracker.ui`: los cambios se hacen siempre en Designer y luego se regenera. Si editas `ui_bugtracker.py` a mano, lo pierdes en la siguiente generación.
+**Mini-explicación.** `ui_bugtracker.py` se genera a partir de `bugtracker.ui`: los cambios se hacen siempre en Designer y luego se regenera ([UD2, apartado 2](../apuntes/UD2-pyside6-y-qt-designer.md#2-del-diseño-al-código)).
 
 **Pista.** Abre el diseño con `Start-Process .venv\Scripts\pyside6-designer.exe -ArgumentList bugtracker.ui -WindowStyle Hidden` (así la terminal queda libre; paso a paso y con capturas, en [`designer-regenerar.md`](designer-regenerar/designer-regenerar.md)) y haz estas cuatro mejoras:
 
@@ -214,10 +201,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 
 **Objetivo.** Añadir las acciones Nueva, Guardar, Eliminar y Salir con atajos, en un menú y en una barra de herramientas, y un diálogo «Nueva incidencia» que valida los datos.
 
-**Mini-explicación.**
-
-- Una **`QAction`** es una orden con texto, atajo y `statusTip`. La misma acción se pone en el menú y en la barra de herramientas y se programa una sola vez, como en el Editor de notas (Práctica 5). Su señal es `triggered`.
-- Un **diálogo modal** bloquea la ventana principal hasta que se cierra. `exec()` lo muestra y devuelve verdadero si se aceptó. Para validar, Aceptar no cierra directamente: llama a un método que comprueba los datos y solo entonces hace `accept()`.
+**Mini-explicación.** Cada acción se crea una vez y se pone en el menú y en la barra; su señal es `triggered` ([UD2, apartado 5](../apuntes/UD2-pyside6-y-qt-designer.md#5-acciones-menús-y-barras-de-herramientas)). En el diálogo, Aceptar llama a `validar()`, que solo hace `accept()` si los datos son correctos ([UD2, apartado 6](../apuntes/UD2-pyside6-y-qt-designer.md#6-diálogos-y-validación)).
 
 **Pista.**
 
@@ -307,17 +291,13 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 
 **Objetivo.** Mostrar las incidencias en un `QTableView` a través de un modelo y un proxy que permitirá filtrar y ordenar.
 
-**Mini-explicación.** Con `QTableWidget` los datos viven **dentro** del widget: los metes celda a celda con `setItem`. En **Model/View** se separan:
+**Mini-explicación.** Así quedan los datos, de la base de datos a la tabla:
 
 ```
 SQLite -> bd.py -> MODELO (QStandardItemModel) -> PROXY (QSortFilterProxyModel) -> VISTA (QTableView)
 ```
 
-- El **modelo** guarda filas y columnas; la **vista** solo las dibuja y gestiona la selección.
-- El **proxy** se pone en medio para **filtrar y ordenar sin tocar los datos**. Lo usará el buscador del paso 5.
-- Lo que se selecciona en la vista es una fila **del proxy**. Para saber qué fila es en el modelo se traduce con `mapToSource`.
-
-Usamos `QStandardItemModel`, rellenado con `bd.obtener_incidencias()`: así se mantiene la regla de la Práctica 6 (main.py sin SQL, bd.py sin widgets). Existe también `QSqlTableModel` (módulo `QtSql`), que lee la tabla directamente, pero se salta `bd.py` y obliga a cambiar la forma de conectar con la base de datos.
+Lo que se selecciona en la vista es una fila **del proxy**: se traduce a la del modelo con `mapToSource`. El modelo se rellena con `bd.obtener_incidencias()`, para que `bd.py` siga teniendo todo el SQL. Model/View, el proxy y `mapToSource`, en [UD2, apartado 8](../apuntes/UD2-pyside6-y-qt-designer.md#8-modelview).
 
 **Pista.**
 

@@ -12,6 +12,7 @@ Lo básico que hay que saber de la UD1. Cada apartado tiene la idea clave, lo qu
 
 - **Usabilidad:** lo fácil que es usar la aplicación para conseguir algo: que se aprenda rápido, se cometan pocos errores y se trabaje sin esfuerzo.
 - **Accesibilidad:** que la pueda usar cualquier persona, también con una discapacidad: sin ver bien, sin ratón, con un lector de pantalla…
+- **Interfaz de usuario (UI):** lo que se ve y se toca: ventanas, controles, textos y colores.
 - **Experiencia de usuario (UX):** todo lo que siente la persona al usarla: si le resulta útil, cómoda y agradable. Incluye las dos anteriores.
 - Una interfaz se diseña para quien la va a usar, no para quien la programa.
 

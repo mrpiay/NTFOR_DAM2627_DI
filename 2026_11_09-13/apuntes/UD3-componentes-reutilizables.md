@@ -61,8 +61,8 @@ Lo básico que hay que saber de la UD3. Cada apartado tiene la idea clave, lo qu
 **Lo que tienes que saber**
 
 - **Documentar:** el **docstring** de la clase explica qué hace, su API pública (propiedades, métodos y señales, con tipos y valores por defecto) y un ejemplo de uso. `help(buscador.Buscador)` lo muestra. Se completa con un `README`.
-- **Empaquetar:** un archivo **`pyproject.toml`** describe el paquete (nombre, versión, dependencias, módulos). `python -m build` crea un archivo **`.whl`** (*wheel*) en `dist/`, que se instala en otro proyecto con `pip install`.
-- **Guardar el estado** entre ejecuciones: **`QSettings`** guarda, por ejemplo, el tamaño de la ventana y la última búsqueda; se guarda al cerrar (`closeEvent`) y se recupera al abrir.
+- **Empaquetar:** un archivo **`pyproject.toml`** describe el paquete (nombre, versión, dependencias, módulos). `python -m build` crea un archivo **`.whl`** (*wheel*) en `dist/`, que se instala en otro proyecto con `pip install`. Lo normal es tener el componente en su propia carpeta, separado de la aplicación que lo usa.
+- **Guardar el estado** entre ejecuciones: **`QSettings`** guarda, por ejemplo, el tamaño de la ventana y la última búsqueda; se guarda al cerrar (`closeEvent`) y se recupera al abrir. En Windows lo guarda en el registro, en `HKEY_CURRENT_USER\Software\<organización>\<aplicación>` (en el BugTracker, `DAM2\BugTracker`).
 
 ---
 
