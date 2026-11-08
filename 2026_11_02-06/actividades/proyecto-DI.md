@@ -7,7 +7,7 @@
 - **UD1 · Diseño de interfaces, experiencia de usuario y accesibilidad**, **UD2 · Desarrollo de interfaces gráficas con PySide6 y Qt Designer** y **UD3 · Creación de componentes visuales reutilizables**, completas.
 - **UD4 · Interfaces naturales y multimodales**, empezada.
 
-**La idea.** Esta semana es un **punto de control** para **ponernos al día con la programación, en la medida de lo posible**: un proyecto que repasa lo que se debería haber dado hasta ahora, partiendo de la plantilla, un BugTracker de la Práctica 6 terminado: se mejora con la UD1, se completa con lo que falta de la UD2 y se le añade un componente de la UD3. Lo que ya sabéis, lo afianzáis; lo que no se llegó a dar, **se explica en el paso donde aparece**. El proyecto tiene **dos partes**: esta semana, los pasos 0 a 4 (UD1 y UD2); la semana del 9 al 13 de noviembre, los pasos 5 a 11 (UD3 y UD4).
+**La idea.** Esta semana es un **punto de control** para **ponernos al día con la programación, en la medida de lo posible**: un proyecto que repasa lo que se debería haber dado hasta ahora, partiendo de la plantilla, un BugTracker de la Práctica 6 terminado: se mejora con la UD1, se completa con lo que falta de la UD2 y se le añade un componente de la UD3. Lo que ya sabéis, lo afianzáis; lo que no se llegó a dar, **se explica en los apuntes de la semana, enlazados en el paso donde aparece**. El proyecto tiene **dos partes**: esta semana, los pasos 0 a 4 (UD1 y UD2); la semana del 9 al 13 de noviembre, los pasos 5 a 11 (UD3 y UD4).
 
 **Usa la IA como guía, no para que lo haga por ti.** Pídele los **pasos necesarios** para implementar cada cosa y que te explique lo que no entiendas; **el código lo pones tú en tu proyecto**, aunque sea copiando y pegando, sabiendo **dónde** lo pones y **para qué**: es la única forma de familiarizarte con tu entorno. El objetivo es que lo que hagas **funcione y cumpla los requisitos** de cada paso («Comprueba que…») y que sepas **dónde está cada cosa y qué habría que tocar para cambiar o añadir algo**: es lo que te van a pedir después.
 
@@ -17,7 +17,7 @@
 
 **Y la UD2.** Su nota sale de su entrega y su examen de octubre. Si te falta alguna de las dos, la sustituyen las preguntas de la prueba escrita del jueves 19 de noviembre sobre los pasos 2 a 4 de este proyecto, corregidas con los criterios de la UD2.
 
-El proyecto se hace del 3 al 5 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
+El proyecto se hace del 3 al 5 de noviembre. Cada paso trae una pista, enlaces a los apuntes y qué hacer si algo falla.
 
 ## Con qué trabajas
 
@@ -48,7 +48,7 @@ Todo se hace en **Visual Studio Code** (VS Code), con su terminal. Cómo instala
 | Herramienta | Qué es | Cómo se usa | Pasos |
 |---|---|---|---|
 | **VS Code** | El editor, con terminal integrada | *File > Open Folder…* abre la carpeta. La terminal, abajo: *Terminal > New Terminal* (`Ctrl+ñ` con teclado español), de tipo **PowerShell** | Todos |
-| **Python** y el **entorno virtual** (`.venv`) | Python ejecuta la aplicación; el entorno virtual guarda las librerías del proyecto ([UD2, apartado 1](../apuntes/UD2-pyside6-y-qt-designer.md#1-herramientas-y-librerías)) | Se crea y se activa en el paso 0. Activado, la terminal muestra `(.venv)` al principio de la línea | Todos |
+| **Python** y el **entorno virtual** (`.venv`) | Python ejecuta la aplicación; el entorno virtual es una carpeta (`.venv`) con las librerías de este proyecto, separadas de las de otros proyectos | Se crea y se activa en el paso 0. Activado, la terminal muestra `(.venv)` al principio de la línea | Todos |
 | **PySide6** | La librería de interfaces gráficas ([UD2, apartado 1](../apuntes/UD2-pyside6-y-qt-designer.md#1-herramientas-y-librerías)) | Se importa en el código: `from PySide6.QtWidgets import …` | Todos |
 | **Qt Designer** | El programa para diseñar la ventana; guarda el diseño en `bugtracker.ui` | `Start-Process .venv\Scripts\pyside6-designer.exe -ArgumentList bugtracker.ui -WindowStyle Hidden` | 2, 3 y 4 |
 | **`pyside6-uic`** | Convierte `bugtracker.ui` en `ui_bugtracker.py` ([UD2, apartado 2](../apuntes/UD2-pyside6-y-qt-designer.md#2-del-diseño-al-código)) | `pyside6-uic bugtracker.ui -o ui_bugtracker.py`, cada vez que guardas en Designer | 2, 3 y 4 |
@@ -168,7 +168,7 @@ Por último, haz un **boceto rápido** (wireframe, en papel o en diagrams.net) d
 
 **Objetivo.** Aplicar en `bugtracker.ui` mejoras de accesibilidad de tu lista del paso 1.
 
-**Mini-explicación.** `ui_bugtracker.py` se genera a partir de `bugtracker.ui`: los cambios se hacen siempre en Designer y luego se regenera ([UD2, apartado 2](../apuntes/UD2-pyside6-y-qt-designer.md#2-del-diseño-al-código)).
+**Mini-explicación.** `ui_bugtracker.py` se genera a partir de `bugtracker.ui`: los cambios se hacen siempre en Designer y luego se regenera ([UD2, apartado 2](../apuntes/UD2-pyside6-y-qt-designer.md#2-del-diseño-al-código)). Qué son el *buddy*, `tabChangesFocus` y `accessibleName`: [UD2, apartado 3](../apuntes/UD2-pyside6-y-qt-designer.md#3-controles-propiedades-y-layouts) y [UD1, apartado 3](../apuntes/UD1-diseno-usabilidad-y-accesibilidad.md#3-accesibilidad).
 
 **Pista.** Abre el diseño con `Start-Process .venv\Scripts\pyside6-designer.exe -ArgumentList bugtracker.ui -WindowStyle Hidden` (así la terminal queda libre; paso a paso y con capturas, en [`designer-regenerar.md`](designer-regenerar/designer-regenerar.md)) y haz estas cuatro mejoras:
 
@@ -247,7 +247,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 
    En `actualizar_botones()`, activa o desactiva también `self.ui.actionEliminar`.
 
-5. En `dialogo.py`, completa `validar()`: si el título está vacío, `QMessageBox.warning(...)`, foco en `self.txtTitulo` y `return`; si tiene más de 100 caracteres, otro aviso que diga cuántos tiene.
+5. En `dialogo.py`, completa `validar()`: si el título está vacío, `QMessageBox.warning(self, "Falta el título", "Escribe un título.")`, `self.txtTitulo.setFocus()` y `return`; si tiene más de 100 caracteres, otro aviso que diga cuántos tiene (`len(titulo)`).
 6. **Editar con el mismo diálogo.** El diálogo también sirve para editar, porque acepta una incidencia: `DialogoIncidencia(self, incidencia)`. En `__init__`, conecta el doble clic de la tabla: `self.ui.tblIncidencias.doubleClicked.connect(self.editar_incidencia)`. Y añade este método junto a los otros dos:
 
 ```python
@@ -355,7 +355,7 @@ from PySide6.QtGui import QStandardItem, QStandardItemModel
         self.actualizar_botones()
 ```
 
-5. En `id_seleccionado()`:
+5. En `id_seleccionado()`, sustituye las líneas desde `seleccion = …` hasta el último `return` por estas:
 
 ```python
         filas = self.ui.tblIncidencias.selectionModel().selectedRows()
