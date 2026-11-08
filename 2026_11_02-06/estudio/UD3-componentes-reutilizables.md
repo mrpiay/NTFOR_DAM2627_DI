@@ -1,4 +1,4 @@
-# Repaso · UD3 · Componentes visuales reutilizables
+# UD3 · Componentes visuales reutilizables
 
 Lo básico que hay que saber de la UD3. Cada apartado tiene la idea clave, lo que tienes que saber y, cuando hay conceptos que se confunden, una tabla para compararlos. Los ejemplos son del componente `Buscador` del proyecto. Las preguntas para comprobar que lo entiendes están en los cuestionarios de autoevaluación.
 

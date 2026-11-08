@@ -105,9 +105,9 @@ def test_mayusculas(qtbot):
 
 **20.** ¿Qué es una interfaz natural? Pon un ejemplo para el BugTracker, di a quién ayudaría, un límite que tendría y qué alternativa ofrecerías.
 
-## Repaso de la UD3
+## UD3
 
-Estas preguntas se responden con los repasos de `estudio/`.
+Estas preguntas se responden con los apuntes de cada unidad, en `estudio/`.
 
 **21.** ¿Qué herramientas se usan para diseñar un componente visual y cuáles para probarlo?
 

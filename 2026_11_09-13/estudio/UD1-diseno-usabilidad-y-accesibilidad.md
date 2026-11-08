@@ -1,4 +1,4 @@
-# Repaso · UD1 · Diseño de interfaces, usabilidad y accesibilidad
+# UD1 · Diseño de interfaces, usabilidad y accesibilidad
 
 Lo básico que hay que saber de la UD1. Cada apartado tiene la idea clave, lo que tienes que saber y, cuando hay conceptos que se confunden, una tabla para compararlos. Los ejemplos son del BugTracker del proyecto. Las preguntas para comprobar que lo entiendes están en los cuestionarios de autoevaluación.
 

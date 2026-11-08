@@ -107,9 +107,9 @@ print("ID si no se traduce:", modelo.item(fila_vista, 0).text())
 
 **20.** ¿En qué se diferencia `DialogoIncidencia(self, incidencia)` de `DialogoIncidencia(self)`? ¿Desde dónde se abre cada uno?
 
-## Repaso de la UD1 y UD2
+## UD1 y UD2
 
-Estas preguntas se responden con los repasos de `estudio/`.
+Estas preguntas se responden con los apuntes de cada unidad, en `estudio/`.
 
 **21.** ¿Qué diferencia hay entre usabilidad, accesibilidad y experiencia de usuario?
 
