@@ -104,3 +104,11 @@ def test_mayusculas(qtbot):
 **19.** En la prueba de usabilidad del paso 7, ¿por qué quien prueba no recibe ayuda y piensa en voz alta? ¿Qué se apunta de cada tarea?
 
 **20.** ¿Qué es una interfaz natural? Pon un ejemplo para el BugTracker, di a quién ayudaría, un límite que tendría y qué alternativa ofrecerías.
+
+## Repaso de la UD3
+
+Estas preguntas se responden con los repasos de `estudio/`.
+
+**21.** ¿Qué herramientas se usan para diseñar un componente visual y cuáles para probarlo?
+
+**22.** ¿Qué tiene que incluir una estrategia de pruebas de un componente? Propón tres casos de prueba para el `Buscador` distintos de los de `test_buscador.py`.

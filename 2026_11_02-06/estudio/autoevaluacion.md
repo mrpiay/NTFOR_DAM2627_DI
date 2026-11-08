@@ -106,3 +106,19 @@ print("ID si no se traduce:", modelo.item(fila_vista, 0).text())
 **19.** En la tabla, la columna ID no se ve, pero sigue en el modelo. ¿Para qué se usa?
 
 **20.** ¿En qué se diferencia `DialogoIncidencia(self, incidencia)` de `DialogoIncidencia(self)`? ¿Desde dónde se abre cada uno?
+
+## Repaso de la UD1 y UD2
+
+Estas preguntas se responden con los repasos de `estudio/`.
+
+**21.** ¿Qué diferencia hay entre usabilidad, accesibilidad y experiencia de usuario?
+
+**22.** ¿Cuáles son los cuatro principios de las pautas WCAG? ¿Qué nivel se suele exigir y qué contraste mínimo necesita en él el texto normal?
+
+**23.** ¿Qué son ISO 9241 y EN 301 549? ¿Por qué conviene seguir los estándares al diseñar una interfaz?
+
+**24.** ¿Qué control de Qt usarías para cada dato: un texto de una línea, una opción entre pocas fijas, sí o no, un número dentro de un rango y una fecha?
+
+**25.** Escribe un buen mensaje para cuando falta el título y di qué tiene que tener un buen mensaje. ¿Qué atajos estándar tienen «Nuevo», «Guardar» y «Salir»?
+
+**26.** ¿En qué se diferencian PySide6, PyQt6 y Tkinter?
