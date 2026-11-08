@@ -1,12 +1,14 @@
 # Autoevaluación · semana del 9 al 13 de noviembre
 
-Preguntas sobre la 2.ª parte del proyecto «Mejora tu BugTracker». Puede que sufran modificaciones a lo largo de la semana. Responde poniendo el número de cada pregunta.
+Preguntas sobre la 2.ª parte del proyecto «Mejora tu BugTracker» y sobre los apuntes. Puede que sufran modificaciones a lo largo de la semana. Responde poniendo el número de cada pregunta.
 
 En las preguntas con código, crea en la carpeta del proyecto un archivo con el nombre que se indica, pega el código y ejecútalo con el entorno virtual (`.venv\Scripts\python nombre.py`). Copia en tu respuesta lo que sale por pantalla y asegúrate de que lo entiendes: en las pruebas escritas tendrás que explicarlo sin ayuda de la IA.
 
 Si en una pregunta aparece algo que no has visto, búscalo en «Dónde consultar», en el [README de `estudio/`](README.md).
 
 ---
+
+## Cuestiones sobre el proyecto
 
 **1.** ¿Cómo encuentra pytest las pruebas que tiene que ejecutar? ¿Qué es un `assert`? Antes del paso 5, `python -m pytest -v` daba **4 failed**: ¿por qué?
 
@@ -105,7 +107,7 @@ def test_mayusculas(qtbot):
 
 **20.** ¿Qué es una interfaz natural? Pon un ejemplo para el BugTracker, di a quién ayudaría, un límite que tendría y qué alternativa ofrecerías.
 
-## UD3
+## Cuestiones sobre los apuntes
 
 Estas preguntas se responden con los apuntes de cada unidad, en `estudio/`.
 
