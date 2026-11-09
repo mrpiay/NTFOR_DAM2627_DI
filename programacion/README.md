@@ -5,6 +5,8 @@ Qué se trabaja en cada evaluación, cuándo y cómo se califica, según la prog
 - [1ª evaluación](1a-evaluacion.md): UD1, UD2, UD3 · cierre el 17 de diciembre
 - [2ª evaluación](2a-evaluacion.md): UD4, UD5, UD6, UD7 · cierre el 25 de febrero
 - [Rúbricas](rubricas.md)
+- [Currículo oficial del módulo](curriculo-oficial.md): resultados de aprendizaje, criterios de evaluación, contenidos básicos y orientaciones, tal como los publica el DOG (Decreto 105/2011)
+- [Módulo de Proyecto](proyecto-final-oficial.md): el proyecto final del ciclo, tal como lo publica el DOG
 
 ## Fechas clave
 
