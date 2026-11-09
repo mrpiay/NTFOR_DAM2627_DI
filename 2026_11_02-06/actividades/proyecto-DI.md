@@ -92,7 +92,7 @@ Cada paso tiene **Objetivo**, **Pista**, **Comprueba que…** y **Si te falla…
 **Pista.**
 
 1. **Instala** antes lo que indica [`software-DI.md`](software-DI.md): Python 3.12 y VS Code con la extensión Python.
-2. **El proyecto**: descarga la plantilla, [`plantilla.zip`](https://github.com/mrpiay/NTFOR_DAM2627_DI/raw/main/2026_11_02-06/actividades/plantilla.zip), y descomprímela (clic derecho → *Extraer todo…*) en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di`. Dentro queda la carpeta del proyecto, `bugtracker` (`C:\dam\di\bugtracker`). El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar.
+2. **El proyecto**: descarga la plantilla, [`plantilla.zip`](https://github.com/mrpiay/NTFOR_DAM2627_DI/raw/main/2026_11_02-06/actividades/plantilla.zip), Haz doble clic en el zip: dentro está la carpeta `bugtracker`. Arrástrala a una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam2627\di`: queda en `C:\dam2627\di\bugtracker`. El entorno virtual tiene archivos con rutas muy largas: dentro de OneDrive o del Escritorio la instalación puede fallar.
 3. **Ábrela en VS Code**: *File > Open Folder…*, elige la carpeta `bugtracker` y pulsa *Seleccionar carpeta*. Si pregunta si confías en los autores, *Yes, I trust the authors*. A la izquierda verás sus archivos.
 4. **Abre la terminal**: *Terminal > New Terminal* (`Ctrl+ñ`). Se abre abajo, ya dentro de la carpeta del proyecto. Tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal); si no, en la flecha junto al **+** elige *PowerShell*.
 5. **En la terminal**, una orden detrás de otra: crea el entorno virtual, actívalo, instala las librerías, añade las incidencias de prueba y arranca la aplicación.
@@ -118,7 +118,7 @@ Cada paso tiene **Objetivo**, **Pista**, **Comprueba que…** y **Si te falla…
 
 - *«La ejecución de scripts está deshabilitada»*: ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar el entorno.
 - *`python` no se reconoce*: reinstala Python marcando **Add python.exe to PATH** (ver [`software-DI.md`](software-DI.md)) y abre una terminal nueva.
-- *`WinError 206` («el nombre del archivo o la extensión es demasiado largo») o, después, `fixture 'qtbot' not found`*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam\di\` y repite los comandos desde `python -m venv .venv`.
+- *`WinError 206` («el nombre del archivo o la extensión es demasiado largo») o, después, `fixture 'qtbot' not found`*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam2627\di\` y repite los comandos desde `python -m venv .venv`.
 - *pip falla o no hay red*: repite `pip install -r requirements.txt` cuando tengas red.
 
 ### Cómo está hecho el BugTracker (15 min)

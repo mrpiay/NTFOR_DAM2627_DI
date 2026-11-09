@@ -15,7 +15,7 @@ El proyecto se hace del 10 al 12 de noviembre. Cada paso trae una mini-explicaci
 ## Con qué trabajas
 
 - **Si terminaste la 1.ª parte y funciona**: sigue en tu carpeta `bugtracker`. Ya tiene `buscador.py` y `test_buscador.py`, que copiaste de la plantilla de la 1.ª parte. Ábrela en VS Code (*File > Open Folder…*), abre la terminal (*Terminal > New Terminal*, `Ctrl+ñ`) y activa el entorno con `.venv\Scripts\Activate.ps1`, si no aparece ya `(.venv)` al principio de la línea.
-- **Si no la terminaste o no te funciona**: cambia el nombre de tu carpeta a `bugtracker-anterior`. Descarga la plantilla, [`plantilla.zip`](https://github.com/mrpiay/NTFOR_DAM2627_DI/raw/main/2026_11_09-13/actividades/plantilla.zip), y descomprímela (clic derecho → *Extraer todo…*) en una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam\di`: queda la carpeta `bugtracker`, con la 1.ª parte terminada. Ábrela en VS Code: *File > Open Folder…*, elige la carpeta `bugtracker` y pulsa *Seleccionar carpeta* (si pregunta si confías en los autores, *Yes, I trust the authors*). Abre la terminal: *Terminal > New Terminal* (`Ctrl+ñ`); tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal). En ella, una orden detrás de otra:
+- **Si no la terminaste o no te funciona**: cambia el nombre de tu carpeta a `bugtracker-anterior`. Descarga la plantilla, [`plantilla.zip`](https://github.com/mrpiay/NTFOR_DAM2627_DI/raw/main/2026_11_09-13/actividades/plantilla.zip), Haz doble clic en el zip y arrastra la carpeta de dentro, `bugtracker`, que es la 1.ª parte terminada, a una **ruta corta y fuera de OneDrive**, por ejemplo `C:\dam2627\di`. Ábrela en VS Code: *File > Open Folder…*, elige la carpeta `bugtracker` y pulsa *Seleccionar carpeta* (si pregunta si confías en los autores, *Yes, I trust the authors*). Abre la terminal: *Terminal > New Terminal* (`Ctrl+ñ`); tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal). En ella, una orden detrás de otra:
 
   ```
   python -m venv .venv
@@ -32,7 +32,7 @@ El proyecto se hace del 10 al 12 de noviembre. Cada paso trae una mini-explicaci
   **Si te falla…**
 
   - *«La ejecución de scripts está deshabilitada»*: ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar el entorno.
-  - *`WinError 206` («el nombre del archivo o la extensión es demasiado largo»)*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam\di\` y repite desde `python -m venv .venv`.
+  - *`WinError 206` («el nombre del archivo o la extensión es demasiado largo»)*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam2627\di\` y repite desde `python -m venv .venv`.
 
 Qué tocas en cada paso:
 

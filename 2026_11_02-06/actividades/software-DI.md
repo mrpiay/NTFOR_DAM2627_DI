@@ -24,4 +24,4 @@ PySide6, pytest y pytest-qt se instalan en el **entorno virtual** del proyecto (
 |---|---|
 | `python` no se reconoce | Cierra la terminal y abre una nueva. Si sigue, reinstala Python marcando **Add python.exe to PATH** |
 | «La ejecución de scripts está deshabilitada en este sistema» al activar el entorno | Ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activarlo |
-| `WinError 206` (nombre de archivo demasiado largo) al instalar | La carpeta está en una ruta larga o en OneDrive: cópiala a `C:\dam\di\` y repite desde `python -m venv .venv` |
+| `WinError 206` (nombre de archivo demasiado largo) al instalar | La carpeta está en una ruta larga o en OneDrive: cópiala a `C:\dam2627\di\` y repite desde `python -m venv .venv` |

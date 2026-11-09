@@ -15,11 +15,11 @@ Aplicación de escritorio en Python con PySide6 (Qt) para gestionar incidencias 
 
 Todas las órdenes van en **PowerShell**.
 
-1. Copia la carpeta `bugtracker` a `C:\dam\di\`. Una ruta corta, fuera de OneDrive, evita errores al instalar.
+1. Copia la carpeta `bugtracker` a `C:\dam2627\di\`. Una ruta corta, fuera de OneDrive, evita errores al instalar.
 2. Entra en ella y crea el entorno virtual con sus paquetes:
 
     ```
-    cd C:\dam\di\bugtracker
+    cd C:\dam2627\di\bugtracker
     python -m venv .venv
     .venv\Scripts\python -m pip install -r requirements.txt
     ```

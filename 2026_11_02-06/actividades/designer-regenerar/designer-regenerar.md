@@ -2,13 +2,13 @@
 
 La aplicación no lee el archivo de Designer (`bugtracker.ui`): lee el código Python que se genera a partir de él (`ui_bugtracker.py`). Por eso, después de cambiar algo en Designer hay que **guardar, regenerar el código y volver a lanzar la aplicación**. Esta guía lo hace paso a paso con un ejemplo: cambiar el texto del botón **Limpiar formulario** por **Vaciar formulario**. En las capturas el botón se llama «Limpiar formulario»; en tu proyecto puede llamarse «Limpiar» o «&Limpiar». Se hace igual: cambia su `text` por el que quieras. El paso de `bugtracker.ui` a `ui_bugtracker.py` se explica en [UD2, apartado 2](../../apuntes/UD2-pyside6-y-qt-designer.md#2-del-diseño-al-código).
 
-Todas las órdenes se escriben en **PowerShell**, en la carpeta del proyecto. En el ejemplo, la carpeta es `C:\dam\di\bugtracker`, y la terminal muestra:
+Todas las órdenes se escriben en **PowerShell**, en la carpeta del proyecto. En el ejemplo, la carpeta es `C:\dam2627\di\bugtracker`, y la terminal muestra:
 
 ```
-PS C:\dam\di\bugtracker>
+PS C:\dam2627\di\bugtracker>
 ```
 
-Si la terminal está en otra carpeta, entra en la del proyecto con `cd` (en el ejemplo, `cd C:\dam\di\bugtracker`).
+Si la terminal está en otra carpeta, entra en la del proyecto con `cd` (en el ejemplo, `cd C:\dam2627\di\bugtracker`).
 
 ## 1. Arranca la aplicación tal como está
 
@@ -20,7 +20,7 @@ Se abre el BugTracker. Fíjate en el botón **Limpiar formulario**, abajo a la d
 
 ![La aplicación antes del cambio](img/1-aplicacion-antes.png)
 
-Cierra la ventana. La terminal vuelve a `PS C:\dam\di\bugtracker>`.
+Cierra la ventana. La terminal vuelve a `PS C:\dam2627\di\bugtracker>`.
 
 ## 2. Abre Qt Designer
 
