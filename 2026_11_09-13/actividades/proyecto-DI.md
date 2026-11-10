@@ -166,7 +166,7 @@ La ventana principal solo usa la señal del `Buscador`, no lo que tiene dentro: 
 
 **Objetivo.** Ejecutar y entender las pruebas automáticas de `test_buscador.py` y añadir una.
 
-**Mini-explicación.** Las pruebas usan `qtbot` para simular el teclado y el ratón (`keyClicks`, `mouseClick`) y esperar señales (`waitSignal`). Cómo funcionan pytest y pytest-qt, en [UD3, apartado 3](../apuntes/UD3-componentes-reutilizables.md#3-pruebas-unitarias).
+**Mini-explicación.** Las pruebas usan `qtbot` para simular el teclado y el ratón (`keyClicks`, `mouseClick`) y esperar señales (`waitSignal`). Qué es `qtbot`, de dónde sale y qué hace cada llamada, en [UD3, apartado 3](../apuntes/UD3-componentes-reutilizables.md#3-pruebas-unitarias).
 
 **Pista.** Con el entorno activado y desde la carpeta del proyecto:
 

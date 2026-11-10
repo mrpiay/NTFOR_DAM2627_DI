@@ -47,10 +47,25 @@ Lo básico que hay que saber de la UD3. Cada apartado tiene la idea clave, lo qu
 **Lo que tienes que saber**
 
 - **pytest** busca los archivos `test_*.py` y ejecuta sus funciones `test_*`. Cada **`assert`** es una comprobación: si es falsa, la prueba falla y pytest muestra qué esperaba y qué ha obtenido.
-- **pytest-qt** añade **`qtbot`**, que maneja los controles como una persona: `keyClicks` (escribir), `mouseClick` (hacer clic) y `waitSignal` (esperar a que se emita una señal).
+- **`qtbot`** no es parte de la aplicación, sino de las pruebas: lo añade el plugin **pytest-qt** (`pip install pytest-qt`). No se importa: es una *fixture* de pytest. Cuando una función de prueba tiene un parámetro llamado `qtbot`, pytest le pasa uno ya preparado. Si el plugin no está instalado, pytest da el error `fixture 'qtbot' not found`.
+- **Por qué hace falta.** Un widget de Qt no se prueba como una función normal:
+  - Qt necesita un `QApplication` antes de crear cualquier widget, y `qtbot` se asegura de que exista;
+  - las señales y los eventos pasan por el bucle de eventos de Qt, que en una prueba no está en marcha, y `qtbot` lo hace girar mientras espera;
+  - en una prueba automática nadie teclea ni hace clic, así que `qtbot` fabrica esos eventos.
 - Una **estrategia de pruebas** dice qué se prueba: el valor por defecto, cada propiedad, cada señal, cada método y los **valores límite** (texto vacío, solo espacios, muy largo, con tildes…).
 - Cada prueba comprueba una sola cosa y su nombre dice cuál: `test_limpiar_borra_el_texto`.
 - Se ejecutan con `python -m pytest -v`. Si alguien cambia el componente y rompe algo, las pruebas lo avisan.
+
+**Qué hace cada llamada de `qtbot` en `test_buscador.py`**
+
+| Llamada | Para qué sirve |
+|---|---|
+| `qtbot.addWidget(buscador)` | Registra el widget para cerrarlo y liberarlo al terminar la prueba, y que no se mezcle con la siguiente |
+| `qtbot.keyClicks(caja, "Error")` | Escribe «Error» en el `QLineEdit` tecla a tecla, como una persona; así se comprueba que la propiedad `texto` cambia al teclear |
+| `qtbot.mouseClick(boton, Qt.MouseButton.LeftButton)` | Hace un clic izquierdo en el botón «Limpiar» |
+| `with qtbot.waitSignal(señal, timeout=1000) as espera:` | Espera, como mucho un segundo, a que la señal se emita dentro del bloque `with`; si no llega, la prueba falla. Después, `espera.args` tiene los valores con los que se emitió |
+
+En resumen, `qtbot` hace de usuario y de árbitro: prepara Qt, pulsa teclas y botones, y comprueba que el componente responde con las señales correctas. El componente (`buscador.py`) no sabe nada de él.
 
 ---
 
