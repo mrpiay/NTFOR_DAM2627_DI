@@ -15,6 +15,8 @@ Qué se trabaja en cada evaluación, cuándo y cómo se califica, según la prog
 | mié 9 sep | Presentación del módulo y preparación del ordenador |
 | mar 6 oct | Sesión de evaluación inicial (diagnóstica) |
 | 3–6, 10, 11 y 12 nov | Puesta en común y proyecto de diagnóstico, en dos partes (no se avanza: se repasa y se completa lo que tocaba hasta la fecha y se preparan las próximas entregas y exámenes) |
+| lun 16 nov, 23:59 | Entrega en Teams de las autoevaluaciones de las semanas del 2 al 6 y del 9 al 13, en una sola tarea |
+| jue 19 nov | Prueba escrita de la UD3, en papel, sobre las dos partes del proyecto de diagnóstico (en lugar del examen de la UD3) |
 | jue 3 dic y mié 9 dic | Repaso de la 1ª evaluación |
 | jue 10 dic | Examen final de la 1ª evaluación |
 | jue 17 dic | Cierre de la 1ª evaluación (sesión de evaluación) |
