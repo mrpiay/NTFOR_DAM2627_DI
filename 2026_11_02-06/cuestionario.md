@@ -1,4 +1,4 @@
-# Autoevaluación · semana del 2 al 6 de noviembre
+# C1 · Cuestionario · semana del 2 al 6 de noviembre
 
 Preguntas sobre la 1.ª parte del proyecto «Mejora tu BugTracker» y sobre los apuntes. Puede que sufran modificaciones a lo largo de la semana. Responde poniendo el número de cada pregunta.
 

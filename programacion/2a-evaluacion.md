@@ -6,20 +6,16 @@
 
 | UD | Inicio | Fin | Sesiones | Peso | Entrega |
 |---|---|---|---|---|---|
-| UD4 · Interfaces naturales y multimodales | jue 29 oct | mar 1 dic | 16 | 26 % | Trabajo final: interfaz natural; Proyecto integrado del primer trimestre |
 | UD5 · Generación de informes y visualización de datos | mar 15 dic | jue 17 dic | 5 | 8 % | Trabajo final: informe integrado en una aplicación |
 | UD6 · Calidad y pruebas de aplicaciones | mar 12 ene | mar 19 ene | 8 | 7 % | Trabajo final: auditoría de calidad de una aplicación |
 | UD7 · Documentación, empaquetado y distribución de aplicaciones | mié 20 ene | jue 4 feb | 16 | 14 % | Trabajo final: preparar una aplicación para su entrega; Proyecto integrado del segundo trimestre |
 
-Peso de estas unidades en el módulo: 55 % (la suma de los pesos de sus unidades, apartado 2.1 de la programación).
+Peso de estas unidades en el módulo: 29 % (la suma de los pesos de sus unidades, apartado 2.1 de la programación).
 
 ## Exámenes y entregas
 
 | Fecha | Qué | Detalle |
 |---|---|---|
-| mié 25 nov | Entrega UD4 | Trabajo final: interfaz natural |
-| mar 1 dic | Entrega UD4 | Proyecto integrado del primer trimestre |
-| mar 15 dic | Examen UD4 | Interfaces naturales y multimodales |
 | — | Entrega UD5 | Trabajo final: informe integrado en una aplicación (fecha por reajustar en la 2ª evaluación) |
 | mar 12 ene | Examen UD5 | Generación de informes y visualización de datos |
 | mar 19 ene | Entrega UD6 | Trabajo final: auditoría de calidad de una aplicación |
@@ -34,8 +30,6 @@ Peso de estas unidades en el módulo: 55 % (la suma de los pesos de sus unidades
 
 | UD | Entrega | Qué incluye |
 |---|---|---|
-| UD4 | Trabajo final: interfaz natural | Interfaz natural funcional por parejas. |
-| UD4 | Proyecto integrado del primer trimestre | Aplicación integrada de equipo y defensa del proyecto. |
 | UD5 | Trabajo final: informe integrado en una aplicación | Aplicación con informe funcional integrado. |
 | UD6 | Trabajo final: auditoría de calidad de una aplicación | Dossier de auditoría de calidad. |
 | UD7 | Trabajo final: preparar una aplicación para su entrega | Paquete completo de entrega de una aplicación. |
@@ -56,64 +50,6 @@ Peso de estas unidades en el módulo: 55 % (la suma de los pesos de sus unidades
 ## Qué se aprende y cómo se evalúa en cada unidad
 
 Resultados de aprendizaje (RA) y criterios de evaluación (CA) de cada unidad, con el instrumento con el que se evalúa cada criterio.
-
-### UD4 · Interfaces naturales y multimodales
-
-**RA1** · Genera interfaces gráficas de usuario mediante editores visuales utilizando las funcionalidades del editor y adaptando el código generado
-
-| Criterio | Cómo se evalúa | Peso |
-|---|---|---|
-| **CA1.1** Se han analizado las herramientas y las librerías disponibles para la generación de interfaces gráficas. | Prueba escrita | 2 % |
-| **CA1.2** Se ha creado una interfaz gráfica utilizando las herramientas de un editor visual. | Rúbrica | 3 % |
-| **CA1.3** Se han utilizado las funciones del editor para ubicar los componentes de la interfaz. | Rúbrica | 2 % |
-| **CA1.7** Se han asociado a los eventos las acciones correspondientes. | Rúbrica | 4 % |
-| **CA1.8** Se ha desarrollado una aplicación que incluye la interfaz gráfica obtenida. | Rúbrica | 4 % |
-
-**RA2** · Genera interfaces naturales de usuario utilizando herramientas visuales
-
-| Criterio | Cómo se evalúa | Peso |
-|---|---|---|
-| **CA2.1** Se han identificado las herramientas disponibles para el aprendizaje automático relacionadas con las interfaces de usuario. | Prueba escrita | 8 % |
-| **CA2.2** Se ha creado una interfaz natural de usuario utilizando las herramientas disponibles. | Rúbrica | 12 % |
-| **CA2.3** Se ha utilizado el reconocimiento de voz para implementar acciones en las interfaces naturales de usuario. | Lista de cotejo | 10 % |
-| **CA2.4** Se ha incorporado la detección del movimiento del cuerpo para implementar acciones en las interfaces naturales de usuario. | Lista de cotejo | 10 % |
-| **CA2.5** Se han integrado elementos de detección de partes del cuerpo para implementar acciones en las interfaces naturales de usuario. | Lista de cotejo | 10 % |
-| **CA2.6** Se ha integrado la realidad aumentada en las interfaces de usuario. | Lista de cotejo | 10 % |
-
-**RA3** · Crea componentes visuales valorando y empleando herramientas específicas
-
-| Criterio | Cómo se evalúa | Peso |
-|---|---|---|
-| **CA3.2** Se han creado componentes visuales. | Rúbrica | 2 % |
-| **CA3.3** Se han definido sus métodos y sus propiedades con asignación de valores por defecto. | Rúbrica | 2 % |
-| **CA3.4** Se han determinado los eventos a los que debe responder el componente y se les han asociado las acciones correspondientes. | Rúbrica | 2 % |
-| **CA3.8** Se han programado aplicaciones cuya interfaz gráfica utiliza los componentes creados. | Rúbrica | 2 % |
-
-**RA4** · Diseña interfaces gráficas identificando y aplicando criterios de usabilidad y accesibilidad
-
-| Criterio | Cómo se evalúa | Peso |
-|---|---|---|
-| **CA4.1** Se han identificado los principales estándares de usabilidad y accesibilidad. | Prueba escrita | 1 % |
-| **CA4.2** Se ha valorado la importancia del uso de estándares para la creación de interfaces. | Prueba escrita | 1 % |
-| **CA4.4** Se han distribuido las acciones en menús, barras de herramientas, botones de comando, etc., siguiendo un criterio coherente. | Rúbrica | 2 % |
-| **CA4.5** Se han distribuido adecuadamente los controles en la interfaz de usuario. | Rúbrica | 2 % |
-| **CA4.7** Se ha diseñado el aspecto de la interfaz de usuario (colores, fuentes, etc.) atendiendo a su legibilidad. | Lista de cotejo | 1 % |
-| **CA4.8** Se ha verificado que los mensajes generados por la aplicación sean adecuados en extensión y claridad. | Lista de cotejo | 1 % |
-| **CA4.9** Se han realizado pruebas para evaluar la usabilidad y la accesibilidad de la aplicación. | Lista de cotejo | 2 % |
-
-**RA6** · Documenta aplicaciones seleccionando y utilizando herramientas específicas
-
-| Criterio | Cómo se evalúa | Peso |
-|---|---|---|
-| **CA6.4** Se ha documentado la estructura de la información persistente. | Lista de cotejo | 1 % |
-| **CA6.5** Se ha confeccionado el manual de usuario y la guía de referencia. | Lista de cotejo | 2 % |
-
-**RA8** · Evalúa el funcionamiento de aplicaciones diseñando y ejecutando pruebas
-
-| Criterio | Cómo se evalúa | Peso |
-|---|---|---|
-| **CA8.2** Se han realizado pruebas de integración de los elementos. | Lista de cotejo | 2 % |
-| **CA8.3** Se han realizado pruebas de regresión. | Lista de cotejo | 2 % |
 
 ### UD5 · Generación de informes y visualización de datos
 

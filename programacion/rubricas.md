@@ -2,10 +2,14 @@
 
 [← Programación](README.md)
 
-## Cuestionarios de autoevaluación
+## Exámenes parciales (P) y examen final (F)
 
-Los cuestionarios de autoevaluación entregados podrán servir para mejorar la nota final obtenida con las pruebas escritas.
+En papel. Cada pregunta indica los puntos que vale: los contenidos con más porcentaje tienen preguntas que valen más. La rúbrica de cada examen se publica aquí antes del examen.
 
-## Pruebas escritas
+## Actividades guiadas (A)
 
-Cada prueba escrita aparece en las fechas importantes del repositorio, con lo que entra. Su rúbrica se publica aquí antes de la prueba.
+Lista de cotejo: cada «Comprueba que…» de cada paso de la actividad se cumple o no. La nota de cada actividad es el porcentaje de puntos cumplidos (de 0 a 10).
+
+## Cuestionarios (C)
+
+Uno cada semana en la que se facilitan apuntes o actividades guiadas nuevas, con preguntas sobre ellos. Se entrega hasta el lunes siguiente a su semana.

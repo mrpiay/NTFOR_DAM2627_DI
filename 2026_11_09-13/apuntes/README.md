@@ -7,7 +7,7 @@ Los apuntes de las unidades de esta semana.
 | [`UD3-componentes-reutilizables.md`](UD3-componentes-reutilizables.md) | Lo básico de la UD3: componentes reutilizables, propiedades, métodos y señales propias, pruebas con pytest-qt, documentar y empaquetar |
 | [`UD4-interfaces-naturales.md`](UD4-interfaces-naturales.md) | El comienzo de la UD4: qué es una interfaz natural, sus tipos, ventajas y límites |
 
-Cada archivo tiene lo básico de una unidad. Las preguntas del [cuestionario](../cuestionario.md) se responden con ellos y con el proyecto, y las de la prueba escrita salen de lo mismo.
+Cada archivo tiene lo básico de una unidad. Las preguntas del [cuestionario](../cuestionario.md) se responden con ellos y con el proyecto, y las de los exámenes salen de lo mismo.
 
 ## Dónde consultar
 

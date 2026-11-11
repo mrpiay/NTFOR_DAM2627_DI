@@ -8,10 +8,11 @@ Todas las semanas: el cuestionario de autoevaluación está disponible desde el 
 
 | Fecha | Qué |
 |---|---|
-| Lunes 16 de noviembre, 23:59 | Entrega en Teams de las autoevaluaciones de las semanas del 2 al 6 y del 9 al 13, en una sola tarea |
-| Martes 17 de noviembre | Se publican las soluciones de esas dos autoevaluaciones y el proyecto «Mejora tu BugTracker» completo |
-| Jueves 19 de noviembre (08:30 y 09:20) | **Prueba escrita**, en papel, sobre las dos partes del proyecto «Mejora tu BugTracker»: Qt Designer y `pyside6-uic`, PySide6, Model/View, accesibilidad, el componente `Buscador` y sus pruebas, y el propio proyecto |
-| Jueves 10 de diciembre | **Examen final de la 1.ª evaluación** (el 3 y el 9 de diciembre, repaso) |
+| Lunes 16 de noviembre, 23:59 | Entrega en Teams de los cuestionarios C1 y C2 (semanas del 2 al 6 y del 9 al 13), en una sola tarea |
+| Martes 17 de noviembre | Se publican las soluciones de C1 y C2 y la actividad guiada «Mejora tu BugTracker» completa |
+| Jueves 19 de noviembre (08:30 y 09:20) | **P1** · examen parcial, en papel: lo trabajado en las semanas del 2 al 6 y del 9 al 13 (UD1–UD3) |
+| Jueves 3 de diciembre | **P2** · examen parcial, en papel: la UD4 trabajada del 16 al 27 de noviembre |
+| Jueves 10 de diciembre | **F** · examen final de la 1ª evaluación |
 
 ## Programación
 

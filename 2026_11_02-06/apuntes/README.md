@@ -7,7 +7,7 @@ Los apuntes de las unidades de esta semana.
 | [`UD1-diseno-usabilidad-y-accesibilidad.md`](UD1-diseno-usabilidad-y-accesibilidad.md) | Lo básico de la UD1: usabilidad y accesibilidad, heurísticas de Nielsen, estándares, distribución y elección de controles, menús y atajos, y cómo evaluar una interfaz |
 | [`UD2-pyside6-y-qt-designer.md`](UD2-pyside6-y-qt-designer.md) | Lo básico de la UD2: Qt y PySide6, del diseño en Qt Designer al código, controles y layouts, señales y slots, acciones y menús, diálogos, SQLite y Model/View |
 
-Cada archivo tiene lo básico de una unidad. Las preguntas del [cuestionario](../cuestionario.md) se responden con ellos y con el proyecto, y las de la prueba escrita salen de lo mismo.
+Cada archivo tiene lo básico de una unidad. Las preguntas del [cuestionario](../cuestionario.md) se responden con ellos y con el proyecto, y las de los exámenes salen de lo mismo.
 
 ## Dónde consultar
 
