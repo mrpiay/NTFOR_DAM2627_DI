@@ -20,7 +20,7 @@ Peso de cada unidad en el módulo, según la programación oficial. La 1ª evalu
 | Fecha | Qué |
 |---|---|
 | mié 2 dic | **P1** · examen parcial de la 1ª evaluación (31,3 % de la nota) |
-| mié 9 dic | **F** · examen final de la 1ª evaluación |
+| jue 10 dic | **F** · examen final de la 1ª evaluación |
 | jue 17 dic | Cierre de la 1ª evaluación (sesión de evaluación) |
 
 ## Cómo se califica
