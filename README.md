@@ -2,9 +2,19 @@
 
 Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por semana.
 
+## Últimas actualizaciones
+
+| Fecha | Qué cambia |
+|---|---|
+| 11 nov | **Repaso Julia**: apuntes que completan lo que se dio antes del 2 de noviembre ([repaso-julia/apuntes](repaso-julia/apuntes)) |
+| 11 nov | La **revisión (R)** de los cuestionarios y de los exámenes parciales corregidos es el 10 % de la nota; la entrega de los cuestionarios es obligatoria |
+| 11 nov | La 1ª evaluación en detalle: qué entra, cómo se evalúa y planificación semanal, con enlaces a los apuntes y actividades de cada semana ([programacion/1a-evaluacion.md](programacion/1a-evaluacion.md)) |
+| 10 nov | Fechas de los exámenes parciales y del examen final de la 1ª evaluación |
+| 9 nov | Currículo oficial del módulo ([programacion/curriculo-oficial.md](programacion/curriculo-oficial.md)) |
+
 ## Fechas importantes
 
-Todas las semanas: el cuestionario de autoevaluación está disponible desde el primer día, sus respuestas se suben a Teams antes del martes siguiente (hasta el lunes a las 23:59) y el martes se publican sus soluciones. Además:
+Todas las semanas con apuntes o actividades guiadas nuevas hay un cuestionario (C), disponible desde el primer día. Su entrega es obligatoria, en Teams, hasta el lunes siguiente a las 23:59, y el martes se publican sus soluciones. Además:
 
 | Fecha | Qué |
 |---|---|
