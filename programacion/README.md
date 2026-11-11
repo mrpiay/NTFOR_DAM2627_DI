@@ -32,7 +32,7 @@ Sale del apartado 6.1 de la programación oficial. En la 1ª evaluación, el det
 |---|---|---|
 | Trabajos, prácticas, proyectos y pruebas parciales | 60 % | **P** · exámenes parciales (40 %) y **A** · actividades guiadas (20 %) |
 | Prueba final de la evaluación | 30 % | **F** · examen final |
-| Autoevaluación del alumnado | 10 % | **C** · cuestionarios |
+| Autoevaluación del alumnado | 10 % | **R** · revisión de los cuestionarios (C) y de los exámenes parciales, una vez devueltos corregidos |
 
 Mínimo de 4 en cada examen parcial, en la media de las actividades guiadas y en el examen final para aplicar la media. La evaluación se aprueba con un 5.
 
