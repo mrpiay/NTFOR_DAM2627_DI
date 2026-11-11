@@ -64,7 +64,7 @@ Porcentajes sobre la nota de la evaluación.
 
 | Semana | Qué se da | Qué se evalúa |
 |---|---|---|
-| Antes del 2 nov | Lo evaluado por Julia | «TRABAJO UD1» (Julia) (2,3 %), «Bloc Notas» (Julia) (1,5 %), «Wireframe» (Julia) (0,4 %), «Accesibilidad» (Julia) (0,2 %) |
+| Antes del 2 nov<br>[repaso Julia](../repaso-julia/apuntes) | Lo evaluado por Julia | «TRABAJO UD1» (Julia) (2,3 %), «Bloc Notas» (Julia) (1,5 %), «Wireframe» (Julia) (0,4 %), «Accesibilidad» (Julia) (0,2 %) |
 | [2–6 nov](../2026_11_02-06)<br>[apuntes](../2026_11_02-06/apuntes) · [actividades](../2026_11_02-06/actividades) | UD1 · Estándares de usabilidad y accesibilidad<br>UD1 · Menús, acciones, distribución y elección de controles<br>UD1 · Aspecto y mensajes<br>UD1 · Pruebas de usabilidad y accesibilidad<br>UD2 · Herramientas y librerías; importancia de los estándares<br>UD2 · Qt Designer, propiedades, código generado, datos y la aplicación completa<br>UD2 · Acciones asociadas a eventos<br>UD2 · Menús, acciones, aspecto y mensajes | A1 (4 %), C1 |
 | [9–13 nov](../2026_11_09-13)<br>[apuntes](../2026_11_09-13/apuntes) · [actividades](../2026_11_09-13/actividades) | UD1 · Pruebas de usabilidad y accesibilidad<br>UD3 · Componente reutilizable: propiedades, señales, pruebas, persistencia, documentación y empaquetado<br>UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático | A2 (4 %), C2 |
 | 16–20 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Reconocimiento de voz y gestos de la mano<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A3 (4 %), C3, P1 (21 %), R de C1 (1,4 %), R de C2 (1,4 %) |

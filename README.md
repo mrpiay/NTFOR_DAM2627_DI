@@ -35,6 +35,7 @@ Junto a cada archivo, GitHub muestra cuándo cambió por última vez y qué se c
 
 | Semana | Actividades | Apuntes | Cuestionario | Soluciones |
 |---|---|---|---|---|
+| Repaso Julia | — | [apuntes](repaso-julia/apuntes) | — | — |
 | Del 2 al 6 de noviembre | [actividades](2026_11_02-06/actividades) | [apuntes](2026_11_02-06/apuntes) | [cuestionario](2026_11_02-06/cuestionario.md) | [soluciones](2026_11_02-06/soluciones) |
 | Del 9 al 13 de noviembre | [actividades](2026_11_09-13/actividades) | [apuntes](2026_11_09-13/apuntes) | [cuestionario](2026_11_09-13/cuestionario.md) | [soluciones](2026_11_09-13/soluciones) |
 
