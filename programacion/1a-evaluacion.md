@@ -80,6 +80,6 @@ Porcentajes sobre la nota de la evaluación.
 - **Exámenes escritos** (parciales, **P**, y final, **F**). Son en papel e incluyen preguntas similares a las de los cuestionarios. Cada pregunta indica los puntos que vale: los contenidos con más porcentaje tienen preguntas que valen más.
 - **Actividades guiadas (A).** La marcha y el cumplimiento de cada actividad se evalúan con una lista de cotejo: cada «Comprueba que…» de cada paso se cumple o no. La nota de cada actividad es el porcentaje de puntos cumplidos (de 0 a 10), y el mínimo de 4 se aplica a la media de las actividades de la evaluación.
 - En DI no hubo exámenes antes del 2 de noviembre. Las tareas de Teams cuentan para los contenidos que trabajan; en «Qué entra» aparecen con «(Julia)».
-- «SQLite» no se tiene en cuenta (se entregó en 3 de 13 casos): sus contenidos se evalúan con la P1.
+- «SQLite» se entregó en 3 de 13 casos: sus contenidos entran en la P1 para todo el grupo y, para quien la entregó, en esos contenidos cuenta la nota más alta entre la tarea y la P1.
 - El examen parcial pregunta todo lo de la 1ª evaluación que no evaluó Julia, aunque sea de forma breve. Lo que ya evaluó Julia (su examen de octubre, P1 (Julia), y sus tareas de Teams) cuenta con esa nota; si no se hizo su examen o no se entregó su tarea, en esa parte se obtiene un 5. El examen final pregunta toda la evaluación.
 - Mínimo de 4 en cada examen parcial, en la media de las actividades guiadas y en el final para aplicar la media (apartado 6.1 de la programación oficial).
