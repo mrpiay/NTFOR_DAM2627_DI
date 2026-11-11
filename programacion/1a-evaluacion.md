@@ -55,7 +55,7 @@ Qué entra en la 1ª evaluación y con qué se evalúa cada parte. En cada unida
 | **P** · exámenes parciales | 40 % | Lo evaluado por Julia: «TRABAJO UD1» (Julia) 2,3 %, «Bloc Notas» (Julia) 1,5 %, «Wireframe» (Julia) 0,4 %, «Accesibilidad» (Julia) 0,2 %<br>P1 · jue 19 nov: 21 %<br>P2 · jue 3 dic: 13,6 %<br>Contenidos que solo entran en F: 1 % |
 | **A** · actividades guiadas | 20 % | 5 actividades, 4 % cada una. Lista de cotejo: cada «Comprueba que…» se cumple o no |
 | **F** · examen final | 30 % | jue 10 dic |
-| **R** · revisión | 10 % | Revisión de cada cuestionario y de cada examen parcial, una vez devuelto corregido: 7 revisiones, 1,4 % cada una |
+| **R** · revisión | 10 % | De cada cuestionario (C) y cada examen parcial (P), una vez devuelto corregido: 7 revisiones, 1,4 % cada una |
 | **C** · cuestionarios | — | 5 cuestionarios. Su entrega es obligatoria; cuentan a través de su revisión (R) |
 
 Porcentajes sobre la nota de la evaluación.
@@ -71,7 +71,7 @@ Porcentajes sobre la nota de la evaluación.
 | 23–27 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Detección del cuerpo y realidad aumentada<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A4 (4 %), C4, R de C3 (1,4 %), R de P1 (1,4 %) |
 | 30 nov–4 dic | UD4 · Información persistente, manual de usuario, pruebas de integración y de regresión | A5 (4 %), C5, P2 (13,6 %), R de C4 (1,4 %) |
 | 7–11 dic | Repaso (mié 9) | F (30 % + 1 %), R de C5 (1,4 %), R de P2 (1,4 %) |
-| 14–18 dic | UD5 · Generación de informes (2ª evaluación, desde mar 15) | Cierre de la 1ª evaluación · jue 17 |
+| 14–18 dic | UD5 · Generación de informes | Cierre de la 1ª evaluación · jue 17 |
 
 ## Notas
 
