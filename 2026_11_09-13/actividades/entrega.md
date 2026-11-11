@@ -11,4 +11,4 @@
 | Cuestionarios C2 y C1 ([semana del 2 al 6](../../2026_11_02-06/cuestionario.md)), en una sola tarea de Teams | Hasta el **lunes 16 de noviembre**, a las 23:59 |
 | Soluciones de los dos cuestionarios y el proyecto completo, en [`soluciones/`](../soluciones) | **Martes 17 de noviembre** |
 
-El examen parcial **P1**, en papel, sobre las dos partes del proyecto y los apuntes de la UD1 a la UD3 es el **jueves 19 de noviembre**, después de que se publiquen las soluciones: está en las [fechas importantes](../../README.md) del repositorio.
+El examen parcial **P1**, en papel, con todo lo de la 1ª evaluación que no evaluó Julia, también las dos partes del proyecto y los apuntes de la UD1 a la UD3, es el **miércoles 2 de diciembre**: está en las [fechas importantes](../../README.md) del repositorio.

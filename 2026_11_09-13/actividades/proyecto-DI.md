@@ -8,7 +8,7 @@ Es la continuación de la 1.ª parte (semana del 2 al 6 de noviembre, pasos 0 a 
 
 **El objetivo es entender cada paso:** es lo que necesitas para responder los cuestionarios y preparar los exámenes.
 
-**Evaluación.** Esta actividad guiada (**A2**) se evalúa con su lista de cotejo: cada «Comprueba que…» se cumple o no. El cuestionario de la semana (**C2**) se entrega hasta el lunes 16 de noviembre, junto con el de la otra semana. El **jueves 19 de noviembre** hay un examen parcial, **P1**, en papel, sobre las dos partes de esta actividad (pasos 0 a 11): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt; y los apuntes de la UD1 a la UD3. Qué entra y cuánto vale cada parte: [1ª evaluación](../../programacion/1a-evaluacion.md).
+**Evaluación.** Esta actividad guiada (**A2**) se evalúa con su lista de cotejo: cada «Comprueba que…» se cumple o no. El cuestionario de la semana (**C2**) se entrega hasta el lunes 16 de noviembre, junto con el de la otra semana. El **miércoles 2 de diciembre** hay un examen parcial, **P1**, en papel, con todo lo de la 1ª evaluación que no evaluó Julia, también las dos partes de esta actividad (pasos 0 a 11): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt; y los apuntes de la UD1 a la UD3. Qué entra y cuánto vale cada parte: [1ª evaluación](../../programacion/1a-evaluacion.md).
 
 El proyecto se hace del 10 al 12 de noviembre. Cada paso trae una mini-explicación, una pista y qué hacer si algo falla.
 
@@ -72,7 +72,7 @@ Cada sesión dura 50 minutos.
 |---|---|---|
 | Martes 10 | 10:10 | **Paso 5** (componente `Buscador`). |
 | Martes 10 | 11:00 | **Paso 6** (pruebas con pytest-qt). |
-| Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Leer qué entra en el examen parcial P1 del jueves 19, en «Punto de partida» (10 min). |
+| Martes 10 | 12:10 | **Paso 7** (prueba de usabilidad en parejas, 25 min) y **Paso 8** (reflexión UD4, 15 min). Leer qué entra en el examen parcial P1 del miércoles 2 de diciembre, en «Punto de partida» (10 min). |
 | Miércoles 11 | 11:00 | **Paso 9** (recordar el estado con `QSettings`). |
 | Miércoles 11 | 12:10 | **Paso 10** (documentar el componente). |
 | Jueves 12 | 08:30 | **Paso 11** (empaquetar el componente). |

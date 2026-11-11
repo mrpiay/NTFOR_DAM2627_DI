@@ -13,7 +13,7 @@
 
 **El objetivo es entender cada paso:** es lo que necesitas para responder los cuestionarios y preparar los exámenes.
 
-**Evaluación.** Esta actividad guiada (**A1**) se evalúa con su lista de cotejo: cada «Comprueba que…» se cumple o no. El cuestionario de la semana (**C1**) se entrega hasta el lunes 16 de noviembre, junto con el de la otra semana. El **jueves 19 de noviembre** hay un examen parcial, **P1**, en papel, sobre las dos partes de esta actividad (pasos 0 a 11): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt; y los apuntes de la UD1 a la UD3. Qué entra y cuánto vale cada parte: [1ª evaluación](../../programacion/1a-evaluacion.md).
+**Evaluación.** Esta actividad guiada (**A1**) se evalúa con su lista de cotejo: cada «Comprueba que…» se cumple o no. El cuestionario de la semana (**C1**) se entrega hasta el lunes 16 de noviembre, junto con el de la otra semana. El **miércoles 2 de diciembre** hay un examen parcial, **P1**, en papel, con todo lo de la 1ª evaluación que no evaluó Julia, también las dos partes de esta actividad (pasos 0 a 11): Qt Designer y `pyside6-uic`, PySide6 (señales y slots, acciones, menús y diálogos con validación), Model/View, accesibilidad, el componente reutilizable `Buscador` y sus pruebas con pytest-qt; y los apuntes de la UD1 a la UD3. Qué entra y cuánto vale cada parte: [1ª evaluación](../../programacion/1a-evaluacion.md).
 
 El proyecto se hace del 3 al 5 de noviembre. Cada paso trae una pista, enlaces a los apuntes y qué hacer si algo falla.
 

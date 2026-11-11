@@ -13,9 +13,9 @@ Qué entra en la 1ª evaluación y con qué se evalúa cada parte. En cada unida
 | Contenido | Se evalúa con | Peso en la unidad |
 |---|---|---|
 | Estándares de usabilidad y accesibilidad | P1 | 15 % |
-| Menús, acciones, distribución y elección de controles | «Wireframe» (Julia) + «TRABAJO UD1» (Julia) + P1 | 48 % |
-| Aspecto y mensajes | «Wireframe» (Julia) + «Accesibilidad» (Julia) + «TRABAJO UD1» (Julia) + P1 | 23 % |
-| Pruebas de usabilidad y accesibilidad | «Accesibilidad» (Julia) + «TRABAJO UD1» (Julia) + P1 | 14 % |
+| Menús, acciones, distribución y elección de controles | «Wireframe» (Julia) + «TRABAJO UD1» (Julia) | 48 % |
+| Aspecto y mensajes | «Wireframe» (Julia) + «Accesibilidad» (Julia) + «TRABAJO UD1» (Julia) | 23 % |
+| Pruebas de usabilidad y accesibilidad | «Accesibilidad» (Julia) + «TRABAJO UD1» (Julia) | 14 % |
 
 ### UD2 · Desarrollo de interfaces gráficas con PySide6 y Qt Designer
 
@@ -25,8 +25,8 @@ Qué entra en la 1ª evaluación y con qué se evalúa cada parte. En cada unida
 |---|---|---|
 | Herramientas y librerías; importancia de los estándares | P1 | 8 % |
 | Qt Designer, propiedades, código generado, datos y la aplicación completa | P1 | 66 % |
-| Acciones asociadas a eventos | «Bloc Notas» (Julia) + P1 | 12 % |
-| Menús, acciones, aspecto y mensajes | «Bloc Notas» (Julia) + P1 | 14 % |
+| Acciones asociadas a eventos | «Bloc Notas» (Julia) | 12 % |
+| Menús, acciones, aspecto y mensajes | «Bloc Notas» (Julia) | 14 % |
 
 ### UD3 · Creación de componentes visuales reutilizables
 
@@ -42,20 +42,20 @@ Qué entra en la 1ª evaluación y con qué se evalúa cada parte. En cada unida
 
 | Contenido | Se evalúa con | Peso en la unidad |
 |---|---|---|
-| Tipos de interfaces naturales y herramientas de aprendizaje automático | P2 | 10 % |
-| Reconocimiento de voz y gestos de la mano | P2 | 20 % |
-| Detección del cuerpo y realidad aumentada | P2 | 20 % |
-| La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | P2 | 43 % |
-| Información persistente, manual de usuario, pruebas de integración y de regresión | F | 7 % |
+| Tipos de interfaces naturales y herramientas de aprendizaje automático | P1 | 10 % |
+| Reconocimiento de voz y gestos de la mano | P1 | 20 % |
+| Detección del cuerpo y realidad aumentada | P1 | 20 % |
+| La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | P1 | 43 % |
+| Información persistente, manual de usuario, pruebas de integración y de regresión | P1 | 7 % |
 
 ## Cómo se evalúa
 
 | Parte | Peso | Qué incluye |
 |---|---|---|
-| **P** · exámenes parciales | 40 % | Lo evaluado por Julia: «TRABAJO UD1» (Julia) 2,3 %, «Bloc Notas» (Julia) 1,5 %, «Wireframe» (Julia) 0,4 %, «Accesibilidad» (Julia) 0,2 %<br>P1 · jue 19 nov: 21 %<br>P2 · jue 3 dic: 13,6 %<br>Contenidos que solo entran en F: 1 % |
+| **P** · exámenes parciales | 40 % | Lo evaluado por Julia: «TRABAJO UD1» (Julia) 4,5 %, «Bloc Notas» (Julia) 2,9 %, «Wireframe» (Julia) 0,8 %, «Accesibilidad» (Julia) 0,4 %<br>P1 · mié 2 dic: 31,3 % |
 | **A** · actividades guiadas | 20 % | 5 actividades, 4 % cada una. Lista de cotejo: cada «Comprueba que…» se cumple o no |
-| **F** · examen final | 30 % | jue 10 dic |
-| **R** · revisión | 10 % | De cada cuestionario (C) y cada examen parcial (P), una vez devuelto corregido: 7 revisiones, 1,4 % cada una |
+| **F** · examen final | 30 % | mié 9 dic |
+| **R** · revisión | 10 % | De cada cuestionario (C) y cada examen parcial (P), una vez devuelto corregido: 6 revisiones, 1,7 % cada una |
 | **C** · cuestionarios | — | 5 cuestionarios. Su entrega es obligatoria; cuentan a través de su revisión (R) |
 
 Porcentajes sobre la nota de la evaluación.
@@ -64,13 +64,13 @@ Porcentajes sobre la nota de la evaluación.
 
 | Semana | Qué se da | Qué se evalúa |
 |---|---|---|
-| Antes del 2 nov<br>[repaso Julia](../repaso-julia/apuntes) | Lo evaluado por Julia | «TRABAJO UD1» (Julia) (2,3 %), «Bloc Notas» (Julia) (1,5 %), «Wireframe» (Julia) (0,4 %), «Accesibilidad» (Julia) (0,2 %) |
+| Antes del 2 nov<br>[repaso Julia](../repaso-julia/apuntes) | Lo evaluado por Julia | «TRABAJO UD1» (Julia) (4,5 %), «Bloc Notas» (Julia) (2,9 %), «Wireframe» (Julia) (0,8 %), «Accesibilidad» (Julia) (0,4 %) |
 | [2–6 nov](../2026_11_02-06)<br>[apuntes](../2026_11_02-06/apuntes) · [actividades](../2026_11_02-06/actividades) | UD1 · Estándares de usabilidad y accesibilidad<br>UD1 · Menús, acciones, distribución y elección de controles<br>UD1 · Aspecto y mensajes<br>UD1 · Pruebas de usabilidad y accesibilidad<br>UD2 · Herramientas y librerías; importancia de los estándares<br>UD2 · Qt Designer, propiedades, código generado, datos y la aplicación completa<br>UD2 · Acciones asociadas a eventos<br>UD2 · Menús, acciones, aspecto y mensajes | A1 (4 %), C1 |
 | [9–13 nov](../2026_11_09-13)<br>[apuntes](../2026_11_09-13/apuntes) · [actividades](../2026_11_09-13/actividades) | UD1 · Pruebas de usabilidad y accesibilidad<br>UD3 · Componente reutilizable: propiedades, señales, pruebas, persistencia, documentación y empaquetado<br>UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático | A2 (4 %), C2 |
-| 16–20 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Reconocimiento de voz y gestos de la mano<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A3 (4 %), C3, P1 (21 %), R de C1 (1,4 %), R de C2 (1,4 %) |
-| 23–27 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Detección del cuerpo y realidad aumentada<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A4 (4 %), C4, R de C3 (1,4 %), R de P1 (1,4 %) |
-| 30 nov–4 dic | UD4 · Información persistente, manual de usuario, pruebas de integración y de regresión | A5 (4 %), C5, P2 (13,6 %), R de C4 (1,4 %) |
-| 7–11 dic | Repaso (mié 9) | F (30 % + 1 %), R de C5 (1,4 %), R de P2 (1,4 %) |
+| 16–20 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Reconocimiento de voz y gestos de la mano<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A3 (4 %), C3, R de C1 (1,7 %), R de C2 (1,7 %) |
+| 23–27 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Detección del cuerpo y realidad aumentada<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A4 (4 %), C4, R de C3 (1,7 %) |
+| 30 nov–4 dic | UD4 · Información persistente, manual de usuario, pruebas de integración y de regresión<br>Repaso (jue 3) | A5 (4 %), C5, P1 (31,3 %), R de C4 (1,7 %) |
+| 7–11 dic | UD5 · Generación de informes (desde el jue 10) | F (30 %), R de C5 (1,7 %), R de P1 (1,7 %) |
 | 14–18 dic | UD5 · Generación de informes | Cierre de la 1ª evaluación · jue 17 |
 
 ## Notas
@@ -81,5 +81,5 @@ Porcentajes sobre la nota de la evaluación.
 - **Actividades guiadas (A).** La marcha y el cumplimiento de cada actividad se evalúan con una lista de cotejo: cada «Comprueba que…» de cada paso se cumple o no. La nota de cada actividad es el porcentaje de puntos cumplidos (de 0 a 10), y el mínimo de 4 se aplica a la media de las actividades de la evaluación.
 - En DI no hubo exámenes antes del 2 de noviembre. Las tareas de Teams cuentan para los contenidos que trabajan; en «Qué entra» aparecen con «(Julia)».
 - «SQLite» no se tiene en cuenta (se entregó en 3 de 13 casos): sus contenidos se evalúan con la P1.
-- Los exámenes parciales preguntan todo lo trabajado en clase desde el 2 de noviembre, también los contenidos que ya evaluó Julia. Esos contenidos aparecen en «Qué entra» con dos instrumentos (por ejemplo, «P1 (Julia) + P2»): la mitad de su nota sale de lo de Julia y la otra mitad del examen parcial. Si no se hizo el examen de Julia o no se entregó su tarea, en esa mitad se obtiene un 5.
+- El examen parcial pregunta todo lo de la 1ª evaluación que no evaluó Julia, aunque sea de forma breve. Lo que ya evaluó Julia (su examen de octubre, P1 (Julia), y sus tareas de Teams) cuenta con esa nota; si no se hizo su examen o no se entregó su tarea, en esa parte se obtiene un 5. El examen final pregunta toda la evaluación.
 - Mínimo de 4 en cada examen parcial, en la media de las actividades guiadas y en el final para aplicar la media (apartado 6.1 de la programación oficial).
