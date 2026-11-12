@@ -1,16 +1,70 @@
 # DI · Tutorial de Python con el BugTracker
 
-**Para qué.** En este módulo se lee mucho Python: el BugTracker tiene seis archivos `.py`. Este tutorial explica cómo instalar el BugTracker con sus dependencias, después cómo está organizada la aplicación (qué archivo hace qué y quién usa a quién) y después recorre un programa de Python ya hecho, `explorador.py`, que lee esos archivos y la base de datos para sacar información. No hay que escribir código: se **ejecuta**, se **lee** y se **explica**.
+**Para qué.** En este módulo se lee mucho Python: el BugTracker tiene seis archivos `.py`. Este tutorial explica qué es el BugTracker, cómo instalarlo con sus dependencias y usarlo, cómo está hecho por dentro (qué archivo hace qué y quién usa a quién) y, por último, recorre un programa de Python ya hecho, `explorador.py`, que lee esos archivos y la base de datos para sacar información. No hay que escribir código: se **ejecuta**, se **lee** y se **explica**.
 
 Python que aparece: importar módulos, `os`, `sys`, listas, diccionarios, funciones, clases, herencia, excepciones y archivos.
 
 ---
 
-## Parte 0 · Instalar el BugTracker y sus dependencias
+## Parte 1 · Qué es el BugTracker
+
+Antes de instalar nada, qué es la aplicación, cómo es y qué guarda.
+
+### 1.1 · Para qué sirve
+
+Un ***bug*** es un fallo de un programa. Un ***bug tracker*** (gestor de incidencias) es la aplicación donde un equipo de desarrollo apunta los fallos, las mejoras y las ideas de su programa, para no olvidarlos, decidir cuáles van primero y saber en qué estado está cada uno. Los equipos reales usan herramientas como GitHub Issues o Jira.
+
+El BugTracker de este módulo es una versión pequeña, de escritorio: una ventana para **añadir, ver, modificar y eliminar incidencias**, que se guardan en una base de datos en el propio equipo. Está hecho en Python con **PySide6** (la librería Qt para Python) y **SQLite** (una base de datos que es un solo archivo).
+
+### 1.2 · La ventana
+
+Así es la ventana, con el nombre de cada parte:
+
+```
+┌─ BugTracker ────────────────────────────────────────────┐
+│ Archivo                                    ← menú        │
+│ [Nueva incidencia] [Guardar] [Eliminar]    ← barra de    │
+│                                              herramientas│
+│ Título (obligatorio): [____________________]             │
+│ Tipo:                 [Error            ▼]               │
+│ Prioridad:            [Baja             ▼] ← formulario  │
+│ Estado:               [Pendiente        ▼]               │
+│ Descripción:          [____________________]             │
+│                                                          │
+│        [Añadir] [Modificar] [Eliminar] [Limpiar]         │
+│                                                          │
+│  Título               Tipo     Prioridad   Estado        │
+│  El botón Guardar…    Error    Alta        Pendiente     │
+│  …                                         ← tabla       │
+│                                                          │
+│ Incidencia añadida                 ← barra de estado     │
+└──────────────────────────────────────────────────────────┘
+```
+
+Desde la ventana se trabaja de dos formas: con el **formulario** de arriba y sus botones, o con un **diálogo**, una ventana aparte con el mismo formulario que se abre con *Archivo > Nueva incidencia…* (`Ctrl+N`) o con doble clic en una fila. En la parte 3 se prueba todo.
+
+### 1.3 · Los datos: qué es una incidencia
+
+Cada incidencia es una fila de la tabla `incidencias` de la base de datos `bugtracker.db`, con estos campos:
+
+| Campo | Qué guarda | Valores |
+|---|---|---|
+| `id` | Número que pone la base de datos a cada incidencia nueva (1, 2, 3…). No se repite. La tabla de la ventana lo tiene, pero oculto | Automático |
+| `titulo` | Qué pasa, en una línea | Obligatorio; en el diálogo, 100 caracteres como máximo |
+| `tipo` | Qué clase de incidencia es | Error, Mejora o Nueva funcionalidad |
+| `prioridad` | Cuánto corre | Baja, Media, Alta o Crítica |
+| `estado` | Cómo va | Pendiente, En proceso o Resuelta |
+| `descripcion` | Los detalles | Opcional |
+
+La tabla se define con SQL en la función `crear_bd()` de `bd.py` (`CREATE TABLE IF NOT EXISTS incidencias …`). Los valores posibles de tipo, prioridad y estado son las opciones de las listas desplegables: en `bugtracker.ui` para la ventana y en `dialogo.py` (listas `TIPOS`, `PRIORIDADES` y `ESTADOS`) para el diálogo.
+
+---
+
+## Parte 2 · Instalar el BugTracker y sus dependencias
 
 Para el tutorial se usa una **copia nueva** del BugTracker en su propia carpeta: así todo el mundo tiene los mismos archivos y el proyecto propio no se toca.
 
-### Paso 0.1 · Python y VS Code
+### Paso 2.1 · Python y VS Code
 
 Hacen falta dos programas:
 
@@ -32,9 +86,9 @@ Después de instalar algo, cierra la terminal y abre otra para que lo reconozca.
 
 **Comprueba que…** las dos órdenes muestran una versión.
 
-### Paso 0.2 · Descargar los archivos desde la terminal
+### Paso 2.2 · Descargar los archivos desde la terminal
 
-Todo se hace con órdenes, en la misma terminal PowerShell del paso 0.1. Escríbelas (o cópialas) una detrás de otra y pulsa **Intro** después de cada una.
+Todo se hace con órdenes, en la misma terminal PowerShell del paso 2.1. Escríbelas (o cópialas) una detrás de otra y pulsa **Intro** después de cada una.
 
 1. Crea la carpeta del tutorial y entra en ella:
 
@@ -90,10 +144,10 @@ Todo se hace con órdenes, en la misma terminal PowerShell del paso 0.1. Escríb
 **Si te falla…**
 
 - *`mkdir` dice que ya existe un elemento con ese nombre*: la carpeta ya estaba creada. Sigue con `cd`.
-- *`Expand-Archive` dice que el archivo ya existe*: ya se había descomprimido antes. Borra la carpeta con `Remove-Item -Recurse bugtracker` y repite el paso 3.
+- *`Expand-Archive` dice que el archivo ya existe*: ya se había descomprimido antes. Borra la carpeta con `Remove-Item -Recurse bugtracker` y repite el apartado 3.
 - *`code` no se reconoce*: VS Code no está en el `PATH`. Ábrelo desde el menú Inicio, *File > Open Folder…* y elige `C:\dam2627\di\python-bugtracker\bugtracker`.
 
-### Paso 0.3 · Crear el entorno virtual
+### Paso 2.3 · Crear el entorno virtual
 
 A partir de aquí se trabaja en la terminal de VS Code: *Terminal > New Terminal* (`Ctrl+ñ`). Se abre ya en la carpeta `bugtracker`. Tiene que ser **PowerShell** (lo pone a la derecha del panel de la terminal). La terminal de antes se puede cerrar.
 
@@ -117,7 +171,7 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 
 **Comprueba que…** la línea de la terminal empieza por `(.venv)`.
 
-### Paso 0.4 · Instalar las dependencias
+### Paso 2.4 · Instalar las dependencias
 
 Las **dependencias** son las librerías que el programa necesita y que no vienen con Python. Están en `requirements.txt`:
 
@@ -151,31 +205,14 @@ Por último, en VS Code elige el intérprete del entorno, para que reconozca las
 
 **Comprueba que…** `pip list` muestra `PySide6-Essentials`, `pytest` y `pytest-qt`.
 
-### Paso 0.5 · Crear la base de datos y arrancar
-
-```
-python datos_ejemplo.py
-python main.py
-```
-
-`datos_ejemplo.py` crea la base de datos `bugtracker.db` con cinco incidencias de prueba (ejecútalo una sola vez: cada vez que se ejecuta añade otras cinco). `main.py` abre el BugTracker. Ciérralo para seguir.
-
-**Comprueba que…** se abre la ventana del BugTracker con las cinco incidencias en la tabla.
-
 ### Qué hay ahora en la carpeta
 
-Además de los archivos descargados, han aparecido estos:
-
-| Qué | Quién lo crea | Qué es |
-|---|---|---|
-| `.venv\` | `python -m venv .venv` | El entorno virtual, con las librerías instaladas por pip. No es código del proyecto: no se entrega ni se copia, se vuelve a crear con los pasos 0.3 y 0.4 |
-| `bugtracker.db` | `bd.crear_bd()`, desde `datos_ejemplo.py` o `main.py` | La base de datos |
-| `__pycache__\` | Python, al importar un módulo | Versiones ya traducidas de los `.py` importados, para que arranquen antes. Se puede borrar: Python la vuelve a crear |
+Además de los archivos descargados, ha aparecido `.venv\`, creada por `python -m venv .venv`: el entorno virtual, con las librerías instaladas por pip. No es código del proyecto: no se entrega ni se copia, se vuelve a crear con los pasos 2.3 y 2.4.
 
 **Si te falla…**
 
 - *`python` no se reconoce como comando*: Python no está instalado o no está en el `PATH`. Instálalo desde python.org marcando *Add python.exe to PATH* y abre una terminal nueva.
-- *«La ejecución de scripts está deshabilitada» al activar el entorno*: la solución está en el paso 0.3.
+- *«La ejecución de scripts está deshabilitada» al activar el entorno*: la solución está en el paso 2.3.
 - *`WinError 206` («el nombre del archivo o la extensión es demasiado largo»)*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam2627\di\python-bugtracker\` y repite desde `python -m venv .venv`.
 - *`ModuleNotFoundError: No module named 'PySide6'`*: el entorno no está activado (falta `(.venv)`) o no se instalaron las dependencias. Actívalo y repite `pip install -r requirements.txt`.
 - *pip falla o no hay red*: repite `pip install -r requirements.txt` cuando haya red.
@@ -201,19 +238,30 @@ Las órdenes de esta parte son de **PowerShell**, la terminal de Windows. En Lin
 - Las rutas de Windows empiezan por la unidad (`C:\`) y separan las carpetas con `\`. Las de Linux empiezan en `/` y las separan con `/`. `~` es la carpeta personal del usuario (`/home/usuario`).
 - En Linux la línea de la terminal termina en `$` (en lugar de `>`), por ejemplo `usuario@equipo:~/dam2627$`.
 - En Ubuntu, `unzip` y el módulo `venv` pueden no venir instalados: `sudo apt install unzip python3-venv`.
-- Ubuntu Server no tiene escritorio, así que la ventana del BugTracker (`python main.py`) no se puede abrir allí. El explorador de la parte 2 sí funciona, porque es un programa de terminal y no usa Qt.
+- Ubuntu Server no tiene escritorio, así que la ventana del BugTracker (`python main.py`) no se puede abrir allí. El explorador de la parte 5 sí funciona, porque es un programa de terminal y no usa Qt.
 
----
+## Parte 3 · Crear la base de datos y usar el BugTracker
 
-## Parte 1 · Qué es el BugTracker y cómo está hecho
+### 3.1 · Crear la base de datos
 
-### 1.1 · Para qué sirve
+La aplicación guarda las incidencias en `bugtracker.db`, que todavía no existe. `datos_ejemplo.py` la crea y le añade cinco incidencias de prueba, para no empezar con la tabla vacía:
 
-Un ***bug*** es un fallo de un programa. Un ***bug tracker*** (gestor de incidencias) es la aplicación donde un equipo de desarrollo apunta los fallos, las mejoras y las ideas de su programa, para no olvidarlos, decidir cuáles van primero y saber en qué estado está cada uno. Los equipos reales usan herramientas como GitHub Issues o Jira.
+```
+python datos_ejemplo.py
+```
 
-El BugTracker de este módulo es una versión pequeña, de escritorio: una ventana para **añadir, ver, modificar y eliminar incidencias**, que se guardan en una base de datos en el propio equipo. Está hecho en Python con **PySide6** (la librería Qt para Python) y **SQLite** (una base de datos que es un solo archivo).
+Sale `Añadidas 5 incidencias de ejemplo.` Ejecútalo **una sola vez**: cada vez que se ejecuta añade otras cinco.
 
-### 1.2 · Usarlo antes de leerlo
+Han aparecido dos cosas en la carpeta:
+
+| Qué | Quién lo crea | Qué es |
+|---|---|---|
+| `bugtracker.db` | `datos_ejemplo.py`, que llama a `bd.crear_bd()` | La base de datos, con la tabla `incidencias` y las cinco incidencias |
+| `__pycache__\` | Python, al importar `bd.py` desde `datos_ejemplo.py` | Versiones ya traducidas de los `.py` importados, para que arranquen antes. Se puede borrar: Python la vuelve a crear |
+
+**Comprueba que…** existe `bugtracker.db` en la carpeta.
+
+### 3.2 · Usarlo antes de leerlo
 
 En la terminal de VS Code, con `(.venv)` delante:
 
@@ -221,30 +269,7 @@ En la terminal de VS Code, con `(.venv)` delante:
 python main.py
 ```
 
-Esta es la ventana y el nombre de cada parte:
-
-```
-┌─ BugTracker ────────────────────────────────────────────┐
-│ Archivo                                    ← menú        │
-│ [Nueva incidencia] [Guardar] [Eliminar]    ← barra de    │
-│                                              herramientas│
-│ Título (obligatorio): [____________________]             │
-│ Tipo:                 [Error            ▼]               │
-│ Prioridad:            [Baja             ▼] ← formulario  │
-│ Estado:               [Pendiente        ▼]               │
-│ Descripción:          [____________________]             │
-│                                                          │
-│        [Añadir] [Modificar] [Eliminar] [Limpiar]         │
-│                                                          │
-│  Título               Tipo     Prioridad   Estado        │
-│  El botón Guardar…    Error    Alta        Pendiente     │
-│  …                                         ← tabla       │
-│                                                          │
-│ Incidencia añadida                 ← barra de estado     │
-└──────────────────────────────────────────────────────────┘
-```
-
-Prueba esto, en orden:
+Se abre la ventana de la parte 1, con las cinco incidencias en la tabla. Prueba esto, en orden:
 
 1. **Ordenar.** Pulsa la cabecera **Prioridad** de la tabla: las filas se ordenan por esa columna.
 2. **Seleccionar.** Haz clic en una fila: el formulario se rellena con sus datos y se activan **Modificar** y **Eliminar**.
@@ -256,22 +281,11 @@ Prueba esto, en orden:
 
 **Comprueba que…** sabes señalar en la ventana el menú, la barra de herramientas, el formulario, la tabla y la barra de estado, y sabes hacer las cuatro operaciones: añadir, ver, modificar y eliminar.
 
-### 1.3 · Los datos: qué es una incidencia
+---
 
-Cada incidencia es una fila de la tabla `incidencias` de la base de datos `bugtracker.db`, con estos campos:
+## Parte 4 · Cómo está hecho por dentro
 
-| Campo | Qué guarda | Valores |
-|---|---|---|
-| `id` | Número que pone la base de datos a cada incidencia nueva (1, 2, 3…). No se repite. La tabla de la ventana lo tiene, pero oculto | Automático |
-| `titulo` | Qué pasa, en una línea | Obligatorio; en el diálogo, 100 caracteres como máximo |
-| `tipo` | Qué clase de incidencia es | Error, Mejora o Nueva funcionalidad |
-| `prioridad` | Cuánto corre | Baja, Media, Alta o Crítica |
-| `estado` | Cómo va | Pendiente, En proceso o Resuelta |
-| `descripcion` | Los detalles | Opcional |
-
-La tabla se define con SQL en la función `crear_bd()` de `bd.py` (`CREATE TABLE IF NOT EXISTS incidencias …`). Los valores posibles de tipo, prioridad y estado son las opciones de las listas desplegables: en `bugtracker.ui` para la ventana y en `dialogo.py` (listas `TIPOS`, `PRIORIDADES` y `ESTADOS`) para el diálogo.
-
-### 1.4 · Los archivos
+### 4.1 · Los archivos
 
 | Archivo | Qué contiene | Para qué sirve |
 |---|---|---|
@@ -284,14 +298,14 @@ La tabla se define con SQL en la función `crear_bd()` de `bd.py` (`CREATE TABLE
 | `bugtracker.db` | La tabla `incidencias` | La **base de datos** SQLite. No existe hasta que se ejecuta la aplicación o `datos_ejemplo.py` |
 | `datos_ejemplo.py` | Una lista de cinco incidencias | Las añade a la base de datos para tener datos con los que probar |
 | `test_buscador.py` | Funciones `test_…` | Pruebas automáticas del Buscador, con `pytest`. Con el Buscador sin terminar, fallan las cuatro |
-| `requirements.txt` | Nombres de librerías | Lo que se instala con `pip install -r requirements.txt` (paso 0.4) |
+| `requirements.txt` | Nombres de librerías | Lo que se instala con `pip install -r requirements.txt` (paso 2.4) |
 
 Los archivos se reparten en dos **capas**:
 
 - **Presentación**, lo que se ve y con lo que se interactúa: `bugtracker.ui` y `ui_bugtracker.py` (el diseño), `main.py` (la lógica de la ventana), `dialogo.py` y `buscador.py`.
 - **Datos**, dónde y cómo se guardan las incidencias: `bd.py` y `bugtracker.db`.
 
-### 1.5 · Quién usa a quién
+### 4.2 · Quién usa a quién
 
 ```
                  bugtracker.ui
@@ -309,14 +323,14 @@ Los archivos se reparten en dos **capas**:
 
 Una flecha `A ──► B` quiere decir que **A importa a B** (`import B` o `from B import …`) y usa lo que B tiene. `bd.py ──► bugtracker.db` quiere decir que `bd.py` abre ese archivo y le hace consultas SQL.
 
-### 1.6 · La regla de separación
+### 4.3 · La regla de separación
 
 - `main.py` **nunca contiene SQL**: cuando necesita datos, llama a una función de `bd.py`.
 - `bd.py` **nunca usa widgets de Qt**: si algo falla, lanza un error (`sqlite3.Error`) y es `main.py` quien muestra el mensaje.
 
-Así, la interfaz se puede cambiar sin tocar la base de datos, y al revés. Y otro programa puede usar `bd.py` sin abrir ninguna ventana: es lo que hace el explorador de la parte 2.
+Así, la interfaz se puede cambiar sin tocar la base de datos, y al revés. Y otro programa puede usar `bd.py` sin abrir ninguna ventana: es lo que hace el explorador de la parte 5.
 
-### 1.7 · Qué pasa por dentro
+### 4.4 · Qué pasa por dentro
 
 **Al ejecutar `python main.py`:**
 
@@ -354,7 +368,7 @@ Busca en `main.py` las funciones `__init__`, `anadir_incidencia`, `leer_formular
 - que haya un estado nuevo, «Cerrada»;
 - guardar también la fecha de cada incidencia.
 
-### 1.8 · Dónde encaja el explorador
+### 4.5 · Dónde encaja el explorador
 
 `explorador.py` está en la misma carpeta que la aplicación, pero **no forma parte de ella**: `main.py` no lo importa y el explorador no abre ninguna ventana. Es un programa de terminal que se conecta con la plantilla de dos formas:
 
@@ -374,13 +388,13 @@ Por eso:
 
 ---
 
-## Parte 2 · El explorador: un programa que lee el proyecto
+## Parte 5 · El explorador: un programa que lee el proyecto
 
 `explorador.py` es un programa de terminal, sin ventanas. Lee los archivos de la carpeta del BugTracker y su base de datos, y responde a cinco órdenes.
 
 Se ejecuta en la terminal de VS Code, en la carpeta `bugtracker` y con `(.venv)` delante. Abre `explorador.py` en VS Code para leerlo mientras lo ejecutas: está dividido en cuatro bloques numerados en los comentarios.
 
-### Paso 1 · Ejecutar sin nada: `sys.argv` y `sys.exit`
+### Paso 5.1 · Ejecutar sin nada: `sys.argv` y `sys.exit`
 
 ```bash
 python explorador.py
@@ -397,7 +411,7 @@ Sale la ayuda y, al final, `sys.argv = ['explorador.py']`.
 
 **Comprueba que…** sabes qué valdría `sys.argv` con `python explorador.py estructura` y con `python explorador.py incidencias "En proceso"` (las comillas hacen que `En proceso` sea un solo elemento).
 
-### Paso 2 · Los archivos de la carpeta: `import` y `os`
+### Paso 5.2 · Los archivos de la carpeta: `import` y `os`
 
 ```bash
 python explorador.py archivos
@@ -425,7 +439,7 @@ Sale cada archivo con su tamaño, para qué sirve y, si es `.py`, sus líneas.
 
 **Comprueba que…** sabes explicar por qué `bugtracker.db` sale sin número de líneas y por qué no salen las carpetas (como `__pycache__`).
 
-### Paso 3 · Clases y funciones de cada archivo: clases y herencia
+### Paso 5.3 · Clases y funciones de cada archivo: clases y herencia
 
 ```bash
 python explorador.py estructura
@@ -452,7 +466,7 @@ class VentanaPrincipal(QMainWindow):      # una VentanaPrincipal es una QMainWin
 
 **Comprueba que…** en la salida de `estructura` sabes señalar qué clases heredan de una clase de Qt y qué archivos solo tienen funciones (sin clases), y sabes explicar por qué `bd.py` es uno de ellos.
 
-### Paso 4 · Quién importa a quién: listas
+### Paso 5.4 · Quién importa a quién: listas
 
 ```bash
 python explorador.py dependencias
@@ -466,9 +480,9 @@ Sale, para cada archivo, qué archivos del proyecto usa y qué librerías.
 - `[a.nombre[:-3] for a in archivos]` es una **lista por comprensión**: una lista nueva hecha recorriendo otra. `nombre[:-3]` quita los tres últimos caracteres (`"bd.py"` → `"bd"`).
 - `", ".join(lista)` une los elementos con comas; `lista or "-"` pone `-` si la lista está vacía.
 
-**Comprueba que…** la salida coincide con el diagrama de la parte 1, y sabes explicar por qué `bd.py` no usa PySide6 y `main.py` no usa `sqlite3` para hacer consultas (solo para reconocer sus errores).
+**Comprueba que…** la salida coincide con el diagrama del apartado 4.2, y sabes explicar por qué `bd.py` no usa PySide6 y `main.py` no usa `sqlite3` para hacer consultas (solo para reconocer sus errores).
 
-### Paso 5 · La base de datos: usar `bd.py` desde otro programa
+### Paso 5.5 · La base de datos: usar `bd.py` desde otro programa
 
 ```bash
 python explorador.py incidencias
@@ -488,7 +502,7 @@ Salen cuántas incidencias hay por estado, prioridad y tipo y, si se indica un e
 
 **Comprueba que…** los números coinciden con lo que se ve en la tabla del BugTracker (`python main.py`) y, si añades una incidencia desde la ventana, el explorador la cuenta.
 
-### Paso 6 · Guardar un informe: escribir archivos
+### Paso 5.6 · Guardar un informe: escribir archivos
 
 ```bash
 python explorador.py informe
@@ -504,7 +518,7 @@ Crea la carpeta `informes` y dentro `informe.txt`, con la salida de las cuatro �
 
 **Comprueba que…** existe `informes/informe.txt` y tiene las cuatro partes.
 
-### Paso 7 · `if __name__ == "__main__":`
+### Paso 5.7 · `if __name__ == "__main__":`
 
 **Lee** las dos últimas líneas de `explorador.py`, de `datos_ejemplo.py` y de `main.py`.
 
@@ -529,7 +543,7 @@ Crea la carpeta `informes` y dentro `informe.txt`, con la salida de las cuatro �
 | Sé cómo se conecta el explorador con la plantilla y por qué tiene que estar en su carpeta |  |
 | Sé qué es `sys.argv` y qué hace `sys.exit` |  |
 | Sé qué hace un `import` y por qué Python encuentra `bd.py` |  |
-| Sé usar las funciones de `os` de la tabla del paso 2 |  |
+| Sé usar las funciones de `os` de la tabla del paso 5.2 |  |
 | Sé explicar una clase con `__init__`, `self`, atributos y métodos, y la herencia con `super().__init__()` |  |
 | Sé leer listas, diccionarios y listas por comprensión |  |
 | Sé qué hace `try`/`except` y lo reconozco en `main.py` |  |
