@@ -92,6 +92,8 @@ Los pasos 5 y 6 tienen **Objetivo**, **Mini-explicación** (lo justo), **Pista**
 
 La señal, la propiedad y el docstring ya están declarados en la plantilla. Te falta el cuerpo.
 
+**Qué se ve y dónde.** El `Buscador` es una barra con una caja de texto y un botón «Limpiar» que aparece **encima de la tabla de incidencias**: al escribir en la caja, la tabla muestra solo las incidencias que contienen ese texto. Se añade **por código**, en `configurar_buscador()`, al arrancar la aplicación: por eso **no aparece en Qt Designer** ni en `bugtracker.ui`, y no hay que buscarlo allí. Se ve **al ejecutar** `python main.py`. Si al ejecutar no sale, falta alguna de estas tres cosas: la llamada `self.configurar_buscador()` en `__init__` (sin `#`), el `from buscador import Buscador` en `main.py` o el método `configurar_buscador()` dentro de la clase. Para probarlo: escribe `error` en la caja (la tabla se queda con las incidencias que lo contienen y la barra de estado dice cuántas), pulsa «Limpiar» (vuelven todas) y pulsa `Alt+B` (el cursor salta a la caja).
+
 **Pista.** En `buscador.py`, sustituye los dos comentarios `# TODO Paso 5` de `__init__` (debajo de `super().__init__(parent)`) por esto, con la misma sangría:
 
 ```python
