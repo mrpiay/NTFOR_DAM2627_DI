@@ -273,7 +273,7 @@ Se abre la ventana de la parte 1, con las cinco incidencias en la tabla. Prueba 
 
 1. **Ordenar.** Pulsa la cabecera **Prioridad** de la tabla: las filas se ordenan por esa columna.
 2. **Seleccionar.** Haz clic en una fila: el formulario se rellena con sus datos y se activan **Modificar** y **Eliminar**.
-3. **Modificar.** Cambia su estado a **Resuelta** y pulsa **Modificar**. La tabla cambia y abajo, en la barra de estado, sale «Incidencia modificada».
+3. **Modificar.** Cambia su estado a **Resuelta** y pulsa **Modificar**. La tabla cambia y abajo, en la barra de estado, sale «Incidencia modificada». Además, el formulario se **vacía** (título y descripción incluidos) y la fila deja de estar seleccionada: es a propósito, para dejarlo listo para otra incidencia. Los datos no se han borrado: siguen en la tabla y, al hacer clic otra vez en la fila, vuelven al formulario. Pasa lo mismo aunque no se cambie nada antes de pulsar **Modificar**.
 4. **Añadir.** Pulsa **Limpiar**, escribe un título, elige tipo y prioridad y pulsa **Añadir**. Prueba también a pulsar **Añadir** sin título: sale un aviso, porque el título es obligatorio.
 5. **El diálogo.** Pulsa `Ctrl+N` (o *Archivo > Nueva incidencia…*): se abre una ventana aparte, un **diálogo**, con el mismo formulario. Haz doble clic en una fila de la tabla: se abre el mismo diálogo para editarla.
 6. **Eliminar.** Selecciona una fila y pulsa `Supr`: pide confirmación antes de borrar.
