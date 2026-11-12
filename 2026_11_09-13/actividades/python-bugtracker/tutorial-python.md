@@ -106,6 +106,15 @@ python -m venv .venv
 - `python -m venv .venv` lo crea. `-m venv` ejecuta el módulo `venv` de Python como si fuera un programa.
 - `.venv\Scripts\Activate.ps1` lo **activa**: a partir de ahí, `python` y `pip` son los del entorno. Hay que activarlo en cada terminal nueva.
 
+**Si al activarlo sale «running scripts is disabled on this system»** («la ejecución de scripts está deshabilitada en este sistema»): Windows no deja ejecutar scripts de PowerShell, y `Activate.ps1` es uno. Pasa en casi todos los equipos la primera vez. Ejecuta esto **una sola vez**, responde `S` (o `Y`) si pide confirmación, y vuelve a activar el entorno:
+
+```
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+.venv\Scripts\Activate.ps1
+```
+
+`RemoteSigned` permite ejecutar los scripts creados en el propio equipo, como el del entorno virtual; los descargados de internet, solo si están firmados. `-Scope CurrentUser` hace el cambio solo para tu usuario, sin necesidad de ser administrador.
+
 **Comprueba que…** la línea de la terminal empieza por `(.venv)`.
 
 ### Paso 0.4 · Instalar las dependencias
@@ -166,7 +175,7 @@ Además de los archivos descargados, han aparecido estos:
 **Si te falla…**
 
 - *`python` no se reconoce como comando*: Python no está instalado o no está en el `PATH`. Instálalo desde python.org marcando *Add python.exe to PATH* y abre una terminal nueva.
-- *«La ejecución de scripts está deshabilitada» al activar el entorno*: ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activarlo.
+- *«La ejecución de scripts está deshabilitada» al activar el entorno*: la solución está en el paso 0.3.
 - *`WinError 206` («el nombre del archivo o la extensión es demasiado largo»)*: la carpeta está en una ruta demasiado larga o en OneDrive. Bórrala, cópiala a `C:\dam2627\di\python-bugtracker\` y repite desde `python -m venv .venv`.
 - *`ModuleNotFoundError: No module named 'PySide6'`*: el entorno no está activado (falta `(.venv)`) o no se instalaron las dependencias. Actívalo y repite `pip install -r requirements.txt`.
 - *pip falla o no hay red*: repite `pip install -r requirements.txt` cuando haya red.
