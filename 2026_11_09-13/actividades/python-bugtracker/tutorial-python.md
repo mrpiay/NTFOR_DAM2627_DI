@@ -307,21 +307,23 @@ Los archivos se reparten en dos **capas**:
 
 ### 4.2 · Quién usa a quién
 
-```
-                 bugtracker.ui
-                      │  pyside6-uic (se genera)
-                      ▼
- main.py ──────► ui_bugtracker.py        (el diseño de la ventana)
-    │
-    ├──────────► dialogo.py              (el diálogo)
-    └──────────► bd.py ─────► bugtracker.db
-                   ▲
- datos_ejemplo.py ─┘
+Los archivos se relacionan de tres formas distintas:
 
- test_buscador.py ──► buscador.py        (main.py lo usará en la 2.ª parte)
+| Relación | Qué quiere decir | Dónde se ve |
+|---|---|---|
+| **importa** | Un archivo `.py` usa las funciones o clases de otro `.py` | Al principio del archivo: `import bd` en `main.py` |
+| **crea, lee y escribe** | `bd.py` crea la base de datos si no existe (`crear_bd()`), y la abre para hacerle consultas SQL (`SELECT`, `INSERT`…) | `sqlite3.connect(RUTA_BD)` en `bd.py` |
+| **se genera de** | `ui_bugtracker.py` lo fabrica la herramienta `pyside6-uic` a partir de `bugtracker.ui` | La cabecera de `ui_bugtracker.py`: *Form generated from reading UI file 'bugtracker.ui'* |
+
+```
+ main.py ──── importa ────► ui_bugtracker.py ◄──── se genera de ──── bugtracker.ui
+ main.py ──── importa ────► dialogo.py
+ main.py ──── importa ────► bd.py ──── crea, lee y escribe ────► bugtracker.db
+ datos_ejemplo.py ── importa ──► bd.py ──── crea, lee y escribe ────► bugtracker.db
+ test_buscador.py ── importa ──► buscador.py      (main.py lo importará en la 2.ª parte)
 ```
 
-Una flecha `A ──► B` quiere decir que **A importa a B** (`import B` o `from B import …`) y usa lo que B tiene. `bd.py ──► bugtracker.db` quiere decir que `bd.py` abre ese archivo y le hace consultas SQL.
+Se lee de izquierda a derecha. Por ejemplo, la cuarta línea: `datos_ejemplo.py` importa `bd.py` y llama a sus funciones `crear_bd()` e `insertar_incidencia()`; es `bd.py` quien crea `bugtracker.db` y escribe en ella. `datos_ejemplo.py` y `main.py` no tienen SQL ni tocan la base de datos directamente: siempre pasan por `bd.py`.
 
 ### 4.3 · La regla de separación
 
@@ -330,7 +332,112 @@ Una flecha `A ──► B` quiere decir que **A importa a B** (`import B` o `fro
 
 Así, la interfaz se puede cambiar sin tocar la base de datos, y al revés. Y otro programa puede usar `bd.py` sin abrir ninguna ventana: es lo que hace el explorador de la parte 5.
 
-### 4.4 · Qué pasa por dentro
+### 4.4 · Usar lo que otros programaron: la interfaz de cada módulo
+
+**Para usar un módulo no hace falta saber cómo está programado por dentro. Hace falta saber cómo interactuar con él**: qué funciones o clases tiene, qué datos recibe cada una, qué devuelve y qué puede fallar. Eso es su **interfaz**. Lo de dentro, cómo lo hace, es su **implementación**.
+
+Es lo que se hace siempre en programación. Este tutorial usa `os`, `sys` y `sqlite3`, y el BugTracker usa PySide6, sin haber leído nunca su código: basta con saber qué ofrecen y cómo se usa. Con los archivos del BugTracker pasa lo mismo: `main.py` importa `bd.py`, `dialogo.py` y `ui_bugtracker.py`, y los usa como **cajas de herramientas** que otra persona ha preparado. Quien programa la ventana solo necesita conocer su interfaz; quien programa cada módulo puede cambiar cómo está hecho por dentro sin que `main.py` se entere, mientras la interfaz siga igual.
+
+Por eso **quien programa un módulo que van a importar otros debería documentar su interfaz**, y en Python se hace con ***docstrings***: el texto entre `"""` justo debajo de la línea `def` o `class` (o al principio del archivo, para el módulo entero). Python los muestra con `help()`, sin abrir el archivo.
+
+#### `bd.py`: la base de datos
+
+| Función | Qué recibe | Qué devuelve | Qué hace (SQL) | Dónde la usa `main.py` |
+|---|---|---|---|---|
+| `crear_bd()` | nada | nada | Crea la tabla `incidencias` si no existe (`CREATE TABLE IF NOT EXISTS`) | Al arrancar, en el bloque `if __name__ == "__main__":` |
+| `obtener_incidencias()` | nada | Una **lista** con todas las incidencias, ordenadas por `id` | `SELECT … ORDER BY id` | `cargar_incidencias()`, para rellenar la tabla |
+| `obtener_incidencia(id_incidencia)` | El `id` de una incidencia | **Esa** incidencia, o `None` si no existe | `SELECT … WHERE id = ?` | `cargar_seleccion()` y `editar_incidencia()` |
+| `insertar_incidencia(titulo, tipo, prioridad, estado, descripcion)` | Los cinco datos, en ese orden | nada | `INSERT INTO incidencias …` | `anadir_incidencia()` y `nueva_incidencia()` |
+| `actualizar_incidencia(id_incidencia, titulo, tipo, prioridad, estado, descripcion)` | El `id` y los cinco datos nuevos | nada | `UPDATE … WHERE id = ?` | `modificar_incidencia()` y `editar_incidencia()` |
+| `eliminar_incidencia(id_incidencia)` | El `id` | nada | `DELETE … WHERE id = ?` | `eliminar_incidencia()` |
+| `conectar()` | nada | Una conexión abierta con la base de datos | — | No la usa: es para las demás funciones de `bd.py` |
+
+Además, `bd.py` tiene una variable, `RUTA_BD`, con la ruta completa de `bugtracker.db`.
+
+Tres cosas que hay que saber para usarlo bien:
+
+- **Cada incidencia se lee por el nombre del campo**: `incidencia["titulo"]`, `incidencia["estado"]`… Lo permite `conectar()`, que pide a SQLite filas de tipo `sqlite3.Row`.
+- **El orden de los datos importa**: `insertar_incidencia` espera título, tipo, prioridad, estado y descripción, en ese orden. Por eso `leer_formulario()` de `main.py` devuelve los cinco datos en ese mismo orden, y `bd.insertar_incidencia(*datos)` los pasa de golpe (el `*` reparte la tupla en cinco argumentos).
+- **Cualquier función puede fallar** con `sqlite3.Error` (por ejemplo, si el archivo de la base de datos está dañado). `bd.py` no muestra mensajes: quien la usa tiene que capturar el error con `try`/`except`. Por eso en `main.py` cada llamada a `bd` va dentro de un `try`.
+
+#### `dialogo.py`: el diálogo
+
+| Qué | Para qué |
+|---|---|
+| `DialogoIncidencia(parent=None, incidencia=None)` | Crea el diálogo. `parent` es la ventana que lo abre (sale centrado sobre ella). Sin `incidencia`, es «Nueva incidencia»; con una incidencia de `bd.obtener_incidencia()`, es «Editar incidencia» y sale relleno |
+| `exec()` | Lo muestra y espera. Devuelve un valor **verdadero** si se pulsó *Aceptar* con los datos correctos, y **falso** si se canceló. Lo hereda de `QDialog` |
+| `datos()` | Devuelve los cinco datos escritos, en el orden que espera `bd.insertar_incidencia`: `(titulo, tipo, prioridad, estado, descripcion)` |
+
+Así lo usa `main.py`, en `nueva_incidencia()`: crea el diálogo, `if not dialogo.exec(): return` (si se canceló, no hace nada) y `bd.insertar_incidencia(*dialogo.datos())`. La validación (título obligatorio y de 100 caracteres como máximo) está dentro del diálogo: quien lo usa no tiene que repetirla.
+
+#### `ui_bugtracker.py`: el diseño de la ventana
+
+| Qué | Para qué |
+|---|---|
+| `Ui_VentanaPrincipal()` | Crea el objeto con el diseño |
+| `setupUi(ventana)` | Crea en `ventana` todos los widgets diseñados en Qt Designer |
+
+Después de `self.ui.setupUi(self)`, cada widget queda en `self.ui` con el nombre (*objectName*) que se le puso en Qt Designer: `txtTitulo`, `cmbTipo`, `cmbPrioridad`, `cmbEstado`, `txtDescripcion`, `btnAnadir`, `btnModificar`, `btnEliminar`, `btnLimpiar`, `tblIncidencias` y las acciones `actionNueva`, `actionGuardar`, `actionEliminar` y `actionSalir`. Esos nombres son su interfaz: `main.py` escribe `self.ui.btnAnadir.clicked.connect(...)` sin mirar cómo está hecho `ui_bugtracker.py`. Este archivo no se documenta a mano, porque se genera: los nombres se consultan en Qt Designer, en el *Object Inspector*.
+
+#### `buscador.py`: el componente Buscador (2.ª parte del proyecto)
+
+| Qué | Para qué |
+|---|---|
+| `Buscador(etiqueta="&Buscar:", parent=None)` | Crea el componente: etiqueta, caja de texto y botón «Limpiar» |
+| Propiedad `texto` | El texto que se está buscando. Se lee y se escribe como un atributo: `buscador.texto = "Ana"` |
+| Señal `busquedaCambiada(str)` | Se emite cada vez que cambia el texto. Se conecta con `buscador.busquedaCambiada.connect(funcion)` |
+| `limpiar()` | Borra el texto y devuelve el foco a la caja |
+
+En la plantilla está sin terminar (comentarios `TODO Paso 5`), pero **su interfaz ya está escrita y documentada**: el *docstring* de la clase dice qué propiedad, qué señal y qué método tiene, con un ejemplo de uso. Por eso las pruebas de `test_buscador.py` se pudieron escribir antes que el componente: solo usan su interfaz.
+
+#### Qué módulos documentan su interfaz
+
+| Módulo | ¿Documenta su interfaz? | Qué muestra `help()` |
+|---|---|---|
+| `buscador.py` | Sí, completa | La propiedad, la señal y el método, con un ejemplo de uso |
+| `dialogo.py` | Sí | Para qué sirve la clase y qué hacen `validar()` y `datos()` |
+| `bd.py` | Casi no | La descripción del módulo y la de una sola función, `obtener_incidencia()`. Las otras seis salen sin explicar: hay que deducirlas de su nombre y sus parámetros o leer el código |
+| `ui_bugtracker.py` | No hace falta | Se genera desde `bugtracker.ui`: su interfaz son los nombres de Qt Designer |
+
+`buscador.py` es el modelo a seguir: quien lo vaya a usar no necesita abrirlo. En el paso 10 del proyecto se documenta así un componente.
+
+#### Verlo en el intérprete de Python
+
+Python muestra la interfaz de cualquier módulo o clase con `help()`. Se puede probar en el **intérprete interactivo** de Python, que ejecuta cada línea en cuanto se pulsa **Intro**. En la terminal, con `(.venv)` delante:
+
+```
+python
+```
+
+La línea pasa a empezar por `>>>`: ahora se escribe Python, no órdenes de PowerShell. Escribe, una por una (en cada ayuda, **espacio** avanza y **q** sale):
+
+```python
+import bd
+help(bd)
+import buscador
+help(buscador.Buscador)
+```
+
+Compara las dos ayudas: la de `Buscador` explica cómo usarlo; la de `bd` casi solo lista nombres. Ahora usa `bd`:
+
+```python
+incidencias = bd.obtener_incidencias()
+len(incidencias)
+incidencias[0]["titulo"]
+bd.obtener_incidencia(2)["estado"]
+print(bd.obtener_incidencia(99))
+exit()
+```
+
+Salen el número de incidencias, el título de la primera, el estado de la incidencia con `id` 2 y `None`, porque no hay ninguna con `id` 99. `exit()` vuelve a PowerShell. Estas funciones solo leen: la base de datos no cambia.
+
+**Comprueba que…**
+
+- sabes decir qué función de `bd.py` usarías para saber si existe la incidencia con `id` 7 y qué devolvería si no existe, y por qué `main.py` pone `try`/`except` alrededor de cada llamada a `bd`;
+- sabes cómo sabe `main.py` si en el diálogo se pulsó *Aceptar* o *Cancelar*;
+- sabes escribir el *docstring* que le falta a `bd.insertar_incidencia`: qué hace, qué recibe y qué puede fallar.
+
+### 4.5 · Qué pasa por dentro
 
 **Al ejecutar `python main.py`:**
 
@@ -368,7 +475,7 @@ Busca en `main.py` las funciones `__init__`, `anadir_incidencia`, `leer_formular
 - que haya un estado nuevo, «Cerrada»;
 - guardar también la fecha de cada incidencia.
 
-### 4.5 · Dónde encaja el explorador
+### 4.6 · Dónde encaja el explorador
 
 `explorador.py` está en la misma carpeta que la aplicación, pero **no forma parte de ella**: `main.py` no lo importa y el explorador no abre ninguna ventana. Es un programa de terminal que se conecta con la plantilla de dos formas:
 
@@ -494,7 +601,7 @@ Salen cuántas incidencias hay por estado, prioridad y tipo y, si se indica un e
 
 **Lee** `contar()` y `orden_incidencias()`.
 
-- `bd.obtener_incidencias()` es **la misma función que usa la ventana** en `cargar_incidencias()`. El explorador no tiene SQL: usa `bd.py`, como pide la regla de separación.
+- `bd.obtener_incidencias()` es **la misma función que usa la ventana** en `cargar_incidencias()`. El explorador no tiene SQL: usa `bd.py` a través de su interfaz (apartado 4.4), como pide la regla de separación.
 - Cada incidencia se lee por nombre, `incidencia["estado"]`, gracias a `row_factory = sqlite3.Row` en `bd.conectar()`.
 - `try: … except sqlite3.Error as error:` intenta algo y, si falla con ese tipo de error, hace otra cosa en lugar de terminar el programa. Es el mismo esquema que `cargar_incidencias()` en `main.py`, que muestra un `QMessageBox` en lugar de un texto.
 - `cuenta[valor] = cuenta.get(valor, 0) + 1` suma uno al contador de ese valor, empezando en 0 si es la primera vez.
@@ -539,6 +646,8 @@ Crea la carpeta `informes` y dentro `informe.txt`, con la salida de las cuatro �
 | Sé para qué sirve cada archivo del BugTracker y cuál no se edita a mano |  |
 | Sé usar el BugTracker y qué campos tiene una incidencia |  |
 | Sé dibujar quién importa a quién y explicar la regla de separación |  |
+| Sé qué es la interfaz de un módulo, qué ofrecen `bd.py`, `dialogo.py`, `ui_bugtracker.py` y `buscador.py`, y cómo verla con `help()` en el intérprete de Python |  |
+| Sé qué es un *docstring* y por qué quien programa un módulo debe documentar su interfaz |  |
 | Sé seguir en el código lo que pasa al pulsar «Añadir», de la ventana a la base de datos y vuelta |  |
 | Sé cómo se conecta el explorador con la plantilla y por qué tiene que estar en su carpeta |  |
 | Sé qué es `sys.argv` y qué hace `sys.exit` |  |
