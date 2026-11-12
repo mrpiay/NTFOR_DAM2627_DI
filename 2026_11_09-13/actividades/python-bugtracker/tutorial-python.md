@@ -219,7 +219,7 @@ Además de los archivos descargados, ha aparecido `.venv\`, creada por `python -
 
 ### Lo mismo en Linux
 
-Las órdenes de esta parte son de **PowerShell**, la terminal de Windows. En Linux (por ejemplo, en el Ubuntu Server de SI) la idea es la misma y cambia la forma de escribir algunas:
+Las órdenes de esta parte son de **PowerShell**, la terminal de Windows. En Linux la idea es la misma y cambia la forma de escribir algunas:
 
 | Qué | PowerShell (Windows) | Bash (Linux) |
 |---|---|---|
@@ -238,7 +238,7 @@ Las órdenes de esta parte son de **PowerShell**, la terminal de Windows. En Lin
 - Las rutas de Windows empiezan por la unidad (`C:\`) y separan las carpetas con `\`. Las de Linux empiezan en `/` y las separan con `/`. `~` es la carpeta personal del usuario (`/home/usuario`).
 - En Linux la línea de la terminal termina en `$` (en lugar de `>`), por ejemplo `usuario@equipo:~/dam2627$`.
 - En Ubuntu, `unzip` y el módulo `venv` pueden no venir instalados: `sudo apt install unzip python3-venv`.
-- Ubuntu Server no tiene escritorio, así que la ventana del BugTracker (`python main.py`) no se puede abrir allí. El explorador de la parte 5 sí funciona, porque es un programa de terminal y no usa Qt.
+- En un Linux sin escritorio (un servidor, por ejemplo), la ventana del BugTracker (`python main.py`) no se puede abrir. El explorador de la parte 5 sí funciona, porque es un programa de terminal y no usa Qt.
 
 ## Parte 3 · Crear la base de datos y usar el BugTracker
 
