@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "buscador-dam"
+version = "0.1.0"
+description = "Componente Buscador para PySide6"
+dependencies = ["PySide6-Essentials"]
+
+[tool.setuptools]
+py-modules = ["buscador"]

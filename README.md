@@ -6,7 +6,8 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 
 | Fecha | Qué cambia |
 |---|---|
-| 14 nov | Nueva planificación: del 16 al 20, base de datos, el Buscador en Qt Designer, un caso de voz o gesto y las interfaces naturales (UD4) en teoría; del 23 al 27 y el martes 1, repaso; el examen parcial, el miércoles 2 de diciembre. La interfaz natural integrada en la aplicación se hace al final del curso |
+| 14 nov | Semana del 16 al 20: apuntes de la UD4 y dos ampliaciones (GROUP BY y Promote to), la 3.ª parte del proyecto (pasos 12 a 16: recuento por estado, el Buscador en Qt Designer, gestos de la mano con MediaPipe y pruebas), con plantilla para quien no terminó la 2.ª, y el cuestionario C3 ([2026_11_16-20](2026_11_16-20)) |
+| 14 nov | Nueva planificación: del 16 al 20, base de datos, el Buscador en Qt Designer, un caso de gesto de la mano y las interfaces naturales (UD4) en teoría; del 23 al 27 y el martes 1, repaso; el examen parcial, el miércoles 2 de diciembre. La interfaz natural integrada en la aplicación se hace al final del curso |
 | 12 nov | Tutorial de Python con el BugTracker en la semana del 9 al 13: instalarlo, cómo está hecho y un programa para leer Python ([python-bugtracker](2026_11_09-13/actividades/python-bugtracker/tutorial-python.md)) |
 | 11 nov | Nuevas fechas de exámenes: un solo examen parcial (**P1**, miércoles 2 de diciembre) con todo lo de la evaluación que no evaluó Julia, y el examen final (**F**) el jueves 10 de diciembre |
 | 11 nov | **Repaso Julia**: apuntes que completan lo que se dio antes del 2 de noviembre ([repaso-julia/apuntes](repaso-julia/apuntes)) |
@@ -50,6 +51,7 @@ Junto a cada archivo, GitHub muestra cuándo cambió por última vez y qué se c
 | Repaso Julia | — | [apuntes](repaso-julia/apuntes) | — | — |
 | Del 2 al 6 de noviembre | [actividades](2026_11_02-06/actividades) | [apuntes](2026_11_02-06/apuntes) | [cuestionario](2026_11_02-06/cuestionario.md) | [soluciones](2026_11_02-06/soluciones) |
 | Del 9 al 13 de noviembre | [actividades](2026_11_09-13/actividades) | [apuntes](2026_11_09-13/apuntes) | [cuestionario](2026_11_09-13/cuestionario.md) | [soluciones](2026_11_09-13/soluciones) |
+| Del 16 al 20 de noviembre | [actividades](2026_11_16-20/actividades) | [apuntes](2026_11_16-20/apuntes) | [cuestionario](2026_11_16-20/cuestionario.md) | [soluciones](2026_11_16-20/soluciones) |
 
 ## Cómo usar los materiales
 
