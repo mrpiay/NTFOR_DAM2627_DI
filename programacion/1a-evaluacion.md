@@ -62,16 +62,16 @@ Porcentajes sobre la nota de la evaluación.
 
 ## Planificación semanal
 
-| Semana | Qué se da | Qué se evalúa |
-|---|---|---|
-| Antes del 2 nov<br>[repaso Julia](../repaso-julia/apuntes) | Lo evaluado por Julia | «TRABAJO UD1» (Julia) (4,5 %), «Bloc Notas» (Julia) (2,9 %), «Wireframe» (Julia) (0,8 %), «Accesibilidad» (Julia) (0,4 %) |
-| [2–6 nov](../2026_11_02-06)<br>[apuntes](../2026_11_02-06/apuntes) · [actividades](../2026_11_02-06/actividades) | UD1 · Estándares de usabilidad y accesibilidad<br>UD1 · Menús, acciones, distribución y elección de controles<br>UD1 · Aspecto y mensajes<br>UD1 · Pruebas de usabilidad y accesibilidad<br>UD2 · Herramientas y librerías; importancia de los estándares<br>UD2 · Qt Designer, propiedades, código generado, datos y la aplicación completa<br>UD2 · Acciones asociadas a eventos<br>UD2 · Menús, acciones, aspecto y mensajes | A1 (4 %), C1 |
-| [9–13 nov](../2026_11_09-13)<br>[apuntes](../2026_11_09-13/apuntes) · [actividades](../2026_11_09-13/actividades) | UD1 · Pruebas de usabilidad y accesibilidad<br>UD3 · Componente reutilizable: propiedades, señales, pruebas, persistencia, documentación y empaquetado<br>UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático | A2 (4 %), C2 |
-| 16–20 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Reconocimiento de voz y gestos de la mano<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A3 (4 %), C3, R de C1 (1,7 %), R de C2 (1,7 %) |
-| 23–27 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Detección del cuerpo y realidad aumentada<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A4 (4 %), C4, R de C3 (1,7 %) |
-| 30 nov–4 dic | UD4 · Información persistente, manual de usuario, pruebas de integración y de regresión<br>Repaso (jue 3) | A5 (4 %), C5, P1 (31,3 %), R de C4 (1,7 %) |
-| 7–11 dic | Repaso (mié 9) | F (30 %), R de C5 (1,7 %), R de P1 (1,7 %) |
-| 14–18 dic | UD5 · Generación de informes | Cierre de la 1ª evaluación · jue 17 |
+| Semana | Qué se trabaja | Cómo se evalúa | Exámenes |
+|---|---|---|---|
+| Antes del 2 nov<br>[repaso Julia](../repaso-julia/apuntes) | Lo evaluado por Julia | «TRABAJO UD1» (Julia) (4,5 %), «Bloc Notas» (Julia) (2,9 %), «Wireframe» (Julia) (0,8 %), «Accesibilidad» (Julia) (0,4 %) | — |
+| [2–6 nov](../2026_11_02-06)<br>[apuntes](../2026_11_02-06/apuntes) · [actividades](../2026_11_02-06/actividades) | UD1 · Estándares de usabilidad y accesibilidad<br>UD1 · Menús, acciones, distribución y elección de controles<br>UD1 · Aspecto y mensajes<br>UD1 · Pruebas de usabilidad y accesibilidad<br>UD2 · Herramientas y librerías; importancia de los estándares<br>UD2 · Qt Designer, propiedades, código generado, datos y la aplicación completa<br>UD2 · Acciones asociadas a eventos<br>UD2 · Menús, acciones, aspecto y mensajes | A1 (4 %), C1 | — |
+| [9–13 nov](../2026_11_09-13)<br>[apuntes](../2026_11_09-13/apuntes) · [actividades](../2026_11_09-13/actividades) | UD1 · Pruebas de usabilidad y accesibilidad<br>UD3 · Componente reutilizable: propiedades, señales, pruebas, persistencia, documentación y empaquetado<br>UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático | A2 (4 %), C2 | — |
+| 16–20 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Reconocimiento de voz y gestos de la mano<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A3 (4 %), C3, R de C1 (1,7 %), R de C2 (1,7 %) | — |
+| 23–27 nov | UD4 · Tipos de interfaces naturales y herramientas de aprendizaje automático<br>UD4 · Detección del cuerpo y realidad aumentada<br>UD4 · La interfaz natural en la aplicación: diseño, eventos, componentes y pruebas de usabilidad | A4 (4 %), C4, R de C3 (1,7 %) | — |
+| 30 nov–4 dic | UD4 · Información persistente, manual de usuario, pruebas de integración y de regresión<br>Repaso (jue 3) | A5 (4 %), C5, R de C4 (1,7 %) | **P1** (31,3 %), mié 2 dic |
+| 7–11 dic | Repaso (mié 9) | R de C5 (1,7 %), R de P1 (1,7 %) | **F** (30 %), jue 10 dic |
+| 14–18 dic | UD5 · Generación de informes | Cierre de la 1ª evaluación · jue 17 | — |
 
 ## Notas
 
