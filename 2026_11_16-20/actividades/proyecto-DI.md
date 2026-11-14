@@ -332,7 +332,7 @@ En `main.py`:
 
 **Objetivo.** Probar lo hecho esta semana con tres tipos de prueba y revisar los gestos con los criterios de diseño de una interfaz natural.
 
-**Pista.** En `notas.md`, añade un apartado «3.ª parte» con dos tablas ([apuntes de la UD4, apartados 6 y 7](../apuntes/UD4-interfaces-naturales.md#6-diseñar-una-interfaz-natural-con-criterio)):
+**Pista.** En `notas.md`, añade un apartado «3.ª parte» con dos tablas (apuntes de la UD4: los tipos de pruebas, en el [apartado 7](../apuntes/UD4-interfaces-naturales.md#7-documentar-y-probar-una-aplicación); los criterios, en el [apartado 6](../apuntes/UD4-interfaces-naturales.md#6-diseñar-una-interfaz-natural-con-criterio)):
 
 1. **Pruebas.** Hazlas y apunta qué haces, qué esperas y qué sale:
 

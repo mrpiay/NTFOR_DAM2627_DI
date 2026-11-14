@@ -131,7 +131,7 @@ Se comprueba con una **prueba de usabilidad**, como la del paso 7: una persona q
 | **Unitaria** | Una pieza sola, aislada del resto | Las pruebas del `Buscador` con pytest-qt (paso 6) |
 | **De integración** | Que las piezas funcionan **juntas** | Que al añadir una incidencia desde la ventana se guarda en la base de datos y el resumen por estado se actualiza |
 | **De regresión** | Que lo que funcionaba **sigue funcionando** después de un cambio | Volver a pasar todas las pruebas después de cambiar el orden de los parámetros del `Buscador` (paso 13) |
-| **De humo** | Lo mínimo, rápido: ¿arranca y abre la ventana? | Abrir la aplicación y ver la tabla |
+| **De humo** | Lo mínimo, rápido: ¿arranca y abre la ventana? El nombre viene de la electrónica: se enchufa el aparato y se mira si sale humo | Abrir la aplicación y ver la tabla |
 | **De aceptación** | Que hace lo que pidió quien la encargó | Recorrer con esa persona sus tareas reales |
 
 - Las **no funcionales** comprueban cómo lo hace: rendimiento, carga, seguridad, compatibilidad, **usabilidad**…
