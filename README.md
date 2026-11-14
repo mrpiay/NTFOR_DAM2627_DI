@@ -6,6 +6,7 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 
 | Fecha | Qué cambia |
 |---|---|
+| 14 nov | Nueva planificación: del 16 al 20, base de datos, el Buscador en Qt Designer y una introducción a las interfaces naturales (UD4); del 23 al 27 y el martes 1, repaso; el examen parcial, el miércoles 2 de diciembre. El resto de la UD4 se ve al final del curso |
 | 12 nov | Tutorial de Python con el BugTracker en la semana del 9 al 13: instalarlo, cómo está hecho y un programa para leer Python ([python-bugtracker](2026_11_09-13/actividades/python-bugtracker/tutorial-python.md)) |
 | 11 nov | Nuevas fechas de exámenes: un solo examen parcial (**P1**, miércoles 2 de diciembre) con todo lo de la evaluación que no evaluó Julia, y el examen final (**F**) el jueves 10 de diciembre |
 | 11 nov | **Repaso Julia**: apuntes que completan lo que se dio antes del 2 de noviembre ([repaso-julia/apuntes](repaso-julia/apuntes)) |
