@@ -12,6 +12,6 @@ Lista de cotejo: cada «Comprueba que…» de cada paso de la actividad se cumpl
 
 ## Cuestionarios (C) y revisión (R)
 
-Hay un cuestionario cada semana en la que se facilitan apuntes o actividades guiadas nuevas, con preguntas sobre ellos. Su entrega es obligatoria, hasta el lunes siguiente a su semana.
+Hay un cuestionario cada semana en la que se facilitan apuntes o actividades guiadas nuevas, con preguntas sobre ellos. Su entrega es obligatoria, hasta el lunes siguiente a su semana, salvo que se indique otra fecha (ver las notas de la [1ª evaluación](1a-evaluacion.md)).
 
 Cada cuestionario y cada examen parcial, una vez devuelto corregido, se revisa (R): se localizan los errores y se corrigen por escrito. Las revisiones forman el 10 % de la nota.
