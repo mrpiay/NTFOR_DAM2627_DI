@@ -63,6 +63,8 @@ Las de la 1.ª y la 2.ª parte (VS Code, Python con el entorno virtual, PySide6,
 | **MediaPipe** | Librería de Google con modelos ya entrenados para reconocer manos, gestos y cuerpo en la imagen de la cámara. Su reconocedor de gestos distingue siete gestos de la mano | 14 y 15 |
 | **OpenCV** | Lee la imagen de la cámara. Se instala con MediaPipe | 14 y 15 |
 
+Para repasar Python y cómo está hecho el BugTracker por dentro (sus archivos, quién usa a quién y la regla de separación), está el [tutorial de Python con el BugTracker](../../2026_11_09-13/actividades/python-bugtracker/tutorial-python.md) de la semana del 9 al 13.
+
 ## Qué se trabaja
 
 | Unidad | Qué se trabaja | Pasos |
@@ -206,7 +208,7 @@ En `main.py`:
 
 **Objetivo.** Tener MediaPipe instalado y ver que el portátil reconoce los gestos de la mano con su cámara.
 
-**Mini-explicación.** El reconocimiento de gestos lo hace un **modelo ya entrenado** de MediaPipe: recibe cada imagen de la cámara y devuelve qué gesto ve y con cuánta confianza ([apuntes de la UD4, apartados 2 y 4](../apuntes/UD4-interfaces-naturales.md#2-cómo-reconoce-un-ordenador-la-voz-los-gestos-y-el-cuerpo)). Hablar con la cámara y con el modelo es lo técnico, y ya está hecho en `gestos.py`: un componente con una señal, `gestoDetectado(str)`, como el `Buscador`. Esta semana se **usa**, no se programa.
+**Mini-explicación.** El reconocimiento de gestos lo hace un **modelo ya entrenado** de MediaPipe: recibe cada imagen de la cámara y devuelve qué gesto ve y con cuánta confianza ([apuntes de la UD4, apartados 2 y 4](../apuntes/UD4-interfaces-naturales.md#2-cómo-reconoce-un-ordenador-la-voz-los-gestos-y-el-cuerpo)). Hablar con la cámara y con el modelo es lo técnico, y ya está hecho en `gestos.py`: un componente con una señal, `gestoDetectado(str)`, como el `Buscador`. Esta semana se **usa**, no se programa: basta con conocer su **interfaz** (qué clases, métodos y señales tiene), como se explica en el [tutorial de Python con el BugTracker, apartado 4.4](../../2026_11_09-13/actividades/python-bugtracker/tutorial-python.md#44--usar-lo-que-otros-programaron-la-interfaz-de-cada-módulo).
 
 **Pista.** En la terminal, con el entorno activado y en la carpeta `bugtracker`:
 
