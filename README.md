@@ -23,7 +23,7 @@ Todas las semanas con apuntes o actividades guiadas nuevas hay un cuestionario (
 | Fecha | Qué |
 |---|---|
 | Lunes 16 de noviembre, 23:59 | Entrega en Teams de los cuestionarios C1 y C2 (semanas del 2 al 6 y del 9 al 13), en una sola tarea |
-| Martes 17 de noviembre | Se publican las soluciones de C1 y C2 y la actividad guiada «Mejora tu BugTracker» completa |
+| Martes 17 de noviembre | Se publican las soluciones de C1 y C2 y la 2.ª parte de la actividad guiada «Mejora tu BugTracker» terminada |
 | Miércoles 2 de diciembre (11:00 y 12:10) | **P1** · examen parcial, en papel: todo lo de la 1ª evaluación que no evaluó Julia |
 | Jueves 10 de diciembre (08:30 y 09:20) | **F** · examen final de la 1ª evaluación |
 
