@@ -6,6 +6,7 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 
 | Fecha | Qué cambia |
 |---|---|
+| 16 nov | Los **cuestionarios (C)** son requisito de la **autoevaluación (R)**: sin todos los cuestionarios entregados, la autoevaluación (R) es un 0 |
 | 16 nov | La **autoevaluación (R)**, el 10 % de la nota, pasa a ser una sola, la semana del examen final: una [plantilla](programacion/autoevaluacion-1a.xlsx) en Teams con el nivel y el tipo de fallo de cada tema, los hábitos de estudio y una reflexión sobre qué hacer para mejorar. Sustituye a la revisión de cada cuestionario y examen ([cómo se califica](programacion/rubricas.md)) |
 | 14 nov | Semana del 16 al 20: apuntes de la UD4 y dos ampliaciones (GROUP BY y Promote to), la 3.ª parte del proyecto (pasos 12 a 16: recuento por estado, el Buscador en Qt Designer, gestos de la mano con MediaPipe y pruebas), con plantilla para quien no terminó la 2.ª, y el cuestionario C3 ([2026_11_16-20](2026_11_16-20)) |
 | 14 nov | Nueva planificación: del 16 al 20, base de datos, el Buscador en Qt Designer, un caso de gesto de la mano y las interfaces naturales (UD4) en teoría; del 23 al 27 y el martes 1, repaso; el examen parcial, el miércoles 2 de diciembre. La interfaz natural integrada en la aplicación se hace al final del curso |
@@ -17,7 +18,7 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 
 ## Fechas importantes
 
-Todas las semanas con apuntes o actividades guiadas nuevas hay un cuestionario (C), disponible desde el primer día. Su entrega es obligatoria, en Teams, hasta el lunes siguiente a las 23:59, y el martes se publican sus soluciones. Además:
+Todas las semanas con apuntes o actividades guiadas nuevas hay un cuestionario (C), disponible desde el primer día. Su entrega es obligatoria, en Teams, hasta el lunes siguiente a las 23:59, y el martes se publican sus soluciones. No tienen nota propia, pero sin todos los cuestionarios entregados, la autoevaluación (R) es un 0. Además:
 
 | Fecha | Qué |
 |---|---|
