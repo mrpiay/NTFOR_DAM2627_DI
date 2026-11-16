@@ -10,10 +10,10 @@ Porcentajes sobre la nota de la evaluación: entre todas las partes suman 100 %.
 
 | Parte | Peso | Qué incluye |
 |---|---|---|
-| **P** · exámenes parciales | 40 % | Lo evaluado por Julia: «TRABAJO UD1» (Julia) 5,4 %, «Bloc Notas» (Julia) 3,5 %, «Wireframe» (Julia) 1 %, «Accesibilidad» (Julia) 0,5 %<br>P1 · mié 2 dic: 29,7 % |
-| **A** · actividades guiadas | 20 % | 3 actividades, 6,7 % cada una. Nivel de cumplimiento de los pasos: nada, poco, medio, alto o completo |
-| **F** · examen final | 30 % | jue 10 dic |
-| **R** · autoevaluación | 10 % | Una sola, la semana del examen final: una tarea de Teams con la [plantilla de autoevaluación](autoevaluacion-1a.xlsx) |
+| **P** · exámenes parciales | 40 % | Lo evaluado por Julia: «TRABAJO UD1» (Julia) 5,4 %, «Bloc Notas» (Julia) 3,5 %, «Wireframe» (Julia) 1 %, «Accesibilidad» (Julia) 0,5 %<br>P1 · mié 2 dic: 29,7 % |
+| **A** · actividades guiadas | 20 % | 3 actividades, 6,7 % cada una. Nivel de cumplimiento de los pasos: nada, poco, medio, alto o completo |
+| **F** · examen final | 30 % | jue 10 dic |
+| **R** · autoevaluación | 10 % | Una sola, la semana del examen final: una tarea de Teams con la [plantilla de autoevaluación](autoevaluacion-1a.xlsx) |
 | **C** · cuestionarios | — | 3 cuestionarios. No tienen nota propia, pero su entrega es obligatoria: sin todos ellos entregados, la R es un 0 |
 
 ## Qué entra en los exámenes
