@@ -2,7 +2,7 @@
 
 [← Programación](README.md)
 
-Cómo se calcula la nota de la 1ª evaluación, qué contenidos entran en los exámenes y planificación semanal. La planificación empieza el 2 de noviembre; lo que ya evaluó Julia (exámenes y tareas de Teams) aparece marcado como «(Julia)».
+Cómo se calcula la nota de la 1ª evaluación, qué contenidos entran en los exámenes y planificación semanal. La planificación empieza el 2 de noviembre; lo que ya evaluó Julia (exámenes y tareas de Teams) está en la fila «Antes del 2 nov».
 
 ## Cómo se evalúa: de dónde sale la nota
 
@@ -24,42 +24,42 @@ Los porcentajes de esta sección no son partes de la nota: dicen cuánto pesa ca
 
 Pesa un 20,1 % en los exámenes (12 % del módulo).
 
-| Contenido | Examen o tarea que lo evalúa (además del F) | Peso en la unidad |
-|---|---|---|
-| Estándares de usabilidad y accesibilidad | P1 | 15 % |
-| Menús, acciones, distribución y elección de controles | «Wireframe» (Julia) + «TRABAJO UD1» (Julia) | 48 % |
-| Aspecto y mensajes | «Wireframe» (Julia) + «Accesibilidad» (Julia) + «TRABAJO UD1» (Julia) | 23 % |
-| Pruebas de usabilidad y accesibilidad | «Accesibilidad» (Julia) + «TRABAJO UD1» (Julia) | 14 % |
+| Contenido | Peso en la unidad |
+|---|---|
+| Estándares de usabilidad y accesibilidad | 15 % |
+| Menús, acciones, distribución y elección de controles | 48 % |
+| Aspecto y mensajes | 23 % |
+| Pruebas de usabilidad y accesibilidad | 14 % |
 
 ### UD2 · Desarrollo de interfaces gráficas con PySide6 y Qt Designer
 
 Pesa un 33,4 % en los exámenes (20 % del módulo).
 
-| Contenido | Examen o tarea que lo evalúa (además del F) | Peso en la unidad |
-|---|---|---|
-| Herramientas y librerías; importancia de los estándares | P1 | 8 % |
-| Qt Designer, propiedades, código generado, datos y la aplicación completa | P1 | 66 % |
-| Acciones asociadas a eventos | «Bloc Notas» (Julia) | 12 % |
-| Menús, acciones, aspecto y mensajes | «Bloc Notas» (Julia) | 14 % |
+| Contenido | Peso en la unidad |
+|---|---|
+| Herramientas y librerías; importancia de los estándares | 8 % |
+| Qt Designer, propiedades, código generado, datos y la aplicación completa | 66 % |
+| Acciones asociadas a eventos | 12 % |
+| Menús, acciones, aspecto y mensajes | 14 % |
 
 ### UD3 · Creación de componentes visuales reutilizables
 
 Pesa un 21,7 % en los exámenes (13 % del módulo).
 
-| Contenido | Examen o tarea que lo evalúa (además del F) | Peso en la unidad |
-|---|---|---|
-| Componente reutilizable: propiedades, señales, pruebas, persistencia, documentación y empaquetado | P1 | 100 % |
+| Contenido | Peso en la unidad |
+|---|---|
+| Componente reutilizable: propiedades, señales, pruebas, persistencia, documentación y empaquetado | 100 % |
 
 ### UD4 · Interfaces naturales y multimodales
 
 Pesa un 24,8 % en los exámenes (26 % del módulo; en la 1ª evaluación cuenta un 14,8 %, lo que se da).
 
-| Contenido | Examen o tarea que lo evalúa (además del F) | Peso en la unidad |
-|---|---|---|
-| Tipos de interfaces naturales y herramientas de aprendizaje automático | P1 | 18 % |
-| Reconocimiento de voz y gestos de la mano | P1 | 35 % |
-| Detección del cuerpo y realidad aumentada | P1 | 35 % |
-| Información persistente, manual de usuario, pruebas de integración y de regresión | P1 | 12 % |
+| Contenido | Peso en la unidad |
+|---|---|
+| Tipos de interfaces naturales y herramientas de aprendizaje automático | 18 % |
+| Reconocimiento de voz y gestos de la mano | 35 % |
+| Detección del cuerpo y realidad aumentada | 35 % |
+| Información persistente, manual de usuario, pruebas de integración y de regresión | 12 % |
 
 ## Planificación semanal
 
@@ -82,7 +82,7 @@ Pesa un 24,8 % en los exámenes (26 % del módulo; en la 1ª evaluación cuenta 
 - **Actividades guiadas (A).** Cada actividad se califica por el nivel de cumplimiento de sus pasos: nada (0), poco (2,5), medio (5), alto (7,5) o completo (10). Los «Comprueba que…» de cada paso indican si está cumplido; qué supone cada nivel, en las [rúbricas](rubricas.md). El mínimo de 4 se aplica a la media de las actividades de la evaluación.
 - El C1 se entrega junto con el C2, el lunes 16 de noviembre.
 - De la UD4, en la 1ª evaluación se da en teoría lo que se puede entender sin programarlo (tipos de interfaces naturales, herramientas, voz y gestos, cuerpo y realidad aumentada, manual de usuario y pruebas de integración y de regresión), con un caso práctico, un gesto de la mano en el BugTracker; las preguntas del examen sobre estos temas son de conceptos y criterio, no de código. La interfaz natural integrada en la aplicación (el trabajo final de la UD4) se aplaza al final del curso; la UD4 cuenta en la 1ª evaluación con el 57 % de su peso.
-- En DI no hubo exámenes antes del 2 de noviembre. Las tareas de Teams cuentan para los contenidos que trabajan; en «Qué entra en los exámenes» aparecen con «(Julia)».
+- En DI no hubo exámenes antes del 2 de noviembre. Las tareas de Teams cuentan para los contenidos que trabajan (fila «Antes del 2 nov» de la planificación semanal).
 - «SQLite» se entregó en 3 de 13 casos: sus contenidos entran en la P1 para todo el grupo y, para quien la entregó, en esos contenidos cuenta la nota más alta entre la tarea y la P1.
-- El examen parcial pregunta todo lo de la 1ª evaluación que no evaluó Julia, aunque sea de forma breve. Lo que ya evaluó Julia (lo marcado «(Julia)» en «Qué entra en los exámenes») cuenta con esa nota; si no se hizo ese examen o no se entregó esa tarea, en esa parte se obtiene un 5. El examen final pregunta toda la evaluación.
+- El examen parcial pregunta todo lo de la 1ª evaluación que no evaluó Julia, aunque sea de forma breve. Lo que ya evaluó Julia (fila «Antes del 2 nov» de la planificación semanal) cuenta con esa nota; si no se hizo ese examen o no se entregó esa tarea, en esa parte se obtiene un 5. El examen final pregunta toda la evaluación.
 - Mínimo de 4 en cada examen parcial, en la media de las actividades guiadas y en el final para aplicar la media (apartado 6.1 de la programación oficial).
