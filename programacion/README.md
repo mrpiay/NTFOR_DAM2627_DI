@@ -29,11 +29,11 @@ Sale del apartado 6.1 de la programación oficial. En la 1ª evaluación, el det
 
 | Apartado 6.1 | Peso | En la 1ª evaluación |
 |---|---|---|
-| Trabajos, prácticas, proyectos y pruebas parciales | 60 % | **P** · exámenes parciales (40 %) y **A** · actividades guiadas (20 %) |
+| Trabajos, prácticas, proyectos y pruebas parciales | 60 % | **P** · exámenes parciales (40 %) y **A** · actividades guiadas (20 %), por el nivel de cumplimiento de sus pasos: nada, poco, medio, alto o completo |
 | Prueba final de la evaluación | 30 % | **F** · examen final |
 | Autoevaluación del alumnado | 10 % | **R** · autoevaluación, con una [plantilla](autoevaluacion-1a.xlsx) en Teams, la semana del examen final |
 
-Mínimo de 4 en cada examen parcial, en la media de las actividades guiadas y en el examen final para aplicar la media. La evaluación se aprueba con un 5.
+Mínimo de 4 en cada examen parcial, en la media de las actividades guiadas y en el examen final para aplicar la media. La evaluación se aprueba con un 5. Cómo se califica cada instrumento: [rúbricas](rubricas.md).
 
 ### Nota final del módulo
 

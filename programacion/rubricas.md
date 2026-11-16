@@ -8,7 +8,17 @@ En papel. Cada pregunta indica los puntos que vale: los contenidos con más porc
 
 ## Actividades guiadas (A)
 
-Lista de cotejo: cada «Comprueba que…» de cada paso de la actividad se cumple o no. La nota de cada actividad es el porcentaje de puntos cumplidos (de 0 a 10).
+Cada actividad se califica por el nivel de cumplimiento de sus pasos. Un paso está cumplido cuando se cumple su «Comprueba que…».
+
+| Nivel | Nota | Qué supone |
+|---|---|---|
+| Completo | 10 | Todos los pasos cumplidos |
+| Alto | 7,5 | Casi todos los pasos cumplidos: falta alguno o alguno no funciona del todo |
+| Medio | 5 | Más o menos la mitad de los pasos cumplidos |
+| Poco | 2,5 | Solo los primeros pasos o unos pocos cumplidos |
+| Nada | 0 | Ningún paso cumplido, o la actividad no se ha hecho |
+
+El mínimo de 4 se aplica a la media de las actividades de la evaluación.
 
 ## Cuestionarios (C) y autoevaluación (R)
 

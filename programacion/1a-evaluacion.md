@@ -52,7 +52,7 @@ Qué entra en la 1ª evaluación y con qué se evalúa cada parte. En cada unida
 | Parte | Peso | Qué incluye |
 |---|---|---|
 | **P** · exámenes parciales | 40 % | Lo evaluado por Julia: «TRABAJO UD1» (Julia) 5,4 %, «Bloc Notas» (Julia) 3,5 %, «Wireframe» (Julia) 1 %, «Accesibilidad» (Julia) 0,5 %<br>P1 · mié 2 dic: 29,7 % |
-| **A** · actividades guiadas | 20 % | 3 actividades, 6,7 % cada una. Lista de cotejo: cada «Comprueba que…» se cumple o no |
+| **A** · actividades guiadas | 20 % | 3 actividades, 6,7 % cada una. Nivel de cumplimiento de los pasos: nada, poco, medio, alto o completo |
 | **F** · examen final | 30 % | jue 10 dic |
 | **R** · autoevaluación | 10 % | Una sola, la semana del examen final: una tarea de Teams con la [plantilla de autoevaluación](autoevaluacion-1a.xlsx) |
 | **C** · cuestionarios | — | 3 cuestionarios. No tienen nota propia, pero su entrega es obligatoria: sin todos ellos entregados, la R es un 0 |
@@ -74,10 +74,10 @@ Porcentajes sobre la nota de la evaluación.
 
 ## Notas
 
-- **Cuestionarios (C).** Hay uno cada semana en la que se facilitan apuntes o actividades guiadas nuevas, con preguntas sobre ellos. Su entrega es obligatoria, hasta el lunes siguiente a su semana, salvo que se indique otra fecha (ver las notas). No cuentan por sí mismos para la nota.
+- **Cuestionarios (C).** Hay uno cada semana en la que se facilitan apuntes o actividades guiadas nuevas, con preguntas sobre ellos. Su entrega es obligatoria, hasta el lunes siguiente a su semana, salvo que se indique otra fecha (ver las notas). No tienen nota propia, pero sin todos los cuestionarios entregados, la autoevaluación (R) es un 0.
 - **Autoevaluación (R).** La R es de reflexión. Una sola, la semana del examen final, en una tarea de Teams: la [plantilla de autoevaluación](autoevaluacion-1a.xlsx), que cada estudiante rellena en su propia copia. Por cada tema de cada unidad, el nivel de comprensión y el tipo de fallo principal; la frecuencia de 15 hábitos de estudio, y una reflexión general sobre qué hacer para mejorar en la 2ª evaluación. Forma el 10 % de autoevaluación del apartado 6.1 de la programación oficial. La mitad de su nota es la hoja completa; la otra mitad, la reflexión, si es concreta. Requisito: tener entregados todos los cuestionarios (C); si falta alguno, la R es un 0. Lo marcado en cada tema y en cada hábito no cambia la nota.
 - **Exámenes escritos** (parciales, **P**, y final, **F**). Son en papel e incluyen preguntas similares a las de los cuestionarios. Cada pregunta indica los puntos que vale: los contenidos con más porcentaje tienen preguntas que valen más.
-- **Actividades guiadas (A).** La marcha y el cumplimiento de cada actividad se evalúan con una lista de cotejo: cada «Comprueba que…» de cada paso se cumple o no. La nota de cada actividad es el porcentaje de puntos cumplidos (de 0 a 10), y el mínimo de 4 se aplica a la media de las actividades de la evaluación.
+- **Actividades guiadas (A).** Cada actividad se califica por el nivel de cumplimiento de sus pasos: nada (0), poco (2,5), medio (5), alto (7,5) o completo (10). Los «Comprueba que…» de cada paso indican si está cumplido; qué supone cada nivel, en las [rúbricas](rubricas.md). El mínimo de 4 se aplica a la media de las actividades de la evaluación.
 - El C1 se entrega junto con el C2, el lunes 16 de noviembre.
 - De la UD4, en la 1ª evaluación se da en teoría lo que se puede entender sin programarlo (tipos de interfaces naturales, herramientas, voz y gestos, cuerpo y realidad aumentada, manual de usuario y pruebas de integración y de regresión), con un caso práctico, un gesto de la mano en el BugTracker; las preguntas del examen sobre estos temas son de conceptos y criterio, no de código. La interfaz natural integrada en la aplicación (el trabajo final de la UD4) se aplaza al final del curso; la UD4 cuenta en la 1ª evaluación con el 57 % de su peso.
 - En DI no hubo exámenes antes del 2 de noviembre. Las tareas de Teams cuentan para los contenidos que trabajan; en «Qué entra» aparecen con «(Julia)».
