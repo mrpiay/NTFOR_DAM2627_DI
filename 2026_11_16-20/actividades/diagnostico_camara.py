@@ -72,11 +72,14 @@ for indice in range(4):
 print("\n== Resultado")
 if not buenas:
     print("Ninguna cámara da imagen. Revisa: el permiso de cámara para aplicaciones de escritorio,\n"
-          "que no la esté usando otra aplicación (Teams, el navegador…), y la tapa o la tecla\n"
-          "de la cámara del portátil.")
+          "que no la esté usando otra aplicación (Teams, el navegador…), la tapa o la tecla\n"
+          "de la cámara del portátil y, en Configuración > Bluetooth y dispositivos > Cámaras >\n"
+          "(la cámara) > Configuración avanzada, que varias aplicaciones puedan usarla a la vez.")
 elif buenas[0] == (0, "MSMF"):
     print("La cámara 0 funciona como la usa gestos.py. Si en el BugTracker sigue negra,\n"
-          "cierra las aplicaciones que puedan estar usando la cámara y vuelve a probar.")
+          "cierra las aplicaciones que puedan estar usando la cámara o permite que varias\n"
+          "aplicaciones la usen a la vez (Configuración > Bluetooth y dispositivos > Cámaras >\n"
+          "(la cámara) > Configuración avanzada) y vuelve a probar.")
 else:
     indice, nombre = buenas[0]
     print(f"Funciona la cámara {indice} con {nombre}, pero no la 0 con MSMF, que es la que usa gestos.py.\n"

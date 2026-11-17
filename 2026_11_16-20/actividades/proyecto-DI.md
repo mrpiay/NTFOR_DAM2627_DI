@@ -251,6 +251,8 @@ En `main.py`:
    python diagnostico_camara.py
    ```
 
+   Si la cámara funciona a ratos (unas veces se ve y otras sale negra o de un color), activa en **Configuración → Bluetooth y dispositivos → Cámaras → (tu cámara) → Configuración avanzada de la cámara** la opción de permitir que **varias aplicaciones usen la cámara a la vez**: sin ella, si otra aplicación la tiene abierta, Python no recibe la imagen.
+
    Muestra las versiones instaladas y prueba cada cámara del portátil (algunos tienen también una de infrarrojos, que se ve negra) con los dos sistemas de captura de Windows que usa OpenCV. Al final dice si todo está bien o qué línea cambiar en `gestos.py` para usar la cámara o el sistema que sí funciona.
 - *«No se ha podido cargar el modelo de gestos»*: no hay conexión para descargarlo la primera vez. Vuelve a probar con conexión.
 - *No reconoce casi nada*: hay poca luz o la mano está a contraluz (una ventana detrás), muy cerca o muy lejos. Ponte de cara a la luz.
