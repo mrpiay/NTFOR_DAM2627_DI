@@ -6,7 +6,7 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 
 | Fecha | Qué cambia |
 |---|---|
-| 17 nov | Soluciones de los cuestionarios C1 y C2 y el BugTracker al final de la 2.ª parte ([2026_11_02-06/soluciones](2026_11_02-06/soluciones) y [2026_11_09-13/soluciones](2026_11_09-13/soluciones)) |
+| 17 nov | Soluciones de los cuestionarios C1 y C2 ([2026_11_02-06/soluciones](2026_11_02-06/soluciones) y [2026_11_09-13/soluciones](2026_11_09-13/soluciones)) |
 | 17 nov | Semana del 23 al 27, de repaso: la guía de **ValoraDI**, una aplicación de escritorio con PySide6, Qt Designer y SQLite, de principio a fin ([2026_11_23-27](2026_11_23-27)) |
 | 16 nov | Las **actividades guiadas (A)** se califican por el nivel de cumplimiento de sus pasos: nada (0), poco (2,5), medio (5), alto (7,5) o completo (10). Qué supone cada nivel: [rúbricas](programacion/rubricas.md) |
 | 16 nov | Los **cuestionarios (C)** son requisito de la **autoevaluación (R)**: sin todos los cuestionarios entregados, la autoevaluación (R) es un 0 |
