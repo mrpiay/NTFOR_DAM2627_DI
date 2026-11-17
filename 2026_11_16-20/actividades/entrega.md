@@ -12,6 +12,6 @@
 | Cuestionario C3, en la tarea de Teams de la semana | Hasta el **lunes 23 de noviembre**, a las 23:59 |
 | Soluciones del C3 y la 3.ª parte del proyecto terminada, en [`soluciones/`](../soluciones) | **Martes 24 de noviembre** |
 
-El proyecto no se sube: se comprueba en clase el nivel de cumplimiento de los pasos.
+El proyecto no se sube: se comprueba en clase su nivel de implementación y comprensión.
 
 La semana del 23 al 27 y el martes 1 de diciembre son de **repaso de toda la evaluación**. El examen parcial **P1**, en papel, con todo lo de la 1ª evaluación que no evaluó Julia, también las tres partes del proyecto y los apuntes de la UD1 a la UD4, es el **miércoles 2 de diciembre**: está en las [fechas importantes](../../README.md) del repositorio.

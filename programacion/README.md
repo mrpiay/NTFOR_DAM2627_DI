@@ -2,7 +2,7 @@
 
 Qué unidades entran en cada evaluación y cómo se califica, según la programación del módulo.
 
-- [Rúbricas](rubricas.md)
+- [Rúbricas de la 1ª evaluación](1a-evaluacion.md#rúbricas)
 - [Currículo oficial del módulo](curriculo-oficial.md): resultados de aprendizaje, criterios de evaluación, contenidos básicos y orientaciones, tal como los publica el DOG (Decreto 105/2011)
 - [Módulo de Proyecto](proyecto-final-oficial.md): el proyecto final del ciclo, tal como lo publica el DOG
 
@@ -29,11 +29,11 @@ Sale del apartado 6.1 de la programación oficial. En la 1ª evaluación, el det
 
 | Apartado 6.1 | Peso | En la 1ª evaluación |
 |---|---|---|
-| Trabajos, prácticas, proyectos y pruebas parciales | 60 % | **P** · exámenes parciales (40 %) y **A** · actividades guiadas (20 %), por el nivel de cumplimiento de sus pasos: nada, poco, medio, alto o completo |
+| Trabajos, prácticas, proyectos y pruebas parciales | 60 % | **P** · exámenes parciales (40 %) y **A** · actividades guiadas (20 %), por su nivel de implementación y comprensión |
 | Prueba final de la evaluación | 30 % | **F** · examen final |
 | Autoevaluación del alumnado | 10 % | **R** · autoevaluación, con una [plantilla](autoevaluacion-1a.xlsx) en Teams, la semana del examen final |
 
-Mínimo de 4 en cada examen parcial, en la media de las actividades guiadas y en el examen final para aplicar la media. La evaluación se aprueba con un 5. Cómo se califica cada instrumento: [rúbricas](rubricas.md).
+Mínimo de 4 en cada examen parcial, en la media de las actividades guiadas y en el examen final para aplicar la media. La evaluación se aprueba con un 5. Cómo se califica cada instrumento: [rúbricas](1a-evaluacion.md#rúbricas).
 
 ### Nota final del módulo
 
