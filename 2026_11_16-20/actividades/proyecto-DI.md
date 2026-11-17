@@ -244,6 +244,14 @@ En `main.py`:
 **Si te falla…**
 
 - *«No se ha podido abrir la cámara»*: otra aplicación la está usando (Teams, el navegador): ciérrala. En Windows, comprueba en **Configuración → Privacidad y seguridad → Cámara** que las aplicaciones de escritorio pueden usarla.
+- *La cámara tarda mucho en abrirse o la imagen sale negra*: en la carpeta del BugTracker, descarga y ejecuta el diagnóstico de la cámara:
+
+   ```
+   Invoke-WebRequest https://github.com/mrpiay/NTFOR_DAM2627_DI/raw/main/2026_11_16-20/actividades/diagnostico_camara.py -OutFile diagnostico_camara.py
+   python diagnostico_camara.py
+   ```
+
+   Muestra las versiones instaladas y prueba cada cámara del portátil (algunos tienen también una de infrarrojos, que se ve negra) con los dos sistemas de captura de Windows que usa OpenCV. Al final dice si todo está bien o qué línea cambiar en `gestos.py` para usar la cámara o el sistema que sí funciona.
 - *«No se ha podido cargar el modelo de gestos»*: no hay conexión para descargarlo la primera vez. Vuelve a probar con conexión.
 - *No reconoce casi nada*: hay poca luz o la mano está a contraluz (una ventana detrás), muy cerca o muy lejos. Ponte de cara a la luz.
 - *`pip` falla con `WinError 206`*: la carpeta está en una ruta demasiado larga o en OneDrive, como en la 1.ª parte.
