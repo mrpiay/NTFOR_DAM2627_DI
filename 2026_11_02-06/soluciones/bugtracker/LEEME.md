@@ -56,3 +56,10 @@ Después de guardar en Designer, regenera el código y vuelve a lanzar la aplica
 .venv\Scripts\pyside6-uic bugtracker.ui -o ui_bugtracker.py
 .venv\Scripts\python main.py
 ```
+
+Si Windows bloquea `pyside6-designer.exe` o `pyside6-uic.exe` con «Una directiva de Control de aplicaciones bloqueó este archivo» (por ejemplo, con *Smart App Control* activado), es porque son accesos directos que crea `pip` al instalar PySide6 y no están firmados. Los programas reales, firmados por The Qt Company, están en `.venv\Lib\site-packages\PySide6`, y se pueden abrir directamente (el `&` hace falta porque la ruta va entre comillas):
+
+```
+& ".venv\Lib\site-packages\PySide6\designer.exe" bugtracker.ui
+& ".venv\Lib\site-packages\PySide6\uic.exe" -g python bugtracker.ui -o ui_bugtracker.py
+```

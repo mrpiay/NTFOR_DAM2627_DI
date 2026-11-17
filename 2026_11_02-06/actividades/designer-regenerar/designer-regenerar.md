@@ -31,6 +31,13 @@ Start-Process .venv\Scripts\pyside6-designer.exe -ArgumentList bugtracker.ui -Wi
 - `Start-Process` lo abre aparte, así la terminal queda libre para los pasos siguientes.
 - `-WindowStyle Hidden` oculta la ventana de terminal vacía que, sin esta opción, se abre junto a Designer.
 
+Si Windows bloquea `pyside6-designer.exe` o `pyside6-uic.exe` con «Una directiva de Control de aplicaciones bloqueó este archivo» (por ejemplo, con *Smart App Control* activado), es porque son accesos directos que crea `pip` al instalar PySide6 y no están firmados. Los programas reales, firmados por The Qt Company, están en `.venv\Lib\site-packages\PySide6`, y se pueden abrir directamente (el `&` hace falta porque la ruta va entre comillas):
+
+```
+& ".venv\Lib\site-packages\PySide6\designer.exe" bugtracker.ui
+& ".venv\Lib\site-packages\PySide6\uic.exe" -g python bugtracker.ui -o ui_bugtracker.py
+```
+
 Se abre Designer con la ventana del BugTracker en el centro:
 
 ![Qt Designer con bugtracker.ui abierto](img/2-designer.png)

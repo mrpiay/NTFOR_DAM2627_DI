@@ -6,6 +6,7 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 
 | Fecha | Qué cambia |
 |---|---|
+| 17 nov | Soluciones de los cuestionarios C1 y C2 y el BugTracker al final de la 2.ª parte ([2026_11_02-06/soluciones](2026_11_02-06/soluciones) y [2026_11_09-13/soluciones](2026_11_09-13/soluciones)) |
 | 17 nov | Semana del 23 al 27, de repaso: la guía de **ValoraDI**, una aplicación de escritorio con PySide6, Qt Designer y SQLite, de principio a fin ([2026_11_23-27](2026_11_23-27)) |
 | 16 nov | Las **actividades guiadas (A)** se califican por el nivel de cumplimiento de sus pasos: nada (0), poco (2,5), medio (5), alto (7,5) o completo (10). Qué supone cada nivel: [rúbricas](programacion/rubricas.md) |
 | 16 nov | Los **cuestionarios (C)** son requisito de la **autoevaluación (R)**: sin todos los cuestionarios entregados, la autoevaluación (R) es un 0 |
@@ -15,7 +16,6 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 | 12 nov | Tutorial de Python con el BugTracker en la semana del 9 al 13: instalarlo, cómo está hecho y un programa para leer Python ([python-bugtracker](2026_11_09-13/actividades/python-bugtracker/tutorial-python.md)) |
 | 11 nov | Nuevas fechas de exámenes: un solo examen parcial (**P1**, miércoles 2 de diciembre) con todo lo de la evaluación que no evaluó Julia, y el examen final (**F**) el jueves 10 de diciembre |
 | 11 nov | **Repaso Julia**: apuntes que completan lo que se dio antes del 2 de noviembre ([repaso-julia/apuntes](repaso-julia/apuntes)) |
-| 11 nov | La **revisión (R)** de los cuestionarios y de los exámenes parciales corregidos es el 10 % de la nota; la entrega de los cuestionarios es obligatoria |
 
 ## Fechas importantes
 

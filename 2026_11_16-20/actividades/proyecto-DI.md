@@ -201,6 +201,7 @@ En `main.py`:
 - *Sale dos veces el buscador*: `configurar_buscador()` sigue creando otro. Debe usar `self.ui.buscador`.
 - *`ModuleNotFoundError: No module named 'buscador'`*: en *Header file* pusiste otro nombre. Debe ser `buscador.h`, y `buscador.py` tiene que estar en la misma carpeta.
 - *No sale la opción Promote to…*: haz clic derecho sobre el widget mismo, no sobre el layout.
+- *Designer no abre y sale «Una directiva de Control de aplicaciones bloqueó este archivo»*: Windows tiene activado un control de aplicaciones (por ejemplo, *Smart App Control*) que solo deja abrir programas firmados. `.venv\Scripts\pyside6-designer.exe` es un acceso directo que crea `pip` en cada ordenador al instalar PySide6, y no está firmado; el programa real, `.venv\Lib\site-packages\PySide6\designer.exe`, está firmado por The Qt Company. Ábrelo directamente: `& ".venv\Lib\site-packages\PySide6\designer.exe" bugtracker.ui` (el `&` hace falta porque la ruta va entre comillas). Para ver la diferencia, `Get-AuthenticodeSignature` de los dos archivos: el primero sale `NotSigned` y el segundo, `Valid`. Lo mismo con `pyside6-uic`: `& ".venv\Lib\site-packages\PySide6\uic.exe" -g python bugtracker.ui -o ui_bugtracker.py`.
 
 ---
 
