@@ -58,7 +58,9 @@ class DetectorGestos(QObject):
         try:
             descargar_modelo()
             opciones = vision.GestureRecognizerOptions(
-                base_options=mp_python.BaseOptions(model_asset_path=str(MODELO)),
+                # El archivo del modelo lo abre Python, que entiende la ñ y las tildes, y se le pasa
+                # a MediaPipe ya leído: MediaPipe (en C++) no abre en Windows rutas con esos caracteres
+                base_options=mp_python.BaseOptions(model_asset_buffer=MODELO.read_bytes()),
                 running_mode=vision.RunningMode.VIDEO,
                 num_hands=1,
             )
