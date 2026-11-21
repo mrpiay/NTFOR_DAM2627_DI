@@ -4,4 +4,4 @@ Semana de repaso de toda la 1ª evaluación. La actividad es un proyecto complet
 
 | Archivo | Qué es |
 |---|---|
-| [`guia-ValoraDI.md`](guia-ValoraDI.md) | Guía paso a paso de **ValoraDI**, una aplicación de escritorio con PySide6 y Qt Designer que recoge valoraciones de 1 a 5 estrellas, las guarda en SQLite y calcula una nota global con pesos. **Empieza por aquí** |
+| [`guia-ValoraDI.md`](guia-ValoraDI.md) | Guía paso a paso de **ValoraDI**, una aplicación de escritorio con PySide6 y Qt Designer que recoge valoraciones de 1 a 5 estrellas, las guarda en SQLite y calcula una nota global con pesos. Al final, se valora también con gestos de la mano ante la cámara, con MediaPipe. **Empieza por aquí** |

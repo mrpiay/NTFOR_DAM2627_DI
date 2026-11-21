@@ -15,6 +15,8 @@ El desarrollo se divide en dos partes:
 
 No es necesario tener experiencia previa con VS Code ni con Qt. La guía explica desde la instalación de Python hasta la aplicación terminada, incluyendo comprobaciones y ejemplos para facilitar el seguimiento.
 
+Al final, un paso más añade una **interfaz natural**: valorar con **gestos de la mano** ante la cámara, con MediaPipe.
+
 Al finalizar, tendrás una aplicación funcional y una visión general de cómo se integran la interfaz, la lógica de la aplicación y el almacenamiento de datos en un proyecto de escritorio.
 
 ## Índice
@@ -37,6 +39,7 @@ Al finalizar, tendrás una aplicación funcional y una visión general de cómo 
   - [Paso 7 · El código de la ventana](#paso-7--el-código-de-la-ventana)
   - [Paso 8 · Arrancar la app](#paso-8--arrancar-la-app)
   - [Paso 9 · Probar la app](#paso-9--probar-la-app)
+  - [Paso 10 · Valorar con gestos de la mano](#paso-10--valorar-con-gestos-de-la-mano)
 - [Si algo falla](#si-algo-falla)
 - [Los archivos del proyecto](#los-archivos-del-proyecto)
 
@@ -76,6 +79,7 @@ Al finalizar, tendrás una aplicación funcional y una visión general de cómo 
 | R6 | Al cambiar los pesos, la nota global se recalcula sola, sin volver a introducir ninguna valoración. |
 | R7 | Todo se puede hacer **solo con el teclado**: Tab para moverse, Alt + letra para ir a cada categoría, las teclas 1 a 5 o las flechas para elegir la nota, Intro o Ctrl + S para guardar y Ctrl + P para los pesos. Cada control tiene un nombre que lee el lector de pantalla. |
 | R8 | Las valoraciones son **anónimas**: solo se guardan las tres notas. |
+| R9 | Con la opción **Gestos de la mano** (Ctrl + G), las notas también se eligen con **gestos de la mano** ante la cámara: pulgar arriba o abajo para una estrella más o menos, victoria para pasar a la categoría siguiente y palma abierta para guardar (paso 10). |
 
 ## 2. Dónde se guardan los datos
 
@@ -133,6 +137,11 @@ Estas son las piezas que usa la app:
 | **SQLite** | Una base de datos en un solo archivo, sin servidor. Python la trae incluida (`import sqlite3`). Los datos se piden y se guardan con **SQL**, el lenguaje de las bases de datos. | `valora.db` |
 | **Prueba automática** | Un trozo de código que usa otro y comprueba que el resultado es el esperado. **pytest** las ejecuta todas y dice cuáles fallan; **pytest-qt** permite probar widgets simulando clics y teclas. | Los archivos `test_*.py` |
 | **Accesibilidad** | Que la app la pueda usar todo el mundo: también quien no usa ratón o quien usa un **lector de pantalla**, un programa que lee en voz alta lo que hay en la pantalla. | El teclado (R7) y los nombres accesibles |
+| **Interfaz natural** | Una forma de manejar una app con lo que las personas hacen sin aprenderlo: la voz, los gestos, el cuerpo. Una app es **multimodal** si se puede manejar de varias formas a la vez, y todas hacen lo mismo. | Los gestos de la mano (R9): las estrellas se eligen con el ratón, el teclado o la mano |
+| **Modelo entrenado** | Un programa que ha aprendido a reconocer algo (caras, manos, gestos) a partir de miles de ejemplos: es **aprendizaje automático**. No se programa regla a regla: recibe una imagen y devuelve qué ve y con cuánta **confianza**, de 0 a 1. | `gesture_recognizer.task`, que reconoce siete gestos de la mano |
+| **MediaPipe** | Una librería de Google con modelos ya entrenados para reconocer manos, gestos, caras y cuerpos en la imagen de una cámara | El reconocedor de gestos, en `gestos.py` |
+| **OpenCV** (`cv2`) | Una librería para trabajar con imágenes y vídeo: abre la cámara y lee cada imagen (**fotograma**). Se instala con MediaPipe | Lee la cámara, en `gestos.py` |
+| **Herencia** | Una clase **hereda** de otra cuando se escribe `class Hija(Madre)`: tiene todo lo de la madre y puede añadir cosas o cambiarlas. Con `super()` se llama a lo de la madre | `VentanaConGestos` hereda de `VentanaPrincipal` |
 
 ### 3.2 · Las capas
 
@@ -142,19 +151,26 @@ Una app pequeña se podría escribir en un solo archivo, pero sería difícil de
 - **Componente:** el selector de estrellas. Solo sabe elegir una nota y avisar de que ha cambiado; no sabe para qué se usa.
 - **Modelo:** qué es una valoración y unos pesos, y **todos los cálculos**: las medias, la nota global, si los pesos son válidos y los textos del resumen. Es Python puro: no usa Qt ni SQL.
 - **Almacén:** todo el SQL. Guarda y lee las valoraciones y los pesos en `valora.db`.
+- **Gestos** (paso 10): el detector de gestos, `gestos.py`. Abre la cámara, pasa cada imagen al modelo de MediaPipe y avisa con una señal de cada gesto nuevo, como un botón avisa de un clic. No sabe nada de valoraciones: solo dice qué gesto ha visto.
 
 En resumen: **el modelo calcula, el almacén guarda y la interfaz dibuja**. Como el modelo y el almacén no usan ventanas, se pueden probar con pytest sin abrir ninguna.
 
 **Cómo se lee el esquema.** Cada caja es una capa, con sus archivos y lo que hace cada uno; a la derecha, el paso de la Parte 2 en el que se escribe. Las flechas dicen quién pide qué a quién. Por ejemplo, «guardar_valora(v)» quiere decir que la ventana le pide al almacén que guarde una valoración.
 
-El esquema se lee de arriba abajo, desde lo que se ve hasta los datos. La app se construye al revés, de abajo arriba: del paso 2 al 8.
+El esquema se lee de arriba abajo, desde lo que se ve hasta los datos. La app se construye al revés, de abajo arriba: del paso 2 al 8. El paso 10 añade arriba los gestos, que le llegan a la ventana como le llega un clic: con una señal.
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│ INTERFAZ                                      pasos 5 a 8    │
+│ GESTOS                                        paso 10        │
+│   gestos.py      la cámara y el modelo de MediaPipe          │
+└──────────────────────────────┬───────────────────────────────┘
+                               │ gestoDetectado("Thumb_Up")
+┌──────────────────────────────▼───────────────────────────────┐
+│ INTERFAZ                                pasos 5 a 8 y 10     │
 │   ventana.ui → ui_ventana.py   el dibujo (Qt Designer)       │
 │   ventana.py                   recoge lo pulsado y dibuja    │
 │   dialogo_pesos.py             pide los pesos                │
+│   ventana_gestos.py            la ventana, con gestos        │
 │   main.py                      abre la ventana               │
 └───────┬───────▲────────────────┬─────────────────┬───────────┘
         │ usa   │ notaCambiada   │ resumir()       │ guarda y lee
@@ -177,7 +193,9 @@ El esquema se lee de arriba abajo, desde lo que se ve hasta los datos. La app se
 | 6 | Interfaz | `dialogo_pesos.py` | El diálogo de pesos |
 | 7 | Interfaz | `ventana.py` | La ventana: conecta las señales, guarda, abre el diálogo y dibuja el resumen |
 | 8 | Arranque | `main.py` | Crea las tablas, la aplicación y la ventana |
-| 2 a 7 | Pruebas | `test_*.py` | Las pruebas automáticas de cada parte |
+| 10 | Gestos | `gestos.py` | El detector de gestos, ya hecho: la cámara y el modelo de MediaPipe |
+| 10 | Interfaz | `ventana_gestos.py` | `VentanaConGestos`: la ventana del paso 7, heredada, con la opción «Gestos de la mano» y lo que hace cada gesto |
+| 2 a 7 y 10 | Pruebas | `test_*.py` | Las pruebas automáticas de cada parte |
 
 ## 4. Cómo se mueve la información
 
@@ -208,6 +226,14 @@ Esto es lo que pasa por dentro en cada situación, siguiendo el esquema del punt
 2. Cada vez que cambia un peso, el diálogo pregunta al modelo si son válidos y qué aviso mostrar (`Pesos.validos` y `Pesos.aviso`). Si no suman 100, desactiva «Aceptar».
 3. Con «Aceptar», la ventana pide al almacén que guarde los pesos nuevos (`guardar_pesos`) y vuelve a dibujar el resumen: la nota global cambia; las valoraciones, no. Con «Cancelar», no cambia nada.
 
+**Con los gestos (R9)**
+
+1. Con «Gestos de la mano» o Ctrl + G, la ventana enciende el detector (`iniciar`): carga el modelo y abre la cámara. Si no puede, avisa y la opción se desmarca.
+2. Unas 15 veces por segundo, el detector lee una imagen de la cámara y se la pasa al modelo, que dice qué gesto ve y con cuánta confianza.
+3. Cuando el mismo gesto se ve en varias imágenes seguidas, y es distinto del anterior, el detector lanza su señal (`gestoDetectado`) con el nombre del gesto.
+4. La ventana la recibe (`aplicar_gesto`), mira qué categoría tiene el foco y cambia su nota, pasa a la siguiente o guarda. Desde ahí, todo sigue como con el ratón o el teclado: el selector lanza `notaCambiada`, se activa «Guardar»…
+5. En la barra de estado dice qué ha entendido, para que se sepa que el gesto ha llegado.
+
 **Si algo falla al leer o guardar:** el almacén lanza un error de SQLite (`sqlite3.Error`). La ventana lo recoge (`except`) y muestra un mensaje que explica qué no se ha podido hacer; la app no se cierra sin avisar.
 
 ## 5. Decisiones de diseño
@@ -224,6 +250,13 @@ Esto es lo que pasa por dentro en cada situación, siguiendo el esquema del punt
 | El selector es un **componente** propio | Se escribe una vez y se usa tres veces; tiene sus propias pruebas y se puede llevar a otro proyecto. |
 | La ventana se **dibuja en Qt Designer** | El diseño se ve mientras se hace y se cambia sin tocar el código. El selector se coloca en el diseño **promocionando** un widget. |
 | **Teclado** y **nombres accesibles** en todo | Quien no usa ratón o usa lector de pantalla puede valorar igual (R7). |
+| Los gestos, en una clase que **hereda** de la ventana | `ventana.py` y sus pruebas no cambian, y siguen funcionando sin MediaPipe. Lo nuevo está en un solo archivo, y se ve qué añade. |
+| Los gestos cambian la nota **por la propiedad** del selector | Igual que el teclado: el selector se redibuja y avisa con `notaCambiada`, y el resto de la app no sabe ni necesita saber si la nota llegó por la mano. |
+| Los gestos actúan sobre la categoría **con el foco** | Es la que se ve marcada y la misma que usa el teclado: se sabe siempre a qué categoría va el gesto. |
+| Cuatro gestos, y **parecidos a lo que significan** | Pulgar arriba es «más», pulgar abajo es «menos» y la palma abierta, «ya está». Con pocos gestos y fáciles de recordar, se aprenden enseguida. |
+| Un gesto cuenta **cuando se mantiene** y **cuando cambia** | Si contara cada imagen, un pulgar arriba de un segundo subiría 15 estrellas. Por eso hay que bajar la mano para repetir un gesto. |
+| Los gestos se **encienden y apagan** desde el menú | La cámara solo se usa cuando se pide, y se ve en el menú si está encendida (opción marcada). |
+| La barra de estado dice **qué ha entendido** | Con un gesto no hay clic ni tecla que confirme nada: sin ese mensaje, no se sabría si el gesto ha llegado. |
 | Valoraciones **anónimas** | Solo tres notas (R8): nada en los datos dice quién valoró. |
 
 ## 6. Configuración de librerías y dependencias
@@ -250,8 +283,9 @@ Para cada cosa que tiene que hacer la app:
 | Saber dónde está `valora.db` | Rutas de archivos | `pathlib` | **Sí** | [pathlib](https://docs.python.org/es/3/library/pathlib.html) |
 | Comprobar el cálculo y el almacén | Pruebas automáticas | pytest | No | [pytest en PyPI](https://pypi.org/project/pytest/) |
 | Comprobar el selector y la ventana con clics y teclas | Pruebas de widgets de Qt | pytest-qt | No | [pytest-qt en PyPI](https://pypi.org/project/pytest-qt/) |
+| Valorar con gestos de la mano (R9, paso 10) | Leer la cámara y reconocer gestos | MediaPipe, que instala también OpenCV | No | [mediapipe en PyPI](https://pypi.org/project/mediapipe/) y [el reconocedor de gestos](https://ai.google.dev/edge/mediapipe/solutions/vision/gesture_recognizer) |
 
-Con esta tabla hecha, ya se sabe qué hay que poner en `requirements.txt` (paso 1), y por qué: tres líneas.
+Con esta tabla hecha, ya se sabe qué hay que poner en `requirements.txt` (paso 1), y por qué: tres líneas. En el paso 10 se añade una cuarta, `mediapipe`.
 
 ### 6.3 · Qué se escribe en `requirements.txt`
 
@@ -260,6 +294,7 @@ Con esta tabla hecha, ya se sabe qué hay que poner en `requirements.txt` (paso 
 | `PySide6-Essentials==6.12.*` | Los módulos principales de Qt (ventanas, widgets, SQL de Qt…), Qt Designer y `pyside6-uic`. `PySide6-Essentials` es la parte básica de PySide6: ocupa mucho menos que el paquete completo, `PySide6`, que añade módulos que esta app no usa (gráficos 3D, multimedia, web…). |
 | `pytest` | El programa que ejecuta las pruebas |
 | `pytest-qt` | Un añadido (*plugin*) de pytest para probar widgets: da la herramienta `qtbot`, que simula clics y teclas |
+| `mediapipe` (paso 10) | Los modelos de MediaPipe y OpenCV, para los gestos. Sin versión: la que instala pip funciona con el `gestos.py` de la guía |
 
 ### 6.4 · Qué versión poner
 
@@ -1565,6 +1600,263 @@ Salen las filas de las dos tablas: `[(1, 4, 3, 5), (2, 2, 3, 3)]` y `[(1, 60, 20
 
 **Comprueba que…** las ocho pruebas de 9.1 dan el resultado esperado, todo se puede hacer solo con el teclado y `python -m pytest -v` muestra **16 passed**.
 
+## Paso 10 · Valorar con gestos de la mano
+
+Hasta aquí, la app se maneja con el ratón y con el teclado. En este paso se le añade una **interfaz natural**: valorar con **gestos de la mano** ante la cámara del portátil, con el mismo detector de MediaPipe que el BugTracker (actividades de la semana del 16 al 20 de noviembre). Así la app queda **multimodal**: las mismas estrellas se eligen con el ratón, con el teclado o con la mano.
+
+| Gesto | Qué hace, sobre la categoría que tiene el foco |
+|---|---|
+| Pulgar arriba | Una estrella más, como la flecha derecha |
+| Pulgar abajo | Una estrella menos, como la flecha izquierda |
+| Victoria (índice y corazón en V) | Pasa a la categoría siguiente; después de clases, vuelve a docente |
+| Palma abierta | Guarda la valoración, si están las tres notas. Si falta alguna, lo dice |
+
+Los gestos se encienden y se apagan con una opción nueva del menú, **Valoración → Gestos de la mano** (**Ctrl + G**), y la barra de estado dice qué ha entendido la app con cada gesto: «Pulgar arriba: Docente, 4 de 5».
+
+**La carpeta del proyecto, en una ruta corta y sin caracteres raros.** MediaPipe y OpenCV fallan en Windows con rutas largas y con rutas que llevan **ñ, tildes, espacios u otros caracteres que no sean letras inglesas, números, `-` o `_`**: por ejemplo, `C:\Users\usuario\OneDrive\Escritorio\Diseño de interfaces`. Usa `C:\dam2627\di\ValoraDI`, como en el paso 1.
+
+**10.1 · Instalar MediaPipe.** En la terminal, con el entorno activado (sale `(.venv)` al principio de la línea). Tarda unos minutos; con MediaPipe se instala también OpenCV, que lee la imagen de la cámara:
+
+```powershell
+pip install mediapipe
+```
+
+Añade una línea `mediapipe` al final de `requirements.txt`.
+
+**10.2 · El detector de gestos.** Es el mismo `gestos.py` del BugTracker, ya hecho. Descárgalo en la carpeta del proyecto y pruébalo solo:
+
+```powershell
+Invoke-WebRequest https://github.com/mrpiay/NTFOR_DAM2627_DI/raw/main/2026_11_16-20/actividades/gestos.py -OutFile gestos.py
+python gestos.py
+```
+
+La primera vez descarga el modelo, `gesture_recognizer.task` (unos 8 MB). Se abre una ventana con la imagen de la cámara, como un espejo, y debajo el último gesto reconocido. Prueba los cuatro gestos con la mano a unos 50 cm de la cámara y cierra con **Esc**. Añade una línea `gesture_recognizer.task` a `.gitignore`: se descarga solo y no hace falta guardarlo.
+
+De `gestos.py` se usan la clase **`DetectorGestos`**, con `iniciar()` y `detener()`, que encienden y apagan la cámara; su señal **`gestoDetectado(str)`**, que llega una vez por cada gesto nuevo con su nombre en inglés (`"Thumb_Up"`…), y su señal **`error(str)`**, si no se puede abrir la cámara o cargar el modelo. Para repetir el mismo gesto, hay que bajar la mano y volver a hacerlo: el detector solo avisa cuando el gesto cambia.
+
+**Cómo funciona `gestos.py` por dentro.** No hay que escribirlo, pero conviene entenderlo, porque de él depende lo que se ve en la app. Ábrelo en VS Code y busca cada pieza:
+
+| Pieza | Qué hace |
+|---|---|
+| `class DetectorGestos(QObject)` y `gestoDetectado = Signal(str)` | Un objeto de Qt sin ventana, con señales propias, como el `SelectorNota` del paso 4. Por eso la ventana se conecta a él con `connect`, como a un botón |
+| `model_asset_buffer=MODELO.read_bytes()` | El archivo del modelo lo lee Python y se lo pasa a MediaPipe ya leído. MediaPipe, escrito en C++, no abre en Windows rutas con ñ o tildes; Python sí. Aun así, la cámara y la instalación también fallan con esas rutas: por eso la carpeta corta |
+| `QTimer` y `start(66)` | Un temporizador de Qt que llama a `_leer_fotograma` cada 66 milisegundos: unas 15 imágenes por segundo. Así la cámara se lee sin parar el bucle de eventos, y la ventana sigue respondiendo |
+| `cv2.VideoCapture(0)` y `read()` | OpenCV abre la primera cámara del ordenador y lee una imagen cada vez |
+| `cv2.flip(imagen, 1)` | Da la vuelta a la imagen, como un espejo: la mano derecha se ve a la derecha |
+| `recognize_for_video(…)` | Le pasa la imagen al modelo, que devuelve los gestos que ve, cada uno con su confianza (`score`) |
+| `mejor.score > 0.6` | Solo se acepta un gesto si el modelo está bastante seguro: por encima del 60 % |
+| `CONFIRMAR = 5` y `_procesar` | El gesto tiene que verse en 5 imágenes seguidas (un tercio de segundo) y ser distinto del último. Así una imagen mal reconocida no cambia nada, y un gesto mantenido cuenta una sola vez |
+
+**10.3 · La ventana con gestos.** Los gestos no se añaden en `ventana.py`, sino en una clase nueva que **hereda** de `VentanaPrincipal`: es la misma ventana, con todo lo que ya hace, más los gestos. Así `ventana.py` y sus pruebas del paso 7 no cambian, y funcionan aunque MediaPipe no esté instalado.
+
+Crea el archivo **`ventana_gestos.py`**:
+
+**Las piezas del código:**
+
+| Pieza | Qué hace |
+|---|---|
+| `class VentanaConGestos(VentanaPrincipal):` | Una clase que **hereda** de otra: tiene todos sus atributos y métodos (`self.ui`, `self.selectores`, `guardar()`…) y puede añadir los suyos |
+| `super().__init__()` | Ejecuta el `__init__` de `VentanaPrincipal`: el diseño, las conexiones y el resumen. Después, lo nuevo |
+| `self.detector.gestoDetectado.connect(self.aplicar_gesto)` | Cada gesto nuevo llama a `aplicar_gesto` con su nombre. Es una señal y una ranura, como el clic de un botón |
+| `QAction("Gestos de la mano", self)` | Una opción de menú creada en el código, como las de Qt Designer. `setCheckable(True)` la hace marcable, y `setShortcut` le da el atajo |
+| `toggled.connect(self.activar_gestos)` | `toggled` se emite al marcarla o desmarcarla, con `True` o `False`: enciende o apaga la cámara |
+| `self.ui.menuValora.insertAction(self.ui.actionSalir, …)` | Mete la opción en el menú «Valoración», justo antes de «Salir» |
+| `self.accion_gestos.setChecked(False)` | Si la cámara no se ha podido abrir, la opción se desmarca: el menú no dice que los gestos están activados si no lo están |
+| `self.focusWidget()` | El widget de la ventana que tiene el foco. Si son unas estrellas, los gestos actúan sobre esa categoría |
+| `(CATEGORIAS.index(categoria) + 1) % len(CATEGORIAS)` | La posición siguiente; con `%` (el resto), después de la última (2) vuelve a la primera (0) |
+| `selector.nota = …` | Cambia la nota del `SelectorNota` por su propiedad, igual que con el teclado: se redibujan las estrellas y se emite `notaCambiada`, que activa «Guardar» |
+| `closeEvent` | Se ejecuta al cerrar la ventana: apaga la cámara antes de cerrar |
+
+```python
+"""La ventana de ValoraDI con gestos de la mano (paso 10).
+
+VentanaConGestos hereda de VentanaPrincipal: es la misma ventana, con todo lo que ya
+hace, y le añade los gestos. ventana.py no se toca. Los gestos los reconoce
+DetectorGestos (gestos.py), con el modelo ya entrenado de MediaPipe.
+
+Gestos, sobre la categoría que tiene el foco:
+    pulgar arriba  → una estrella más
+    pulgar abajo   → una estrella menos
+    victoria       → la categoría siguiente
+    palma abierta  → guardar la valoración, si están las tres notas
+Para repetir el mismo gesto, se baja la mano y se vuelve a hacer.
+"""
+from PySide6.QtGui import QAction, QKeySequence
+from PySide6.QtWidgets import QMessageBox
+
+import gestos
+from modelo import CATEGORIAS, NOMBRES
+from ventana import VentanaPrincipal
+
+
+class VentanaConGestos(VentanaPrincipal):
+    def __init__(self):
+        super().__init__()          # la ventana de siempre: el diseño, las conexiones y el resumen
+
+        # ── El detector: avisa con una señal de cada gesto nuevo ─────────
+        self.detector = gestos.DetectorGestos(self)
+        self.detector.gestoDetectado.connect(self.aplicar_gesto)
+        self.detector.error.connect(self.avisar_error)
+
+        # ── Una opción nueva en el menú, marcable y con atajo ────────────
+        # Marcada, la cámara está encendida; desmarcada, apagada
+        self.accion_gestos = QAction("Gestos de la mano", self)
+        self.accion_gestos.setCheckable(True)
+        self.accion_gestos.setShortcut(QKeySequence("Ctrl+G"))
+        self.accion_gestos.toggled.connect(self.activar_gestos)
+        self.ui.menuValora.insertAction(self.ui.actionSalir, self.accion_gestos)   # antes de «Salir»
+
+    # ── Encender y apagar la cámara ──────────────────────────────────────
+    def activar_gestos(self, activar):
+        if not activar:
+            self.detector.detener()
+            self.ui.statusbar.showMessage("Gestos desactivados", 3000)
+        elif self.detector.iniciar():
+            self.ui.statusbar.showMessage(
+                "Gestos activados: pulgar arriba o abajo, victoria para cambiar de categoría "
+                "y palma abierta para guardar")
+        else:
+            self.accion_gestos.setChecked(False)    # no se ha podido: la opción se desmarca
+
+    def avisar_error(self, mensaje):
+        QMessageBox.warning(self, "Gestos de la mano", mensaje)
+
+    # ── Qué hace cada gesto ──────────────────────────────────────────────
+    def categoria_activa(self):
+        """La categoría cuyas estrellas tienen el foco; si no lo tiene ninguna, la primera."""
+        foco = self.focusWidget()
+        for categoria in CATEGORIAS:
+            if self.selectores[categoria] is foco:
+                return categoria
+        return CATEGORIAS[0]
+
+    def aplicar_gesto(self, gesto):
+        categoria = self.categoria_activa()
+        selector = self.selectores[categoria]
+        if gesto == "Thumb_Up":
+            selector.nota = max(1, selector.nota + 1)       # como la flecha derecha
+        elif gesto == "Thumb_Down":
+            selector.nota = max(1, selector.nota - 1)       # como la flecha izquierda
+        elif gesto == "Victory":
+            # La siguiente categoría; después de la última, vuelve a la primera (%)
+            categoria = CATEGORIAS[(CATEGORIAS.index(categoria) + 1) % len(CATEGORIAS)]
+            selector = self.selectores[categoria]
+            selector.setFocus()
+        elif gesto == "Open_Palm":
+            if self.ui.btnGuardar.isEnabled():
+                self.guardar()                              # dice «Valoración guardada»
+            else:
+                self.ui.statusbar.showMessage("Palma abierta: faltan notas para guardar", 3000)
+            return
+        else:
+            return                                          # los demás gestos no hacen nada
+        # Lo que ha entendido la app, para que se vea que el gesto ha llegado
+        nota = f"{selector.nota} de 5" if selector.nota else "sin nota"
+        self.ui.statusbar.showMessage(f"{gestos.NOMBRES[gesto].capitalize()}: {NOMBRES[categoria]}, {nota}", 3000)
+
+    # ── Al cerrar la ventana, la cámara se apaga ─────────────────────────
+    def closeEvent(self, evento):
+        self.detector.detener()
+        super().closeEvent(evento)
+```
+
+**Comprueba que lo entiendes.** Contesta antes de abrir las respuestas:
+
+1. `VentanaConGestos` usa `self.selectores`, `self.ui` y `self.guardar()`, pero no los crea. ¿De dónde salen?
+2. ¿Qué pasaría si en `__init__` se quitara `super().__init__()`?
+3. Con el foco en materiales, que tiene 3 estrellas, se hace pulgar arriba y se mantiene dos segundos. ¿Cuántas estrellas quedan, y por qué?
+4. ¿Por qué no hace falta conectar nada para que «Guardar» se active cuando un gesto pone la tercera nota?
+5. Si la cámara no se puede abrir, ¿por qué se llama a `setChecked(False)`?
+
+<details>
+<summary>Respuestas</summary>
+
+1. De `VentanaPrincipal`: los crea su `__init__`, y `VentanaConGestos` los hereda. `guardar()` es un método de `VentanaPrincipal`, y `VentanaConGestos` lo tiene sin escribirlo.
+2. No se ejecutaría el `__init__` de `VentanaPrincipal`: no habría diseño (`self.ui`), ni selectores, ni conexiones, y la línea `self.ui.menuValora…` daría `AttributeError`.
+3. 4: el detector solo avisa cuando el gesto **cambia**, así que mantenerlo cuenta una vez. Para la quinta, hay que bajar la mano y volver a hacer el gesto.
+4. Porque el gesto cambia la nota por la propiedad `nota` del selector, que emite `notaCambiada`, y esa señal ya está conectada a `actualizar_guardar` desde el paso 7. La ventana no distingue si la nota llegó por el ratón, el teclado o la mano.
+5. Al marcar la opción, Qt ya la ha dejado marcada. Si la cámara no se abre, hay que desmarcarla, o el menú diría que los gestos están activados sin estarlo. Al desmarcarla se vuelve a llamar a `activar_gestos` con `False`, que apaga el detector: no pasa nada.
+
+</details>
+
+**10.4 · Arrancar la ventana con gestos.** En `main.py`, cambia dos líneas: la ventana que se abre ahora es `VentanaConGestos`.
+
+```python
+from ventana_gestos import VentanaConGestos       # paso 10: la ventana con gestos
+```
+
+en lugar de `from ventana import VentanaPrincipal`, y
+
+```python
+    ventana = VentanaConGestos()
+```
+
+en lugar de `ventana = VentanaPrincipal()`.
+
+**10.5 · Las pruebas, sin cámara.** Una prueba automática no puede hacer gestos ante la cámara, pero sí llamar a `aplicar_gesto` como si el gesto lo hubiera enviado el detector. Crea **`test_ventana_gestos.py`**:
+
+```python
+"""Pruebas de los gestos, sin cámara: se llama a aplicar_gesto como si el gesto
+lo hubiera enviado el detector.
+
+Ejecuta desde la carpeta del proyecto:  python -m pytest -v
+"""
+import pytest
+
+import almacen
+from ventana_gestos import VentanaConGestos
+
+
+@pytest.fixture
+def ventana(qtbot, tmp_path, monkeypatch):
+    # Una base de datos nueva en una carpeta temporal: valora.db no se toca
+    monkeypatch.setattr(almacen, "RUTA_BD", tmp_path / "prueba.db")
+    almacen.crear_bd()
+    v = VentanaConGestos()
+    qtbot.addWidget(v)
+    return v
+
+
+def test_pulgar_arriba_y_pulgar_abajo(ventana):
+    ventana.aplicar_gesto("Thumb_Up")
+    ventana.aplicar_gesto("Thumb_Up")
+    assert ventana.ui.selDocente.nota == 2
+    ventana.aplicar_gesto("Thumb_Down")
+    assert ventana.ui.selDocente.nota == 1
+
+
+def test_palma_abierta_guarda_solo_con_las_tres_notas(ventana):
+    ventana.aplicar_gesto("Open_Palm")
+    assert almacen.leer_valoras() == []
+    for selector in (ventana.ui.selDocente, ventana.ui.selMateriales, ventana.ui.selClases):
+        selector.nota = 4
+    ventana.aplicar_gesto("Open_Palm")
+    assert len(almacen.leer_valoras()) == 1
+
+
+def test_la_opcion_del_menu(ventana):
+    assert ventana.accion_gestos in ventana.ui.menuValora.actions()
+    assert ventana.accion_gestos.isCheckable()
+    assert ventana.accion_gestos.shortcut().toString() == "Ctrl+G"
+```
+
+**Comprueba que…** `python -m pytest -v` muestra **19 passed**: las 16 de antes y las 3 de los gestos.
+
+**10.6 · Probar los gestos.** Con `python main.py`:
+
+| Nº | Prueba | Cómo | Resultado esperado |
+|---|---|---|---|
+| 1 | Activar | **Ctrl + G** | Se enciende la luz de la cámara, «Gestos de la mano» sale marcada en el menú «Valoración» y la barra de estado explica los gestos |
+| 2 | Subir | Pulgar arriba, bajar la mano, pulgar arriba | Docente con dos estrellas; abajo, «Pulgar arriba: Docente, 2 de 5» |
+| 3 | Cambiar de categoría | Victoria | El marco del foco pasa a materiales; abajo, «Victoria: Materiales, sin nota» |
+| 4 | Bajar | En materiales, pulgar arriba tres veces y pulgar abajo una (bajando la mano entre gesto y gesto) | Materiales con dos estrellas |
+| 5 | Guardar sin las tres notas | Palma abierta | «Palma abierta: faltan notas para guardar», y no se guarda |
+| 6 | Guardar | Victoria, pulgar arriba y palma abierta | «Valoración guardada», el formulario se vacía y el resumen cuenta una valoración más |
+| 7 | Mezclar | En clases, **4** con el teclado y pulgar arriba | Cinco estrellas: el teclado, el ratón y los gestos cambian la misma nota |
+| 8 | Desactivar | **Ctrl + G** otra vez | Se apaga la cámara y la barra de estado dice «Gestos desactivados» |
+
+**Comprueba que…** las ocho pruebas dan el resultado esperado y, al cerrar la app con los gestos activados, se apaga la luz de la cámara.
+
 ---
 
 ## Si algo falla
@@ -1587,6 +1879,11 @@ Salen las filas de las dos tablas: `[(1, 4, 3, 5), (2, 2, 3, 3)]` y `[(1, 60, 20
 | Sale «No se ha podido leer la base de datos» o «No se ha podido guardar…» | El mensaje dice el motivo. Si `valora.db` está abierta en otro programa, ciérralo; si está dañada, borra el archivo y abre la app otra vez |
 | En Linux, al abrir la app o Designer: `Could not load the Qt platform plugin "xcb"` | Falta una librería del sistema que necesita Qt: `sudo apt install libxcb-cursor0` (en Ubuntu y Debian) y vuelve a abrir |
 | En Linux, `python3 -m venv .venv` falla con «ensurepip is not available» | Falta el módulo de entornos virtuales: `sudo apt install python3-venv` y repite el comando |
+| Al instalar MediaPipe o al abrir la cámara, errores con rutas o «file not found» con una ruta que lleva ñ, tildes o espacios | La carpeta del proyecto está en una ruta larga o con caracteres raros. Muévela a `C:\dam2627\di\ValoraDI`, borra `.venv` y créalo de nuevo (paso 1) |
+| «No se ha podido abrir la cámara.» | Otra app está usando la cámara (Teams, el navegador…): ciérrala. En Windows, **Configuración → Privacidad y seguridad → Cámara**: tienen que estar activados el acceso a la cámara y el de las aplicaciones de escritorio |
+| «No se ha podido cargar el modelo de gestos» | La primera vez hace falta Internet para descargar `gesture_recognizer.task`. Si se cortó a medias, borra el archivo y vuelve a activar los gestos |
+| `ModuleNotFoundError: No module named 'mediapipe'` o `'cv2'` | Falta MediaPipe en el entorno: actívalo y `pip install mediapipe` (paso 10.1) |
+| Un gesto no hace nada | Tiene que verse la mano entera, a unos 50 cm y con luz. Para repetir el mismo gesto, baja la mano antes. Y el foco tiene que estar en unas estrellas: si no, los gestos van a docente |
 | Una prueba sale `FAILED` | pytest muestra la línea del `assert` que falla y los dos valores que no coinciden: compara ese archivo con el de la guía |
 
 ## Los archivos del proyecto
@@ -1603,11 +1900,15 @@ C:\dam2627\di\ValoraDI
 ├── ui_ventana.py           el código del diseño, generado (paso 5)
 ├── dialogo_pesos.py        el diálogo de pesos (paso 6)
 ├── ventana.py              la ventana: conecta y dibuja (paso 7)
-├── main.py                 el punto de entrada (paso 8)
+├── main.py                 el punto de entrada (pasos 8 y 10)
+├── gestos.py               el detector de gestos, ya hecho (paso 10)
+├── gesture_recognizer.task el modelo de MediaPipe (lo descarga gestos.py)
+├── ventana_gestos.py       la ventana con gestos (paso 10)
 ├── test_modelo.py          pruebas del modelo (paso 2)
 ├── test_almacen.py         pruebas del almacén (paso 3)
 ├── test_selector_nota.py   pruebas del componente (paso 4)
 ├── test_ventana.py         pruebas de la ventana (paso 7)
-├── requirements.txt        las librerías (paso 1)
+├── test_ventana_gestos.py  pruebas de los gestos (paso 10)
+├── requirements.txt        las librerías (pasos 1 y 10)
 └── valora.db               la base de datos (la crea la app)
 ```
