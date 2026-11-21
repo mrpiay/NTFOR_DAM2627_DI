@@ -66,7 +66,7 @@ Al finalizar, tendrás una aplicación funcional y una visión general de cómo 
 └──────────────────────────────────────────────────────────┘
 ```
 
-| N.º | Requisito |
+| Nº | Requisito |
 |---|---|
 | R1 | Al abrir, la app muestra el resumen de lo guardado. Si no hay nada, dice «Aún no hay valoraciones». |
 | R2 | Cada categoría se valora de **1 a 5 estrellas**, con el ratón o con el teclado. «Guardar valoración» está desactivado hasta que las tres categorías tienen nota. |
@@ -1532,7 +1532,7 @@ python main.py
 
 **9.1 · Las pruebas.** Hazlas en orden, con `python main.py`:
 
-| N.º | Prueba | Cómo | Resultado esperado |
+| Nº | Prueba | Cómo | Resultado esperado |
 |---|---|---|---|
 | 1 | Primera apertura | Abrir la app | «Aún no hay valoraciones», rayas en las medias y en la nota global, y «Guardar valoración» en gris |
 | 2 | Guardar solo con las tres notas | Elegir docente y materiales | «Guardar valoración» sigue en gris. Al elegir clases, se activa |
