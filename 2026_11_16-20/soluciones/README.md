@@ -5,4 +5,5 @@ Las soluciones del [cuestionario](../cuestionario.md) y el proyecto terminado, p
 | Archivo | Qué es |
 |---|---|
 | [`cuestionario-solucion.md`](cuestionario-solucion.md) | Cada pregunta del cuestionario C3 con su respuesta debajo |
-| [`bugtracker`](bugtracker) | El BugTracker completo, tal como debe quedar al final de la 3.ª parte del proyecto |
+| [`bugtracker`](bugtracker) | El BugTracker completo, tal como debe quedar al final de la 3.ª parte del proyecto, para leerlo en GitHub archivo por archivo |
+| [`bugtracker.zip`](bugtracker.zip) | El mismo proyecto, para descargarlo: descarga el `.zip` (botón de descarga, arriba a la derecha), descomprímelo y abre la carpeta de dentro |
