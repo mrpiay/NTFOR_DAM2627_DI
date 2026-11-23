@@ -6,7 +6,7 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 
 | Fecha | Qué cambia |
 |---|---|
-| 23 nov | Soluciones del cuestionario C3 y el BugTracker completo, con la 3.ª parte ([2026_11_16-20/soluciones](2026_11_16-20/soluciones)) |
+| 23 nov | Soluciones del cuestionario C3 y el BugTracker completo ([2026_11_16-20/soluciones](2026_11_16-20/soluciones)) |
 | 17 nov | Las **actividades guiadas (A)** se califican, una vez terminadas, por su **nivel de implementación y comprensión**: la mitad de la nota es cuánto funciona o se ha completado y la otra mitad, cuánto se sabe explicar, con 4 preguntas sobre el diseño y la arquitectura del proyecto ([rúbricas](programacion/1a-evaluacion.md#rúbricas)) |
 | 17 nov | Soluciones de los cuestionarios C1 y C2 ([2026_11_02-06/soluciones](2026_11_02-06/soluciones) y [2026_11_09-13/soluciones](2026_11_09-13/soluciones)) |
 | 17 nov | Semana del 23 al 27, de repaso: la guía de **ValoraDI**, una aplicación de escritorio con PySide6, Qt Designer y SQLite, de principio a fin ([2026_11_23-27](2026_11_23-27)) |
