@@ -6,6 +6,7 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 
 | Fecha | Qué cambia |
 |---|---|
+| 24 nov | El proyecto **ValoraDI** terminado, para descargarlo y compararlo con el propio ([2026_11_23-27/actividades/ValoraDI.zip](2026_11_23-27/actividades/ValoraDI.zip)) |
 | 23 nov | Soluciones del cuestionario C3 y el BugTracker completo ([2026_11_16-20/soluciones](2026_11_16-20/soluciones)) |
 | 17 nov | Las **actividades guiadas (A)** se califican, una vez terminadas, por su **nivel de implementación y comprensión**: la mitad de la nota es cuánto funciona o se ha completado y la otra mitad, cuánto se sabe explicar, con 4 preguntas sobre el diseño y la arquitectura del proyecto ([rúbricas](programacion/1a-evaluacion.md#rúbricas)) |
 | 17 nov | Soluciones de los cuestionarios C1 y C2 ([2026_11_02-06/soluciones](2026_11_02-06/soluciones) y [2026_11_09-13/soluciones](2026_11_09-13/soluciones)) |
@@ -15,7 +16,6 @@ Materiales del módulo de **Desarrollo de interfaces (DI)**, con una carpeta por
 | 14 nov | Semana del 16 al 20: apuntes de la UD4 y dos ampliaciones (GROUP BY y Promote to), la 3.ª parte del proyecto (pasos 12 a 16: recuento por estado, el Buscador en Qt Designer, gestos de la mano con MediaPipe y pruebas), con plantilla para quien no terminó la 2.ª, y el cuestionario C3 ([2026_11_16-20](2026_11_16-20)) |
 | 14 nov | Nueva planificación: del 16 al 20, base de datos, el Buscador en Qt Designer, un caso de gesto de la mano y las interfaces naturales (UD4) en teoría; del 23 al 27 y el martes 1, repaso; el examen parcial, el miércoles 2 de diciembre. La interfaz natural integrada en la aplicación se hace al final del curso |
 | 12 nov | Tutorial de Python con el BugTracker en la semana del 9 al 13: instalarlo, cómo está hecho y un programa para leer Python ([python-bugtracker](2026_11_09-13/actividades/python-bugtracker/tutorial-python.md)) |
-| 11 nov | Nuevas fechas de exámenes: un solo examen parcial (**P1**, miércoles 2 de diciembre) con todo lo de la evaluación que no evaluó Julia, y el examen final (**F**) el jueves 10 de diciembre |
 
 ## Fechas importantes
 
