@@ -6,3 +6,4 @@ Semana de repaso de toda la 1ª evaluación. La actividad es un proyecto complet
 |---|---|
 | [`guia-ValoraDI.md`](guia-ValoraDI.md) | Guía paso a paso de **ValoraDI**, una aplicación de escritorio con PySide6 y Qt Designer que recoge valoraciones de 1 a 5 estrellas, las guarda en SQLite y calcula una nota global con pesos. Al final, se valora también con gestos de la mano ante la cámara, con MediaPipe. **Empieza por aquí** |
 | [`ValoraDI.zip`](ValoraDI.zip) | El proyecto **ValoraDI** terminado, con todos los pasos de la guía, para abrirlo en VS Code y compararlo con el propio. Antes de ejecutarlo, se crea el entorno virtual y se instala `requirements.txt`, como en el paso 1 de la guía |
+| [`MiniDI.md`](MiniDI.md) | Ejercicio de autoevaluación: las líneas con las que se crea MiniDI, una aplicación mínima con PySide6 que abre una ventana vacía. Hay que saber dónde va cada una, para qué sirve y por qué |
