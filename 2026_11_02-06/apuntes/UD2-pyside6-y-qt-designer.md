@@ -63,7 +63,7 @@ bugtracker.ui  ──(pyside6-uic)──►  ui_bugtracker.py  ──(import y s
 **Lo que tienes que saber**
 
 - Se conecta así: `self.ui.btnAnadir.clicked.connect(self.anadir_incidencia)`.
-- La función se pasa **sin paréntesis**: con paréntesis (`self.anadir_incidencia()`) se ejecutaría en ese momento y se conectaría lo que devuelve.
+- La función se pasa **sin paréntesis**: con paréntesis (`self.anadir_incidencia()`) se ejecutaría en ese momento, y después `connect` recibiría lo que devuelve (normalmente `None`) y daría un error: `TypeError: Expected signal or callable, got "NoneType"`.
 - Señales habituales: `clicked` (botón), `triggered` (acción), `textChanged` (campo de texto), `currentIndexChanged` (lista desplegable), `doubleClicked` (tabla), `selectionChanged` (selección de la tabla).
 - Una **lambda** sirve para conectar algo corto o pasar un dato: `boton.clicked.connect(lambda: print("Hola"))`.
 - Una señal puede conectarse a varios slots, y varios controles a un mismo slot.

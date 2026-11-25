@@ -173,7 +173,7 @@ Conecta la **señal** `clicked`, que el botón emite al pulsarlo, con el **slot*
 
 **4. ¿Qué pasaría si se escribiera `connect(self.anadir_tarea())`, con paréntesis?**
 
-El método se ejecutaría una sola vez, al crear la ventana, y se conectaría lo que devuelve (`None`), no el método. El botón no haría nada al pulsarlo.
+El método se ejecutaría una sola vez, al crear la ventana, y después se intentaría conectar lo que devuelve, `None`, que no es un método: `connect` da un error (`TypeError: Expected signal or callable, got "NoneType"`) y la ventana ni siquiera llega a abrirse.
 
 **5. ¿Para qué sirve `QVBoxLayout`?**
 

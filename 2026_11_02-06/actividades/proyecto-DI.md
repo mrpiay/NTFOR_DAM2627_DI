@@ -281,7 +281,7 @@ pyside6-uic bugtracker.ui -o ui_bugtracker.py
 
 - *`AttributeError: ... has no attribute 'actionNueva'`*: el `objectName` en Designer es otro (por ejemplo, `actionNueva_incidencia`) o no has regenerado.
 - *El diálogo se cierra con el título vacío*: has conectado `accepted` a `self.accept` en vez de a `self.validar`, o falta el `return`.
-- *La acción se ejecuta al arrancar*: has escrito `connect(self.guardar())` con paréntesis.
+- *La acción se ejecuta al arrancar y después sale `TypeError: Expected signal or callable, got "NoneType"`*: has escrito `connect(self.guardar())` con paréntesis. Se pasa sin paréntesis: `connect(self.guardar)`.
 - *Designer no abre*: comprueba que la terminal está en la carpeta del proyecto y que existe `.venv\Scripts\pyside6-designer.exe`; si no existe, activa el entorno y repite `pip install -r requirements.txt`.
 - *Designer no abre y sale «Una directiva de Control de aplicaciones bloqueó este archivo»*: Windows tiene activado un control de aplicaciones (por ejemplo, *Smart App Control*) que solo deja abrir programas firmados. `.venv\Scripts\pyside6-designer.exe` es un acceso directo que crea `pip` en cada ordenador al instalar PySide6, y no está firmado; el programa real, `.venv\Lib\site-packages\PySide6\designer.exe`, está firmado por The Qt Company. Ábrelo directamente: `& ".venv\Lib\site-packages\PySide6\designer.exe" bugtracker.ui` (el `&` hace falta porque la ruta va entre comillas). Para ver la diferencia, `Get-AuthenticodeSignature` de los dos archivos: el primero sale `NotSigned` y el segundo, `Valid`. Lo mismo con `pyside6-uic`: `& ".venv\Lib\site-packages\PySide6\uic.exe" -g python bugtracker.ui -o ui_bugtracker.py`.
 
