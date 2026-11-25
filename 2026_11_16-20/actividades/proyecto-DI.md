@@ -197,7 +197,7 @@ En `main.py`:
 
 **Si te falla…**
 
-- *`TypeError` al arrancar, en `QLabel(etiqueta)`*: no has cambiado el orden de los parámetros en `buscador.py`: el código generado le pasa el padre como primer parámetro.
+- *La aplicación arranca, pero la etiqueta «Buscar:» del buscador sale vacía*: no has cambiado el orden de los parámetros en `buscador.py`. El código generado le pasa el padre como primer parámetro, y el `Buscador` lo recibe como el texto de la etiqueta; no da error, porque `QLabel` también acepta un widget (su padre) en lugar de un texto.
 - *Sale dos veces el buscador*: `configurar_buscador()` sigue creando otro. Debe usar `self.ui.buscador`.
 - *`ModuleNotFoundError: No module named 'buscador'`*: en *Header file* pusiste otro nombre. Debe ser `buscador.h`, y `buscador.py` tiene que estar en la misma carpeta.
 - *No sale la opción Promote to…*: haz clic derecho sobre el widget mismo, no sobre el layout.
