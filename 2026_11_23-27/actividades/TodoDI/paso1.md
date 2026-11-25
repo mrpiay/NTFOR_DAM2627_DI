@@ -19,16 +19,107 @@ pip install -r requirements.txt
 
 `robocopy` copia de la primera carpeta a la segunda solo los archivos que se nombran, y crea la segunda si no existe.
 
-## 2 · Añadir el botón
+## 2 · Los cambios respecto a MiniDI
 
-Todo el cambio va en **`ventana.py`**, porque es lo que define cómo es la ventana:
+Casi todo el cambio va en **`ventana.py`**, porque es lo que define cómo es la ventana. En **`main.py`** solo cambia el nombre de la clase. Son seis cambios, y en cada uno se ve lo que había en MiniDI y cómo queda.
 
-1. Importa también `QPushButton`, el botón, y `QVBoxLayout`, una distribución que coloca los controles uno debajo de otro.
-2. Cambia el nombre de la clase a `VentanaTodo` y el título a «TodoDI».
-3. En el `__init__`, crea el botón con su texto y guárdalo en `self.boton`, para poder usarlo desde otros métodos.
-4. Crea la distribución sobre la ventana (`QVBoxLayout(self)`) y añádele el botón.
-5. Conecta la señal `clicked` del botón con un método nuevo, `anadir_tarea`. Se pasa el método **sin paréntesis**: no se ejecuta ahora, sino cada vez que se pulse.
-6. Escribe el método `anadir_tarea`, que por ahora solo escribe un texto en la terminal.
+### Cambio 1 · Importar el botón y la distribución
+
+`QPushButton` es el botón, y `QVBoxLayout`, una distribución que coloca los controles uno debajo de otro. Se añaden a la línea de importación, que mantiene el orden alfabético:
+
+```python
+# MiniDI
+from PySide6.QtWidgets import QWidget
+```
+
+```python
+# Paso 1
+from PySide6.QtWidgets import QPushButton, QVBoxLayout, QWidget
+```
+
+### Cambio 2 · El nombre de la clase y el título
+
+La aplicación ya no es MiniDI, sino TodoDI: la clase pasa a llamarse `VentanaTodo` y la ventana, «TodoDI»:
+
+```python
+# MiniDI
+class VentanaMini(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("MiniDI")
+```
+
+```python
+# Paso 1
+class VentanaTodo(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("TodoDI")
+```
+
+### Cambio 3 · Crear el botón
+
+Al final del `__init__`, se crea el botón con su texto. Se guarda con `self`, en `self.boton`, para que sea parte de la ventana y se pueda usar desde otros métodos:
+
+```python
+# MiniDI
+        self.resize(400, 300)
+```
+
+```python
+# Paso 1
+        self.resize(400, 300)
+        self.boton = QPushButton("Añadir tarea")
+```
+
+### Cambio 4 · Colocarlo en la distribución
+
+Se crea la distribución sobre la ventana, `QVBoxLayout(self)`, y se le añade el botón. Sin distribución, el botón quedaría en una esquina y no se adaptaría al tamaño de la ventana:
+
+```python
+# Paso 1 (nuevo, detrás del botón)
+        capa = QVBoxLayout(self)
+        capa.addWidget(self.boton)
+```
+
+### Cambio 5 · Conectar el botón con un método
+
+La **señal** `clicked`, que el botón emite al pulsarlo, se conecta con el método `anadir_tarea`, el **slot** que se ejecutará entonces. El método se pasa **sin paréntesis**: no se ejecuta ahora, sino cada vez que se pulse:
+
+```python
+# Paso 1 (nuevo, al final del __init__)
+        self.boton.clicked.connect(self.anadir_tarea)
+```
+
+### Cambio 6 · El método del botón
+
+Un método nuevo de la clase, después del `__init__`. Por ahora solo escribe un texto en la terminal, para comprobar que el botón funciona:
+
+```python
+# Paso 1 (nuevo, después del __init__)
+    def anadir_tarea(self):
+        print("Añadir tarea")
+```
+
+### `main.py`: el nombre de la clase
+
+`main.py` importa y crea la ventana, así que cambia el nombre de la clase en esas dos líneas:
+
+```python
+# MiniDI
+from ventana import VentanaMini
+ventana = VentanaMini()
+```
+
+```python
+# Paso 1
+from ventana import VentanaTodo
+ventana = VentanaTodo()
+```
+
+### Los dos archivos completos
+
+Con todos los cambios, `ventana.py` queda así:
 
 ```python
 from PySide6.QtWidgets import QPushButton, QVBoxLayout, QWidget
@@ -45,7 +136,7 @@ class VentanaTodo(QWidget):
         print("Añadir tarea")
 ```
 
-En **`main.py`** solo cambia el nombre de la clase, porque es la que importa y crea:
+Y `main.py`:
 
 ```python
 from PySide6.QtWidgets import QApplication
